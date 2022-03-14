@@ -1,0 +1,376 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B322C83-1267-4F23-AC4D-BA5F98145A2D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TRTCCSharpDemo</RootNamespace>
+    <AssemblyName>TRTCCSharpDemo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TRTCCSharpDemo.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ManageLiteAV" Condition="'$(Platform)' == 'x64'">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SDK\CSharp\Win64\lib\ManageLiteAV.dll</HintPath>
+    </Reference>
+    <Reference Include="ManageLiteAV" Condition="'$(Platform)' == 'AnyCPU'">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SDK\CSharp\Win64\lib\ManageLiteAV.dll</HintPath>
+    </Reference>
+    <Reference Include="ManageLiteAV" Condition="'$(Platform)' == 'x86'">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SDK\CSharp\Win32\lib\ManageLiteAV.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>thirdparty\Newtonsoft.Json\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zlib.net, Version=1.0.3.0, Culture=neutral, PublicKeyToken=47d7877cb3620160">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>thirdparty\zlib.net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AudioEffectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioEffectForm.Designer.cs">
+      <DependentUpon>AudioEffectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudioSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioSettingForm.Designer.cs">
+      <DependentUpon>AudioSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Log.cs" />
+    <Compile Include="Common\Util.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageForm.designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtherSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtherSettingForm.Designer.cs">
+      <DependentUpon>OtherSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GenerateTestUserSig.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ShareSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShareSelectForm.Designer.cs">
+      <DependentUpon>ShareSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TLSSigAPIv2.cs" />
+    <Compile Include="ToastForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToastForm.Designer.cs">
+      <DependentUpon>ToastForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCBeautyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCBeautyForm.Designer.cs">
+      <DependentUpon>TRTCBeautyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCConnectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCConnectionForm.Designer.cs">
+      <DependentUpon>TRTCConnectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudioEffectOldForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioEffectOldForm.Designer.cs">
+      <DependentUpon>AudioEffectOldForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCLoginForm.Designer.cs">
+      <DependentUpon>TRTCLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCMainForm.Designer.cs">
+      <DependentUpon>TRTCMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCRecordForm.Designer.cs">
+      <DependentUpon>TRTCRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCScreenForm.designer.cs">
+      <DependentUpon>TRTCScreenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TRTCSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TRTCSettingForm.Designer.cs">
+      <DependentUpon>TRTCSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TXLiteAVVideoView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TXVodPlayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TXVodPlayerForm.Designer.cs">
+      <DependentUpon>TXVodPlayerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VedioSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VedioSettingForm.Designer.cs">
+      <DependentUpon>VedioSettingForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AudioEffectForm.resx">
+      <DependentUpon>AudioEffectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioSettingForm.resx">
+      <DependentUpon>AudioSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtherSettingForm.resx">
+      <DependentUpon>OtherSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShareSelectForm.resx">
+      <DependentUpon>ShareSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToastForm.resx">
+      <DependentUpon>ToastForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCBeautyForm.resx">
+      <DependentUpon>TRTCBeautyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCConnectionForm.resx">
+      <DependentUpon>TRTCConnectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioEffectOldForm.resx">
+      <DependentUpon>AudioEffectOldForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCLoginForm.resx">
+      <DependentUpon>TRTCLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCMainForm.resx">
+      <DependentUpon>TRTCMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCRecordForm.resx">
+      <DependentUpon>TRTCRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCScreenForm.resx">
+      <DependentUpon>TRTCScreenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TRTCSettingForm.resx">
+      <DependentUpon>TRTCSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TXVodPlayerForm.resx">
+      <DependentUpon>TXVodPlayerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VedioSettingForm.resx">
+      <DependentUpon>VedioSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\trtcres\16_1_audio.pcm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\trtcres\320x240_video.yuv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\trtcres\48_1_audio.pcm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Resources\trtcskin\logo_court_demo.png" />
+    <None Include="Resources\trtcskin\logo_court.png" />
+    <None Include="Resources\trtcskin\close_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\trtcres\testspeak.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\trtcbtn\MuteOff.png" />
+    <Content Include="Resources\trtcbtn\MuteOn.png" />
+    <Content Include="Resources\trtcbtn\OpenFile.png" />
+    <Content Include="Resources\trtcbtn\Pause.png" />
+    <Content Include="Resources\trtcbtn\Play.png" />
+    <Content Include="Resources\trtcbtn\SpeedDown.png" />
+    <Content Include="Resources\trtcbtn\SpeedUp.png" />
+    <Content Include="Resources\trtcbtn\Stop.png" />
+    <Content Include="Resources\trtcbtn\trtc.ico" />
+    <Content Include="Resources\trtcres\BGM.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\trtcres\clap.aac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\trtcres\gift_sent.aac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\trtcres\on_mic.aac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\trtcskin\close_white.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>set Platform=Win64
+SETLOCAL ENABLEDELAYEDEXPANSION
+if $(PlatformName)==x86 ( 
+  echo %25winPlatformName%25
+  set Platform=Win32
+)
+copy /Y "$(ProjectDir)..\SDK\CSharp\!Platform!\lib\*.dll" "$(ProjectDir)$(OutDir)"
+ENDLOCAL</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>@echo off
+
+echo check local sdk if exist
+
+set SourceFile="$(ProjectDir)"..\SDK\CSharp\Win64\lib\liteav.dll
+
+if exist %25SourceFile%25 (
+ echo sdk is exist!
+) else (
+    echo sdk is not exist! you must down sdk first!
+    echo 1. download sdk url https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip
+    echo 2. copy sdk file to ..\SDK\  Directory
+)</PreBuildEvent>
+  </PropertyGroup>
+</Project>

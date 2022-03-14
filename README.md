@@ -33,16 +33,28 @@
 ## 目录说明
 
 ```bash
-├─ TRTC-API-Example-Qt // 提供Qt版本的Demo，包含部分API的使用示例，帮助开发者可以更好的理解TRTC实时音视频SDK的API，从而快速实现一些音视频场景的基本功能
-├─ SDK 
-│  ├─README.md     // 提供有TRTC SDK最新版本的下载地址
+├─ TRTC-API-Example-C++             // 提供 C++ 语言的Demo
+│  ├─TRTC-API-Example-Qt            // 提供 Qt 框架的Demo
+│  ├─SDK                            // C++ SDK目录
+│  │  ├─CPlusPlus
+│  │  ├─README.md
+├─ TRTC-API-Example-CSharp          // 提供 C# 语言的Demo
+│  ├─TRTC-Example-CSharp.sln        // 工程解决方案
+│  ├─TRTC-API-Example-CSharp        // 提供 C# 版本的Demo
+│  ├─ManageLiteAV                   // C# SDK 的 Adapter 工程
+│  │  ├─thirdparty                  // 第三方库目录
+│  │  │  ├─liteav              
+│  │  │  │  ├─CPlusPlus             // C++SDK 以第三方库方式接入   
+│  ├─SDK                            // C# SDK 目录
+│  │  ├─CSharp              
+│  │  ├─README.md
 ```
 
 
 
 ## 提示
 
-- 目前只提供了预览版的Example-Qt工程，如果你想使用其他的Windows平台的Demo，请参考[TRTCSDK](https://github.com/tencentyun/TRTCSDK)；
+- 目前只提供了的TRTC-API-Example-Qt工程和TRTC-API-Example-CSharp工程，如果你想使用其他的Windows平台的Demo，请参考[TRTCSDK](https://github.com/tencentyun/TRTCSDK)；
 
 
 
