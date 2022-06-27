@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts;xlf</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts;xlf</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Util\win\usersig\GenerateTestUserSig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\base_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util\Widget\gl_yuv_widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util\room_info_holder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestScreenShare\screen_share_selection_item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestAudioDetect\test_audio_detect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestAudioRecord\test_audio_record.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestAudioSetting\test_audio_setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestBaseScene\test_base_scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestBeautyAndWatermark\test_beauty_and_watermark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestBgmSetting\test_bgm_setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestCDNPlayer\test_cdn_player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestCDNPublish\test_cdn_publish.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestConnectOtherRoom\test_connect_other_room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestCustomCapture\test_custom_capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestCustomMessage\test_custom_message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestCustomRender\test_custom_render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestDeviceManager\test_device_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestLogSetting\test_log_setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestMixStreamPublish\test_mix_stream_publish.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestNetworkCheck\test_network_check.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestScreenShare\test_screen_share_select_screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestScreenShare\test_screen_share_select_window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestScreenShare\test_screen_share_setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestSubCloudSetting\test_subcloud_setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestBaseScene\test_user_screen_share_view.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestBaseScene\test_user_video_group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestBaseScene\test_user_video_item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestVideoDetect\test_video_detect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TestVideoSetting\test_video_setting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\translator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Util\win\cdnplayer\tx_liveplayer_proxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Util\win\usersig\GenerateTestUserSig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="src\base_dialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="src\Util\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="src\Util\Widget\gl_yuv_widget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\main_window.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="src\Util\room_info_holder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="src\TestScreenShare\screen_share_selection_item.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestAudioDetect\test_audio_detect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestAudioRecord\test_audio_record.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestAudioSetting\test_audio_setting.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_base_scene.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestBeautyAndWatermark\test_beauty_and_watermark.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestBgmSetting\test_bgm_setting.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestCDNPlayer\test_cdn_player.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestCDNPublish\test_cdn_publish.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestConnectOtherRoom\test_connect_other_room.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestCustomCapture\test_custom_capture.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestCustomMessage\test_custom_message.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestCustomRender\test_custom_render.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestDeviceManager\test_device_manager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestLogSetting\test_log_setting.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestMixStreamPublish\test_mix_stream_publish.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestNetworkCheck\test_network_check.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestScreenShare\test_screen_share_select_screen.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestScreenShare\test_screen_share_select_window.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestScreenShare\test_screen_share_setting.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestSubCloudSetting\test_subcloud_setting.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_user_screen_share_view.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_user_video_group.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_user_video_item.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestVideoDetect\test_video_detect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="src\TestVideoSetting\test_video_setting.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="src\translator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util\trtc_cloud_callback_default_impl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Util\tx_liveplayer_proxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QTDemo_I18N_ZH_cn.ts">
+      <Filter>Translation Files</Filter>
+    </None>
+    <None Include="QTDemo_I18N_en.ts">
+      <Filter>Translation Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="src\MainWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\ScreenShareSelectionItem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestAudioDetect\TestAudioDetectDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestAudioRecord\TestAudioRecordDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestAudioSetting\TestAudioSettingDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestBgmSetting\TestBGMSettingDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestBeautyAndWatermark\TestBeautyAndWaterMarkDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestCDNPlayer\TestCdnPlayerDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestCDNPublish\TestCdnPublishDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestCustomCapture\TestCustomCaptureDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestCustomMessage\TestCustomMessageDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestCustomRender\TestCustomRenderDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestDeviceManager\TestDeviceManagerDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestLogSetting\TestLogSettingDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestMixStreamPublish\TestMixStreamPublishDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestNetworkCheck\TestNetworkCheckDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\TestScreenShareSelectScreenDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\TestScreenShareSelectWindowDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\TestScreenShareSettingDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestBaseScene\TestUserScreenShareViewDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestBaseScene\TestUserVideoGroup.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestBaseScene\TestUserVideoItem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestVideoDetect\TestVideoDetectDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="src\TestVideoSetting\TestVideoSettingDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\translation\QTDemo_I18N_ZH_cn.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\translation\QTDemo_I18N_en.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\advance_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources\audio.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resources\image\switch\audio_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\audio_normal.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\audio_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\bgm\bgm_pause.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\bgm\bgm_play.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\bgm\bgm_reset.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\bgm\bgm_stop.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\big_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\camera_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\cdn_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\fill_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\fit _open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\fit_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\fit_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\general_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources\image.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resources\image\setting\manual_mode_content.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\mirror.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\mirror_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\mirror_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\music_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\pre_samll_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\pre_small_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\prelayout_mode_content.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\prelayout_mode_header.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\roate.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\roate_90.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\screen_share_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\screen_shared_mode_content.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\small_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\audio\sound\test.mp3">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources\translation.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resources\image\switch\video_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\switch\video_normal.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\setting\video_setting.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\image\watermark\watermark.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,644 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BC4B888B-CA70-349F-AFAF-FE04978199F2}</ProjectGuid>
+    <RootNamespace>QTDemo</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.20348.0</WindowsTargetPlatformMinVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>QTDemo</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>QTDemo</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>QTDemo</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>QTDemo</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(ProjectDir)Build\Bin\Win64\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <OutDir>$(ProjectDir)Build\Bin\Win32\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(ProjectDir)Build\Bin\Win64\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+    <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)Build\Bin\Win32\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>5.15.2_x64</QtInstall>
+    <QtModules>core;network;gui;multimedia;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="QtSettings">
+    <QtInstall>5.15.2_x86</QtInstall>
+    <QtModules>core;network;gui;multimedia;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>5.15.2_x64</QtInstall>
+    <QtModules>core;network;gui;multimedia;widgets</QtModules>
+    <QtDeploy>false</QtDeploy>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="QtSettings">
+    <QtInstall>5.15.2_x86</QtInstall>
+    <QtModules>core;network;gui;multimedia;widgets</QtModules>
+    <QtDeploy>false</QtDeploy>
+  </PropertyGroup>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;src;src\Util;src\Util\Widget;src\TestAudioDetect;src\TestAudioRecord;src\TestAudioSetting;src\TestBaseScene;src\TestBeautyAndWatermark;src\TestBgmSetting;src\TestCDNPlayer;src\TestCDNPublish;src\TestConnectOtherRoom;src\TestCustomCapture;src\TestCustomMessage;src\TestCustomRender;src\TestDeviceManager;src\TestLogSetting;src\TestMixStreamPublish;src\TestNetworkCheck;src\TestScreenShare;src\TestSubCloudSetting;src\TestVideoDetect;src\TestVideoSetting;src\Util\win\zlib\include;src\Util\win\usersig;$(ProjectDir)..\SDK/CPlusPlus\Win32\include;$(ProjectDir)..\SDK\CPlusPlus\Win32\include\TRTC;release;ui_auto_gen;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>user32.lib;zlibstatic.lib;liteav.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\src\Util\win\zlib\x86_64;$(ProjectDir)..\SDK\CPlusPlus\Win64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\QTDemo.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>
+      </Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <QtRccDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)..\SDK\CPlusPlus\Win64\lib\*.dll" "$(OutDir)"
+$(QtDir)\bin\windeployqt.exe $(OutDir)$(ProjectName).exe</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;src;src\Util;src\Util\Widget;src\TestAudioDetect;src\TestAudioRecord;src\TestAudioSetting;src\TestBaseScene;src\TestBeautyAndWatermark;src\TestBgmSetting;src\TestCDNPlayer;src\TestCDNPublish;src\TestConnectOtherRoom;src\TestCustomCapture;src\TestCustomMessage;src\TestCustomRender;src\TestDeviceManager;src\TestLogSetting;src\TestMixStreamPublish;src\TestNetworkCheck;src\TestScreenShare;src\TestSubCloudSetting;src\TestVideoDetect;src\TestVideoSetting;src\Util\win\zlib\include;src\Util\win\usersig;$(ProjectDir)..\SDK/CPlusPlus\Win32\include;$(ProjectDir)..\SDK\CPlusPlus\Win32\include\TRTC;release;ui_auto_gen;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>user32.lib;zlibstatic.lib;liteav.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\src\Util\win\zlib\x86;$(ProjectDir)..\SDK\CPlusPlus\Win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\QTDemo.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>
+      </Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <QtRccDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)..\SDK\CPlusPlus\Win32\lib\*.dll" "$(OutDir)"
+$(QtDir)\bin\windeployqt.exe $(OutDir)$(ProjectName).exe</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;src;src\Util;src\Util\Widget;src\TestAudioDetect;src\TestAudioRecord;src\TestAudioSetting;src\TestBaseScene;src\TestBeautyAndWatermark;src\TestBgmSetting;src\TestCDNPlayer;src\TestCDNPublish;src\TestConnectOtherRoom;src\TestCustomCapture;src\TestCustomMessage;src\TestCustomRender;src\TestDeviceManager;src\TestLogSetting;src\TestMixStreamPublish;src\TestNetworkCheck;src\TestScreenShare;src\TestSubCloudSetting;src\TestVideoDetect;src\TestVideoSetting;src\Util\win\zlib\include;src\Util\win\usersig;$(ProjectDir)..\SDK\CPlusPlus\Win64\include;$(ProjectDir)..\SDK\CPlusPlus\Win64\include\TRTC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>user32.lib;.\src\Util\win\zlib\x86_64\zlibstatic.lib;liteav.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\src\Util\win\zlib\x86_64;$(ProjectDir)..\SDK\CPlusPlus\Win64\lib;C:\openssl\lib;C:\Utils\my_sql\mysql-5.7.25-winx64\lib;C:\Utils\postgresql\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\QTDemo.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>
+      </Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <QtRccDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)..\SDK\CPlusPlus\Win64\lib\*.dll" "$(OutDir)"
+$(QtDir)\bin\windeployqt.exe $(OutDir)$(ProjectName).exe</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;src;src\Util;src\Util\Widget;src\TestAudioDetect;src\TestAudioRecord;src\TestAudioSetting;src\TestBaseScene;src\TestBeautyAndWatermark;src\TestBgmSetting;src\TestCDNPlayer;src\TestCDNPublish;src\TestConnectOtherRoom;src\TestCustomCapture;src\TestCustomMessage;src\TestCustomRender;src\TestDeviceManager;src\TestLogSetting;src\TestMixStreamPublish;src\TestNetworkCheck;src\TestScreenShare;src\TestSubCloudSetting;src\TestVideoDetect;src\TestVideoSetting;src\Util\win\zlib\include;src\Util\win\usersig;$(ProjectDir)..\SDK\CPlusPlus\Win32\include;$(ProjectDir)..\SDK\CPlusPlus\Win32\include\TRTC;release;ui_auto_gen;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>user32.lib;zlibstatic.lib;liteav.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>.\src\Util\win\zlib\x86;$(ProjectDir)..\SDK\CPlusPlus\Win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\QTDemo.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_MULTIMEDIA_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>
+      </Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <QtRccDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>$(ProjectDir)Build\Immediate\Win32\$(Configuration)\$(ProjectName)\</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>copy /Y "$(ProjectDir)..\SDK\CPlusPlus\Win32\lib\*.dll" "$(OutDir)"
+$(QtDir)\bin\windeployqt.exe $(OutDir)$(ProjectName).exe</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Util\win\usersig\GenerateTestUserSig.cpp" />
+    <ClCompile Include="src\base_dialog.cpp" />
+    <ClCompile Include="src\Util\Widget\gl_yuv_widget.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\main_window.cpp" />
+    <ClCompile Include="src\Util\room_info_holder.cpp" />
+    <ClCompile Include="src\TestScreenShare\screen_share_selection_item.cpp" />
+    <ClCompile Include="src\TestAudioDetect\test_audio_detect.cpp" />
+    <ClCompile Include="src\TestAudioRecord\test_audio_record.cpp" />
+    <ClCompile Include="src\TestAudioSetting\test_audio_setting.cpp" />
+    <ClCompile Include="src\TestBaseScene\test_base_scene.cpp" />
+    <ClCompile Include="src\TestBeautyAndWatermark\test_beauty_and_watermark.cpp" />
+    <ClCompile Include="src\TestBgmSetting\test_bgm_setting.cpp" />
+    <ClCompile Include="src\TestCDNPlayer\test_cdn_player.cpp" />
+    <ClCompile Include="src\TestCDNPublish\test_cdn_publish.cpp" />
+    <ClCompile Include="src\TestConnectOtherRoom\test_connect_other_room.cpp" />
+    <ClCompile Include="src\TestCustomCapture\test_custom_capture.cpp" />
+    <ClCompile Include="src\TestCustomMessage\test_custom_message.cpp" />
+    <ClCompile Include="src\TestCustomRender\test_custom_render.cpp" />
+    <ClCompile Include="src\TestDeviceManager\test_device_manager.cpp" />
+    <ClCompile Include="src\TestLogSetting\test_log_setting.cpp" />
+    <ClCompile Include="src\TestMixStreamPublish\test_mix_stream_publish.cpp" />
+    <ClCompile Include="src\TestNetworkCheck\test_network_check.cpp" />
+    <ClCompile Include="src\TestScreenShare\test_screen_share_select_screen.cpp" />
+    <ClCompile Include="src\TestScreenShare\test_screen_share_select_window.cpp" />
+    <ClCompile Include="src\TestScreenShare\test_screen_share_setting.cpp" />
+    <ClCompile Include="src\TestSubCloudSetting\test_subcloud_setting.cpp" />
+    <ClCompile Include="src\TestBaseScene\test_user_screen_share_view.cpp" />
+    <ClCompile Include="src\TestBaseScene\test_user_video_group.cpp" />
+    <ClCompile Include="src\TestBaseScene\test_user_video_item.cpp" />
+    <ClCompile Include="src\TestVideoDetect\test_video_detect.cpp" />
+    <ClCompile Include="src\TestVideoSetting\test_video_setting.cpp" />
+    <ClCompile Include="src\translator.cpp" />
+    <ClCompile Include="src\Util\win\cdnplayer\tx_liveplayer_proxy.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Util\win\usersig\GenerateTestUserSig.h" />
+    <QtMoc Include="src\base_dialog.h">
+    </QtMoc>
+    <ClInclude Include="src\Util\defs.h" />
+    <QtMoc Include="src\Util\Widget\gl_yuv_widget.h">
+    </QtMoc>
+    <QtMoc Include="src\main_window.h">
+    </QtMoc>
+    <ClInclude Include="src\Util\room_info_holder.h" />
+    <QtMoc Include="src\TestScreenShare\screen_share_selection_item.h">
+    </QtMoc>
+    <QtMoc Include="src\TestAudioDetect\test_audio_detect.h">
+    </QtMoc>
+    <QtMoc Include="src\TestAudioRecord\test_audio_record.h">
+    </QtMoc>
+    <QtMoc Include="src\TestAudioSetting\test_audio_setting.h">
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_base_scene.h">
+    </QtMoc>
+    <QtMoc Include="src\TestBeautyAndWatermark\test_beauty_and_watermark.h">
+    </QtMoc>
+    <QtMoc Include="src\TestBgmSetting\test_bgm_setting.h">
+    </QtMoc>
+    <QtMoc Include="src\TestCDNPlayer\test_cdn_player.h">
+    </QtMoc>
+    <QtMoc Include="src\TestCDNPublish\test_cdn_publish.h">
+    </QtMoc>
+    <QtMoc Include="src\TestConnectOtherRoom\test_connect_other_room.h">
+    </QtMoc>
+    <QtMoc Include="src\TestCustomCapture\test_custom_capture.h">
+    </QtMoc>
+    <QtMoc Include="src\TestCustomMessage\test_custom_message.h">
+    </QtMoc>
+    <QtMoc Include="src\TestCustomRender\test_custom_render.h">
+    </QtMoc>
+    <QtMoc Include="src\TestDeviceManager\test_device_manager.h">
+    </QtMoc>
+    <QtMoc Include="src\TestLogSetting\test_log_setting.h">
+    </QtMoc>
+    <QtMoc Include="src\TestMixStreamPublish\test_mix_stream_publish.h">
+    </QtMoc>
+    <QtMoc Include="src\TestNetworkCheck\test_network_check.h">
+    </QtMoc>
+    <QtMoc Include="src\TestScreenShare\test_screen_share_select_screen.h">
+    </QtMoc>
+    <QtMoc Include="src\TestScreenShare\test_screen_share_select_window.h">
+    </QtMoc>
+    <QtMoc Include="src\TestScreenShare\test_screen_share_setting.h">
+    </QtMoc>
+    <QtMoc Include="src\TestSubCloudSetting\test_subcloud_setting.h">
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_user_screen_share_view.h">
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_user_video_group.h">
+    </QtMoc>
+    <QtMoc Include="src\TestBaseScene\test_user_video_item.h">
+    </QtMoc>
+    <QtMoc Include="src\TestVideoDetect\test_video_detect.h">
+    </QtMoc>
+    <QtMoc Include="src\TestVideoSetting\test_video_setting.h">
+    </QtMoc>
+    <ClInclude Include="src\translator.h" />
+    <ClInclude Include="src\Util\trtc_cloud_callback_default_impl.h" />
+    <ClInclude Include="src\Util\tx_liveplayer_proxy.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -Zi -MDd -EHsc -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -Zi -MDd -EHsc -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\moc_predefs.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -O2 -Zi -MD -EHsc -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /utf-8 -O2 -Zi -MD -EHsc -GR -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\moc_predefs.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)Build\Immediate\Win64\$(Configuration)\$(ProjectName)\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QTDemo_I18N_ZH_cn.ts" />
+    <None Include="QTDemo_I18N_en.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="src\MainWindow.ui">
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\ScreenShareSelectionItem.ui">
+    </QtUic>
+    <QtUic Include="src\TestAudioDetect\TestAudioDetectDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestAudioRecord\TestAudioRecordDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestAudioSetting\TestAudioSettingDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestBgmSetting\TestBGMSettingDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestBeautyAndWatermark\TestBeautyAndWaterMarkDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestCDNPlayer\TestCdnPlayerDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestCDNPublish\TestCdnPublishDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestCustomCapture\TestCustomCaptureDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestCustomMessage\TestCustomMessageDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestCustomRender\TestCustomRenderDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestDeviceManager\TestDeviceManagerDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestLogSetting\TestLogSettingDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestMixStreamPublish\TestMixStreamPublishDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestNetworkCheck\TestNetworkCheckDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\TestScreenShareSelectScreenDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\TestScreenShareSelectWindowDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestScreenShare\TestScreenShareSettingDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestBaseScene\TestUserScreenShareViewDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestBaseScene\TestUserVideoGroup.ui">
+    </QtUic>
+    <QtUic Include="src\TestBaseScene\TestUserVideoItem.ui">
+    </QtUic>
+    <QtUic Include="src\TestVideoDetect\TestVideoDetectDialog.ui">
+    </QtUic>
+    <QtUic Include="src\TestVideoSetting\TestVideoSettingDialog.ui">
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\translation\QTDemo_I18N_ZH_cn.qm" />
+    <None Include="resources\translation\QTDemo_I18N_en.qm" />
+    <None Include="resources\image\setting\advance_setting.png" />
+    <QtRcc Include="resources\audio.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">audio</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">audio</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">audio</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">audio</InitFuncName>
+    </QtRcc>
+    <None Include="resources\image\switch\audio_close.png" />
+    <None Include="resources\image\switch\audio_normal.png" />
+    <None Include="resources\image\setting\audio_setting.png" />
+    <None Include="resources\image\bgm\bgm_pause.png" />
+    <None Include="resources\image\bgm\bgm_play.png" />
+    <None Include="resources\image\bgm\bgm_reset.png" />
+    <None Include="resources\image\bgm\bgm_stop.png" />
+    <None Include="resources\image\switch\big_open.png" />
+    <None Include="resources\image\setting\camera_close.png" />
+    <None Include="resources\image\setting\cdn_setting.png" />
+    <None Include="resources\image\switch\fill_open.png" />
+    <None Include="resources\image\setting\fit _open.png" />
+    <None Include="resources\image\setting\fit_close.png" />
+    <None Include="resources\image\switch\fit_open.png" />
+    <None Include="resources\image\setting\general_setting.png" />
+    <QtRcc Include="resources\image.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">image</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">image</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">image</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">image</InitFuncName>
+    </QtRcc>
+    <None Include="resources\image\setting\manual_mode_content.png" />
+    <None Include="resources\image\setting\mirror.png" />
+    <None Include="resources\image\switch\mirror_close.png" />
+    <None Include="resources\image\switch\mirror_open.png" />
+    <None Include="resources\image\setting\music_setting.png" />
+    <None Include="resources\image\setting\pre_samll_close.png" />
+    <None Include="resources\image\setting\pre_small_open.png" />
+    <None Include="resources\image\setting\prelayout_mode_content.png" />
+    <None Include="resources\image\setting\prelayout_mode_header.png" />
+    <None Include="resources\image\setting\roate.png" />
+    <None Include="resources\image\switch\roate_90.png" />
+    <None Include="resources\image\setting\screen_share_setting.png" />
+    <None Include="resources\image\setting\screen_shared_mode_content.png" />
+    <None Include="resources\image\switch\small_open.png" />
+    <None Include="resources\audio\sound\test.mp3" />
+    <QtRcc Include="resources\translation.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">translation</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">translation</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">translation</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">translation</InitFuncName>
+    </QtRcc>
+    <None Include="resources\image\switch\video_close.png" />
+    <None Include="resources\image\switch\video_normal.png" />
+    <None Include="resources\image\setting\video_setting.png" />
+    <None Include="resources\image\watermark\watermark.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
