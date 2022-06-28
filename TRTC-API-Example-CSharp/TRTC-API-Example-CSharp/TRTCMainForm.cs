@@ -99,7 +99,7 @@ namespace TRTCCSharpDemo
             mTRTCCloud.addCallback(this);
             mTRTCCloud.setLogCallback(this);
             mTRTCCloud.setConsoleEnabled(false);
-            mTRTCCloud.setLogLevel(TRTCLogLevel.TRTCLogLevelNone);
+            mTRTCCloud.setLogLevel(TRTCLogLevel.TRTCLogLevelVerbose);
 
             // 监听单实例事件，当点击应用图标，会返回该事件
             ThreadPool.RegisterWaitForSingleObject(Program.ProgramStarted, OnProgramStarted, null, -1, false);

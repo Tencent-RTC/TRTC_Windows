@@ -186,6 +186,8 @@ namespace ManageLiteAV
         assert(nullptr != m_videoRenderCallbackImpl);
         assert(nullptr != m_videoFrameCallbackImpl);
         assert(nullptr != m_logCallbackImpl);
+        char str[] = R"({"api":"setFramework","params":{"framework":13}})";
+        m_impl->callExperimentalAPI(str);
     }
 
     ITRTCCloud::ITRTCCloud(bool useless)

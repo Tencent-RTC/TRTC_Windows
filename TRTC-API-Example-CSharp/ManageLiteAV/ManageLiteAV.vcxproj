@@ -230,6 +230,7 @@ copy /Y "$(ProjectDir)thirdparty\liteav\CPlusPlus\Win64\lib\*.dll"  "$(ProjectDi
     <ClInclude Include="cli\TRTC\ITRTCCloudCallback.h" />
     <ClInclude Include="cli\TRTC\TRTCCloudDef.h" />
     <ClInclude Include="cli\TRTC\TRTCStatistics.h" />
+    <ClInclude Include="cli\TXLiteAVBase.h" />
     <ClInclude Include="cli\TXLiteAVCode.h" />
     <ClInclude Include="cli\Vod\ITXVodPlayer.h" />
     <ClInclude Include="crashdump.h" />
@@ -247,6 +248,7 @@ copy /Y "$(ProjectDir)thirdparty\liteav\CPlusPlus\Win64\lib\*.dll"  "$(ProjectDi
     <ClCompile Include="TRTCAudioEffectManager.cpp" />
     <ClCompile Include="TRTCCloud.cpp" />
     <ClCompile Include="TXDeviceObserver.cpp" />
+    <ClCompile Include="TXLiteAVBase.cpp" />
     <ClCompile Include="TXVodPlayer.cpp" />
     <ClCompile Include="TXVodPlayerCallback.cpp" />
   </ItemGroup>

@@ -59,10 +59,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logoPictureBox.BackgroundImage = global::TRTCCSharpDemo.Properties.Resources.logo_court;
             this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.logoPictureBox.Location = new System.Drawing.Point(255, 82);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.logoPictureBox.Location = new System.Drawing.Point(102, 33);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(572, 90);
+            this.logoPictureBox.Size = new System.Drawing.Size(229, 36);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
@@ -73,10 +72,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userLabel.AutoSize = true;
             this.userLabel.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.userLabel.Location = new System.Drawing.Point(108, 412);
-            this.userLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.userLabel.Location = new System.Drawing.Point(43, 165);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(143, 52);
+            this.userLabel.Size = new System.Drawing.Size(58, 21);
             this.userLabel.TabIndex = 1;
             this.userLabel.Text = "用户：";
             // 
@@ -86,10 +84,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.roomLabel.AutoSize = true;
             this.roomLabel.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.roomLabel.Location = new System.Drawing.Point(108, 265);
-            this.roomLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.roomLabel.Location = new System.Drawing.Point(43, 106);
             this.roomLabel.Name = "roomLabel";
-            this.roomLabel.Size = new System.Drawing.Size(143, 52);
+            this.roomLabel.Size = new System.Drawing.Size(58, 21);
             this.roomLabel.TabIndex = 2;
             this.roomLabel.Text = "房间：";
             // 
@@ -98,10 +95,9 @@
             this.exitPicBox.BackgroundImage = global::TRTCCSharpDemo.Properties.Resources.close_normal;
             this.exitPicBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.exitPicBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.exitPicBox.Location = new System.Drawing.Point(968, 10);
-            this.exitPicBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.exitPicBox.Location = new System.Drawing.Point(387, 4);
             this.exitPicBox.Name = "exitPicBox";
-            this.exitPicBox.Size = new System.Drawing.Size(68, 68);
+            this.exitPicBox.Size = new System.Drawing.Size(27, 27);
             this.exitPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.exitPicBox.TabIndex = 3;
             this.exitPicBox.TabStop = false;
@@ -113,11 +109,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userPanel.BackColor = System.Drawing.Color.White;
             this.userPanel.Controls.Add(this.userTextBox);
-            this.userPanel.Location = new System.Drawing.Point(268, 390);
-            this.userPanel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.userPanel.Location = new System.Drawing.Point(107, 156);
             this.userPanel.Name = "userPanel";
-            this.userPanel.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.userPanel.Size = new System.Drawing.Size(662, 100);
+            this.userPanel.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.userPanel.Size = new System.Drawing.Size(265, 40);
             this.userPanel.TabIndex = 3;
             // 
             // userTextBox
@@ -126,11 +121,10 @@
             this.userTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.userTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.userTextBox.Location = new System.Drawing.Point(28, 25);
-            this.userTextBox.Margin = new System.Windows.Forms.Padding(0, 40, 8, 8);
-            this.userTextBox.MaxLength = 20;
+            this.userTextBox.Location = new System.Drawing.Point(11, 10);
+            this.userTextBox.Margin = new System.Windows.Forms.Padding(0, 16, 3, 3);
             this.userTextBox.Name = "userTextBox";
-            this.userTextBox.Size = new System.Drawing.Size(605, 49);
+            this.userTextBox.Size = new System.Drawing.Size(242, 20);
             this.userTextBox.TabIndex = 5;
             this.userTextBox.Text = "TRTC_TEST_USER01";
             this.userTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -141,10 +135,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.roomPanel.BackColor = System.Drawing.Color.White;
             this.roomPanel.Controls.Add(this.roomTextBox);
-            this.roomPanel.Location = new System.Drawing.Point(268, 240);
-            this.roomPanel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.roomPanel.Location = new System.Drawing.Point(107, 96);
             this.roomPanel.Name = "roomPanel";
-            this.roomPanel.Size = new System.Drawing.Size(662, 100);
+            this.roomPanel.Size = new System.Drawing.Size(265, 40);
             this.roomPanel.TabIndex = 4;
             // 
             // roomTextBox
@@ -152,11 +145,11 @@
             this.roomTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.roomTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.roomTextBox.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.roomTextBox.Location = new System.Drawing.Point(25, 25);
-            this.roomTextBox.Margin = new System.Windows.Forms.Padding(0, 40, 8, 8);
+            this.roomTextBox.Location = new System.Drawing.Point(10, 10);
+            this.roomTextBox.Margin = new System.Windows.Forms.Padding(0, 16, 3, 3);
             this.roomTextBox.MaxLength = 10;
             this.roomTextBox.Name = "roomTextBox";
-            this.roomTextBox.Size = new System.Drawing.Size(605, 49);
+            this.roomTextBox.Size = new System.Drawing.Size(242, 20);
             this.roomTextBox.TabIndex = 6;
             this.roomTextBox.Text = "901";
             this.roomTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -166,10 +159,9 @@
             // 
             this.formalEnvRadioBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.formalEnvRadioBtn.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.formalEnvRadioBtn.Location = new System.Drawing.Point(8, 8);
-            this.formalEnvRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.formalEnvRadioBtn.Location = new System.Drawing.Point(3, 3);
             this.formalEnvRadioBtn.Name = "formalEnvRadioBtn";
-            this.formalEnvRadioBtn.Size = new System.Drawing.Size(278, 55);
+            this.formalEnvRadioBtn.Size = new System.Drawing.Size(111, 22);
             this.formalEnvRadioBtn.TabIndex = 8;
             this.formalEnvRadioBtn.TabStop = true;
             this.formalEnvRadioBtn.Text = "正式环境";
@@ -185,10 +177,9 @@
             this.joinBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.joinBtn.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.joinBtn.ForeColor = System.Drawing.Color.White;
-            this.joinBtn.Location = new System.Drawing.Point(283, 79);
-            this.joinBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.joinBtn.Location = new System.Drawing.Point(113, 31);
             this.joinBtn.Name = "joinBtn";
-            this.joinBtn.Size = new System.Drawing.Size(295, 88);
+            this.joinBtn.Size = new System.Drawing.Size(118, 35);
             this.joinBtn.TabIndex = 7;
             this.joinBtn.Text = "进房";
             this.joinBtn.UseVisualStyleBackColor = false;
@@ -209,15 +200,14 @@
             this.tableLayoutPanel1.Controls.Add(this.audioRadioBtn, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.videoRadioBtn, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.joinBtn, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(98, 568);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 227);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(862, 175);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(345, 69);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // audioRadioBtn
@@ -225,10 +215,9 @@
             this.audioRadioBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.tableLayoutPanel1.SetColumnSpan(this.audioRadioBtn, 3);
             this.audioRadioBtn.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.audioRadioBtn.Location = new System.Drawing.Point(149, 8);
-            this.audioRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.audioRadioBtn.Location = new System.Drawing.Point(59, 3);
             this.audioRadioBtn.Name = "audioRadioBtn";
-            this.audioRadioBtn.Size = new System.Drawing.Size(272, 55);
+            this.audioRadioBtn.Size = new System.Drawing.Size(109, 22);
             this.audioRadioBtn.TabIndex = 12;
             this.audioRadioBtn.TabStop = true;
             this.audioRadioBtn.Text = "语音通话";
@@ -241,10 +230,9 @@
             this.videoRadioBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tableLayoutPanel1.SetColumnSpan(this.videoRadioBtn, 3);
             this.videoRadioBtn.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.videoRadioBtn.Location = new System.Drawing.Point(437, 8);
-            this.videoRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.videoRadioBtn.Location = new System.Drawing.Point(174, 3);
             this.videoRadioBtn.Name = "videoRadioBtn";
-            this.videoRadioBtn.Size = new System.Drawing.Size(272, 55);
+            this.videoRadioBtn.Size = new System.Drawing.Size(109, 22);
             this.videoRadioBtn.TabIndex = 11;
             this.videoRadioBtn.TabStop = true;
             this.videoRadioBtn.Text = "视频通话";
@@ -262,22 +250,20 @@
             this.tableLayoutPanel2.Controls.Add(this.testEnvRadioBtn, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lifeEnvRadioBtn, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.formalEnvRadioBtn, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(98, 498);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(39, 199);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(882, 71);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(351, 28);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
             // testEnvRadioBtn
             // 
             this.testEnvRadioBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.testEnvRadioBtn.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.testEnvRadioBtn.Location = new System.Drawing.Point(302, 8);
-            this.testEnvRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.testEnvRadioBtn.Location = new System.Drawing.Point(120, 3);
             this.testEnvRadioBtn.Name = "testEnvRadioBtn";
-            this.testEnvRadioBtn.Size = new System.Drawing.Size(278, 55);
+            this.testEnvRadioBtn.Size = new System.Drawing.Size(111, 22);
             this.testEnvRadioBtn.TabIndex = 9;
             this.testEnvRadioBtn.TabStop = true;
             this.testEnvRadioBtn.Text = "测试环境";
@@ -289,10 +275,9 @@
             // 
             this.lifeEnvRadioBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lifeEnvRadioBtn.Font = new System.Drawing.Font("微软雅黑", 11F);
-            this.lifeEnvRadioBtn.Location = new System.Drawing.Point(596, 8);
-            this.lifeEnvRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.lifeEnvRadioBtn.Location = new System.Drawing.Point(237, 3);
             this.lifeEnvRadioBtn.Name = "lifeEnvRadioBtn";
-            this.lifeEnvRadioBtn.Size = new System.Drawing.Size(278, 55);
+            this.lifeEnvRadioBtn.Size = new System.Drawing.Size(111, 22);
             this.lifeEnvRadioBtn.TabIndex = 10;
             this.lifeEnvRadioBtn.TabStop = true;
             this.lifeEnvRadioBtn.Text = "体验环境";
@@ -302,11 +287,11 @@
             // 
             // TRTCLoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1050, 752);
+            this.ClientSize = new System.Drawing.Size(420, 301);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.roomPanel);
@@ -318,9 +303,9 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
-            this.MaximumSize = new System.Drawing.Size(1050, 775);
-            this.MinimumSize = new System.Drawing.Size(1050, 650);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(420, 310);
+            this.MinimumSize = new System.Drawing.Size(420, 260);
             this.Name = "TRTCLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRTCCSharpDemo";

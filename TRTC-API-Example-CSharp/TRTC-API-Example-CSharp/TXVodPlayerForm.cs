@@ -219,6 +219,7 @@ namespace TRTCCSharpDemo
                 return;
             }
             mVodPlayerController.setView(IntPtr.Zero);
+            StopVideo();
             //刷新页面，清除最后一帧视频数据。
             PlayPanel.Invalidate();
         }
@@ -320,9 +321,9 @@ namespace TRTCCSharpDemo
 
         private void VolumeBar_Scroll(object sender, EventArgs e)
         {
+            mVolume = VolumeBar.Value;
             if (mVodPlayerController != null)
             {
-                mVolume = VolumeBar.Value;
                 mVodPlayerController.setVolume(mVolume);
                 if (mVolume == 0)
                 {
@@ -335,6 +336,7 @@ namespace TRTCCSharpDemo
                     VolumeBox.Image = Properties.Resources.MuteOn;
                 }
             }
+
         }
 
         private void TimeBar_Scroll(object sender, EventArgs e)
