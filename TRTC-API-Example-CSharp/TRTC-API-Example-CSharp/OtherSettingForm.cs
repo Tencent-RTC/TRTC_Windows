@@ -167,16 +167,23 @@ namespace TRTCCSharpDemo
 
             mStartCustomCaptureAudio = true;
             mMainForm.OnCustomCaptureAudioCallback(false);
+            mTRTCCloud.stopLocalAudio();
             mTRTCCloud.enableCustomAudioCapture(true);
 
             if (mAudioCustomThread == null)
             {
                 mAudioCustomThread = new Thread(() =>
                 {
+                    long t = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000;
+                    SendCustomAudioFrame();
                     while (mStartCustomCaptureAudio)
                     {
-                        SendCustomAudioFrame();
-                        Thread.Sleep(20);
+                        long c = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000;
+                        if (c > t + 20){
+                            t = t + 20;
+                            SendCustomAudioFrame();
+                        }
+                        Thread.Sleep(5);
                     }
                 })
                 { IsBackground = true };
@@ -225,6 +232,7 @@ namespace TRTCCSharpDemo
 
             mStartCustomCaptureAudio = false;
             mTRTCCloud.enableCustomAudioCapture(false);
+            mTRTCCloud.startLocalAudio(TRTCAudioQuality.TRTCAudioQualityDefault);
             mMainForm.OnCustomCaptureAudioCallback(true);
 
             if (mAudioCustomThread != null)
@@ -463,6 +471,7 @@ namespace TRTCCSharpDemo
 
                     TRTCVideoFrame frame = new TRTCVideoFrame();
                     frame.videoFormat = TRTCVideoPixelFormat.TRTCVideoPixelFormat_I420;
+                    frame.bufferType = TRTCVideoBufferType.TRTCVideoBufferType_Buffer;
                     frame.data = mVideoBuffer;
                     frame.width = mVideoWidth;
                     frame.height = mVideoHeight;

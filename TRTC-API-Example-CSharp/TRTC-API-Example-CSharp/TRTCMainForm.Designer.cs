@@ -109,9 +109,8 @@ namespace TRTCCSharpDemo
             this.panel1.Controls.Add(this.logoPictureBox);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2818, 125);
+            this.panel1.Size = new System.Drawing.Size(1127, 50);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnFormMouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnFormMouseMove);
@@ -124,10 +123,9 @@ namespace TRTCCSharpDemo
             this.RecordLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RecordLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.RecordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.RecordLabel.Location = new System.Drawing.Point(1478, 40);
-            this.RecordLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.RecordLabel.Location = new System.Drawing.Point(591, 16);
             this.RecordLabel.Name = "RecordLabel";
-            this.RecordLabel.Size = new System.Drawing.Size(168, 48);
+            this.RecordLabel.Size = new System.Drawing.Size(69, 20);
             this.RecordLabel.TabIndex = 13;
             this.RecordLabel.Text = "录制设置";
             this.RecordLabel.Click += new System.EventHandler(this.RecordLabel_Click);
@@ -139,10 +137,9 @@ namespace TRTCCSharpDemo
             this.SnapShotLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SnapShotLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.SnapShotLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.SnapShotLabel.Location = new System.Drawing.Point(1180, 40);
-            this.SnapShotLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.SnapShotLabel.Location = new System.Drawing.Point(472, 16);
             this.SnapShotLabel.Name = "SnapShotLabel";
-            this.SnapShotLabel.Size = new System.Drawing.Size(94, 48);
+            this.SnapShotLabel.Size = new System.Drawing.Size(39, 20);
             this.SnapShotLabel.TabIndex = 13;
             this.SnapShotLabel.Text = "截图";
             this.SnapShotLabel.Click += new System.EventHandler(this.SnapshotLabel_Click);
@@ -154,10 +151,9 @@ namespace TRTCCSharpDemo
             this.VodPlayerLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.VodPlayerLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.VodPlayerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.VodPlayerLabel.Location = new System.Drawing.Point(1305, 40);
-            this.VodPlayerLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.VodPlayerLabel.Location = new System.Drawing.Point(522, 16);
             this.VodPlayerLabel.Name = "VodPlayerLabel";
-            this.VodPlayerLabel.Size = new System.Drawing.Size(131, 48);
+            this.VodPlayerLabel.Size = new System.Drawing.Size(54, 20);
             this.VodPlayerLabel.TabIndex = 13;
             this.VodPlayerLabel.Text = "播放器";
             this.VodPlayerLabel.Click += new System.EventHandler(this.VodPlayerLabel_Click);
@@ -169,10 +165,9 @@ namespace TRTCCSharpDemo
             this.otherSettingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.otherSettingLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.otherSettingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.otherSettingLabel.Location = new System.Drawing.Point(2475, 40);
-            this.otherSettingLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.otherSettingLabel.Location = new System.Drawing.Point(990, 16);
             this.otherSettingLabel.Name = "otherSettingLabel";
-            this.otherSettingLabel.Size = new System.Drawing.Size(168, 48);
+            this.otherSettingLabel.Size = new System.Drawing.Size(69, 20);
             this.otherSettingLabel.TabIndex = 12;
             this.otherSettingLabel.Text = "其他设置";
             this.otherSettingLabel.Click += new System.EventHandler(this.otherSettingLabel_Click);
@@ -184,10 +179,9 @@ namespace TRTCCSharpDemo
             this.vedioSettingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.vedioSettingLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.vedioSettingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.vedioSettingLabel.Location = new System.Drawing.Point(1890, 40);
-            this.vedioSettingLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.vedioSettingLabel.Location = new System.Drawing.Point(756, 16);
             this.vedioSettingLabel.Name = "vedioSettingLabel";
-            this.vedioSettingLabel.Size = new System.Drawing.Size(168, 48);
+            this.vedioSettingLabel.Size = new System.Drawing.Size(69, 20);
             this.vedioSettingLabel.TabIndex = 11;
             this.vedioSettingLabel.Text = "视频设置";
             this.vedioSettingLabel.Click += new System.EventHandler(this.vedioSettingLabel_Click);
@@ -199,10 +193,9 @@ namespace TRTCCSharpDemo
             this.audioSettingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.audioSettingLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.audioSettingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.audioSettingLabel.Location = new System.Drawing.Point(2078, 40);
-            this.audioSettingLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.audioSettingLabel.Location = new System.Drawing.Point(831, 16);
             this.audioSettingLabel.Name = "audioSettingLabel";
-            this.audioSettingLabel.Size = new System.Drawing.Size(168, 48);
+            this.audioSettingLabel.Size = new System.Drawing.Size(69, 20);
             this.audioSettingLabel.TabIndex = 10;
             this.audioSettingLabel.Text = "声音设置";
             this.audioSettingLabel.Click += new System.EventHandler(this.audioSettingLabel_Click);
@@ -214,10 +207,9 @@ namespace TRTCCSharpDemo
             this.beautyLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.beautyLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.beautyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.beautyLabel.Location = new System.Drawing.Point(1675, 40);
-            this.beautyLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.beautyLabel.Location = new System.Drawing.Point(670, 16);
             this.beautyLabel.Name = "beautyLabel";
-            this.beautyLabel.Size = new System.Drawing.Size(168, 48);
+            this.beautyLabel.Size = new System.Drawing.Size(69, 20);
             this.beautyLabel.TabIndex = 9;
             this.beautyLabel.Text = "美颜设置";
             this.beautyLabel.Click += new System.EventHandler(this.OnBeautyLabelClick);
@@ -229,10 +221,9 @@ namespace TRTCCSharpDemo
             this.settingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.settingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.settingLabel.Location = new System.Drawing.Point(2265, 40);
-            this.settingLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.settingLabel.Location = new System.Drawing.Point(906, 16);
             this.settingLabel.Name = "settingLabel";
-            this.settingLabel.Size = new System.Drawing.Size(168, 48);
+            this.settingLabel.Size = new System.Drawing.Size(69, 20);
             this.settingLabel.TabIndex = 5;
             this.settingLabel.Text = "常规设置";
             this.settingLabel.Click += new System.EventHandler(this.OnSettingLabelClick);
@@ -244,10 +235,9 @@ namespace TRTCCSharpDemo
             this.exitLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exitLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.exitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.exitLabel.Location = new System.Drawing.Point(2685, 40);
-            this.exitLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.exitLabel.Location = new System.Drawing.Point(1074, 16);
             this.exitLabel.Name = "exitLabel";
-            this.exitLabel.Size = new System.Drawing.Size(94, 48);
+            this.exitLabel.Size = new System.Drawing.Size(39, 20);
             this.exitLabel.TabIndex = 4;
             this.exitLabel.Text = "退出";
             this.exitLabel.Click += new System.EventHandler(this.OnExitLabelClick);
@@ -259,10 +249,9 @@ namespace TRTCCSharpDemo
             this.userLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.userLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F);
             this.userLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.userLabel.Location = new System.Drawing.Point(2250, 32);
-            this.userLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.userLabel.Location = new System.Drawing.Point(900, 13);
             this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(0, 46);
+            this.userLabel.Size = new System.Drawing.Size(0, 20);
             this.userLabel.TabIndex = 2;
             // 
             // roomLabel
@@ -272,10 +261,9 @@ namespace TRTCCSharpDemo
             this.roomLabel.Cursor = System.Windows.Forms.Cursors.Default;
             this.roomLabel.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.roomLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.roomLabel.Location = new System.Drawing.Point(470, 40);
-            this.roomLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.roomLabel.Location = new System.Drawing.Point(188, 16);
             this.roomLabel.Name = "roomLabel";
-            this.roomLabel.Size = new System.Drawing.Size(94, 48);
+            this.roomLabel.Size = new System.Drawing.Size(39, 20);
             this.roomLabel.TabIndex = 1;
             this.roomLabel.Text = "房间";
             this.roomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -287,10 +275,9 @@ namespace TRTCCSharpDemo
             // 
             this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.logoPictureBox.Image = global::TRTCCSharpDemo.Properties.Resources.logo_court_demo;
-            this.logoPictureBox.Location = new System.Drawing.Point(18, 10);
-            this.logoPictureBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.logoPictureBox.Location = new System.Drawing.Point(7, 4);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(428, 112);
+            this.logoPictureBox.Size = new System.Drawing.Size(171, 45);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
@@ -298,48 +285,43 @@ namespace TRTCCSharpDemo
             // logLabel
             // 
             this.logLabel.Location = new System.Drawing.Point(0, 0);
-            this.logLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.logLabel.Name = "logLabel";
-            this.logLabel.Size = new System.Drawing.Size(250, 58);
+            this.logLabel.Size = new System.Drawing.Size(100, 23);
             this.logLabel.TabIndex = 17;
             // 
             // localUserLabel
             // 
             this.localUserLabel.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.localUserLabel.Location = new System.Drawing.Point(62, 158);
-            this.localUserLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.localUserLabel.Location = new System.Drawing.Point(25, 63);
             this.localUserLabel.Name = "localUserLabel";
-            this.localUserLabel.Size = new System.Drawing.Size(798, 55);
+            this.localUserLabel.Size = new System.Drawing.Size(319, 22);
             this.localUserLabel.TabIndex = 4;
             this.localUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // remoteUserLabel1
             // 
             this.remoteUserLabel1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.remoteUserLabel1.Location = new System.Drawing.Point(1012, 158);
-            this.remoteUserLabel1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.remoteUserLabel1.Location = new System.Drawing.Point(405, 63);
             this.remoteUserLabel1.Name = "remoteUserLabel1";
-            this.remoteUserLabel1.Size = new System.Drawing.Size(798, 55);
+            this.remoteUserLabel1.Size = new System.Drawing.Size(319, 22);
             this.remoteUserLabel1.TabIndex = 5;
             this.remoteUserLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // remoteUserLabel2
             // 
             this.remoteUserLabel2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.remoteUserLabel2.Location = new System.Drawing.Point(1948, 158);
-            this.remoteUserLabel2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.remoteUserLabel2.Location = new System.Drawing.Point(779, 63);
             this.remoteUserLabel2.Name = "remoteUserLabel2";
-            this.remoteUserLabel2.Size = new System.Drawing.Size(798, 55);
+            this.remoteUserLabel2.Size = new System.Drawing.Size(319, 22);
             this.remoteUserLabel2.TabIndex = 6;
             this.remoteUserLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // remoteUserLabel3
             // 
             this.remoteUserLabel3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.remoteUserLabel3.Location = new System.Drawing.Point(62, 1005);
-            this.remoteUserLabel3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.remoteUserLabel3.Location = new System.Drawing.Point(25, 402);
             this.remoteUserLabel3.Name = "remoteUserLabel3";
-            this.remoteUserLabel3.Size = new System.Drawing.Size(798, 55);
+            this.remoteUserLabel3.Size = new System.Drawing.Size(319, 22);
             this.remoteUserLabel3.TabIndex = 7;
             this.remoteUserLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -348,10 +330,9 @@ namespace TRTCCSharpDemo
             this.localVideoPanel.BackColor = System.Drawing.SystemColors.Control;
             this.localVideoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.localVideoPanel.Controls.Add(this.localInfoLabel);
-            this.localVideoPanel.Location = new System.Drawing.Point(62, 218);
-            this.localVideoPanel.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.localVideoPanel.Location = new System.Drawing.Point(25, 87);
             this.localVideoPanel.Name = "localVideoPanel";
-            this.localVideoPanel.Size = new System.Drawing.Size(797, 722);
+            this.localVideoPanel.Size = new System.Drawing.Size(320, 290);
             this.localVideoPanel.TabIndex = 8;
             // 
             // localInfoLabel
@@ -361,7 +342,7 @@ namespace TRTCCSharpDemo
             this.localInfoLabel.Location = new System.Drawing.Point(0, 0);
             this.localInfoLabel.Margin = new System.Windows.Forms.Padding(0);
             this.localInfoLabel.Name = "localInfoLabel";
-            this.localInfoLabel.Size = new System.Drawing.Size(800, 725);
+            this.localInfoLabel.Size = new System.Drawing.Size(320, 290);
             this.localInfoLabel.TabIndex = 1;
             this.localInfoLabel.Text = "视频已关闭";
             this.localInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -370,10 +351,10 @@ namespace TRTCCSharpDemo
             // localVoiceProgressBar
             // 
             this.localVoiceProgressBar.ForeColor = System.Drawing.Color.Green;
-            this.localVoiceProgressBar.Location = new System.Drawing.Point(62, 942);
+            this.localVoiceProgressBar.Location = new System.Drawing.Point(25, 377);
             this.localVoiceProgressBar.Margin = new System.Windows.Forms.Padding(0);
             this.localVoiceProgressBar.Name = "localVoiceProgressBar";
-            this.localVoiceProgressBar.Size = new System.Drawing.Size(800, 15);
+            this.localVoiceProgressBar.Size = new System.Drawing.Size(320, 6);
             this.localVoiceProgressBar.TabIndex = 15;
             this.localVoiceProgressBar.Visible = false;
             // 
@@ -382,10 +363,9 @@ namespace TRTCCSharpDemo
             this.remoteVideoPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.remoteVideoPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.remoteVideoPanel1.Controls.Add(this.remoteInfoLabel1);
-            this.remoteVideoPanel1.Location = new System.Drawing.Point(1012, 218);
-            this.remoteVideoPanel1.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.remoteVideoPanel1.Location = new System.Drawing.Point(405, 87);
             this.remoteVideoPanel1.Name = "remoteVideoPanel1";
-            this.remoteVideoPanel1.Size = new System.Drawing.Size(797, 722);
+            this.remoteVideoPanel1.Size = new System.Drawing.Size(320, 290);
             this.remoteVideoPanel1.TabIndex = 9;
             // 
             // remoteInfoLabel1
@@ -395,19 +375,19 @@ namespace TRTCCSharpDemo
             this.remoteInfoLabel1.Location = new System.Drawing.Point(0, 0);
             this.remoteInfoLabel1.Margin = new System.Windows.Forms.Padding(0);
             this.remoteInfoLabel1.Name = "remoteInfoLabel1";
-            this.remoteInfoLabel1.Size = new System.Drawing.Size(800, 725);
+            this.remoteInfoLabel1.Size = new System.Drawing.Size(320, 290);
             this.remoteInfoLabel1.TabIndex = 0;
-            this.remoteInfoLabel1.Text = "空视频位";
+            this.remoteInfoLabel1.Text = "对方未开启视频";
             this.remoteInfoLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.remoteInfoLabel1.Visible = false;
             // 
             // remoteVoiceProgressBar1
             // 
             this.remoteVoiceProgressBar1.ForeColor = System.Drawing.Color.Green;
-            this.remoteVoiceProgressBar1.Location = new System.Drawing.Point(1012, 942);
+            this.remoteVoiceProgressBar1.Location = new System.Drawing.Point(405, 377);
             this.remoteVoiceProgressBar1.Margin = new System.Windows.Forms.Padding(0);
             this.remoteVoiceProgressBar1.Name = "remoteVoiceProgressBar1";
-            this.remoteVoiceProgressBar1.Size = new System.Drawing.Size(800, 15);
+            this.remoteVoiceProgressBar1.Size = new System.Drawing.Size(320, 6);
             this.remoteVoiceProgressBar1.TabIndex = 16;
             this.remoteVoiceProgressBar1.Visible = false;
             // 
@@ -416,10 +396,9 @@ namespace TRTCCSharpDemo
             this.remoteVideoPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.remoteVideoPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.remoteVideoPanel2.Controls.Add(this.remoteInfoLabel2);
-            this.remoteVideoPanel2.Location = new System.Drawing.Point(1948, 218);
-            this.remoteVideoPanel2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.remoteVideoPanel2.Location = new System.Drawing.Point(779, 87);
             this.remoteVideoPanel2.Name = "remoteVideoPanel2";
-            this.remoteVideoPanel2.Size = new System.Drawing.Size(797, 722);
+            this.remoteVideoPanel2.Size = new System.Drawing.Size(320, 290);
             this.remoteVideoPanel2.TabIndex = 10;
             // 
             // remoteInfoLabel2
@@ -429,19 +408,19 @@ namespace TRTCCSharpDemo
             this.remoteInfoLabel2.Location = new System.Drawing.Point(0, 0);
             this.remoteInfoLabel2.Margin = new System.Windows.Forms.Padding(0);
             this.remoteInfoLabel2.Name = "remoteInfoLabel2";
-            this.remoteInfoLabel2.Size = new System.Drawing.Size(800, 725);
+            this.remoteInfoLabel2.Size = new System.Drawing.Size(320, 290);
             this.remoteInfoLabel2.TabIndex = 1;
-            this.remoteInfoLabel2.Text = "空视频位";
+            this.remoteInfoLabel2.Text = "对方未开启视频";
             this.remoteInfoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.remoteInfoLabel2.Visible = false;
             // 
             // remoteVoiceProgressBar2
             // 
             this.remoteVoiceProgressBar2.ForeColor = System.Drawing.Color.Green;
-            this.remoteVoiceProgressBar2.Location = new System.Drawing.Point(1948, 942);
+            this.remoteVoiceProgressBar2.Location = new System.Drawing.Point(779, 377);
             this.remoteVoiceProgressBar2.Margin = new System.Windows.Forms.Padding(0);
             this.remoteVoiceProgressBar2.Name = "remoteVoiceProgressBar2";
-            this.remoteVoiceProgressBar2.Size = new System.Drawing.Size(800, 15);
+            this.remoteVoiceProgressBar2.Size = new System.Drawing.Size(320, 6);
             this.remoteVoiceProgressBar2.TabIndex = 17;
             this.remoteVoiceProgressBar2.Visible = false;
             // 
@@ -450,10 +429,9 @@ namespace TRTCCSharpDemo
             this.remoteVideoPanel3.BackColor = System.Drawing.SystemColors.Control;
             this.remoteVideoPanel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.remoteVideoPanel3.Controls.Add(this.remoteInfoLabel3);
-            this.remoteVideoPanel3.Location = new System.Drawing.Point(62, 1065);
-            this.remoteVideoPanel3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.remoteVideoPanel3.Location = new System.Drawing.Point(25, 426);
             this.remoteVideoPanel3.Name = "remoteVideoPanel3";
-            this.remoteVideoPanel3.Size = new System.Drawing.Size(797, 722);
+            this.remoteVideoPanel3.Size = new System.Drawing.Size(320, 290);
             this.remoteVideoPanel3.TabIndex = 9;
             // 
             // remoteInfoLabel3
@@ -463,29 +441,28 @@ namespace TRTCCSharpDemo
             this.remoteInfoLabel3.Location = new System.Drawing.Point(0, 0);
             this.remoteInfoLabel3.Margin = new System.Windows.Forms.Padding(0);
             this.remoteInfoLabel3.Name = "remoteInfoLabel3";
-            this.remoteInfoLabel3.Size = new System.Drawing.Size(800, 725);
+            this.remoteInfoLabel3.Size = new System.Drawing.Size(320, 290);
             this.remoteInfoLabel3.TabIndex = 2;
-            this.remoteInfoLabel3.Text = "空视频位";
+            this.remoteInfoLabel3.Text = "对方未开启视频";
             this.remoteInfoLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.remoteInfoLabel3.Visible = false;
             // 
             // remoteVoiceProgressBar3
             // 
             this.remoteVoiceProgressBar3.ForeColor = System.Drawing.Color.Green;
-            this.remoteVoiceProgressBar3.Location = new System.Drawing.Point(62, 1790);
+            this.remoteVoiceProgressBar3.Location = new System.Drawing.Point(25, 716);
             this.remoteVoiceProgressBar3.Margin = new System.Windows.Forms.Padding(0);
             this.remoteVoiceProgressBar3.Name = "remoteVoiceProgressBar3";
-            this.remoteVoiceProgressBar3.Size = new System.Drawing.Size(800, 15);
+            this.remoteVoiceProgressBar3.Size = new System.Drawing.Size(320, 6);
             this.remoteVoiceProgressBar3.TabIndex = 18;
             this.remoteVoiceProgressBar3.Visible = false;
             // 
             // remoteUserLabel4
             // 
             this.remoteUserLabel4.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.remoteUserLabel4.Location = new System.Drawing.Point(1012, 1005);
-            this.remoteUserLabel4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.remoteUserLabel4.Location = new System.Drawing.Point(405, 402);
             this.remoteUserLabel4.Name = "remoteUserLabel4";
-            this.remoteUserLabel4.Size = new System.Drawing.Size(798, 55);
+            this.remoteUserLabel4.Size = new System.Drawing.Size(319, 22);
             this.remoteUserLabel4.TabIndex = 10;
             this.remoteUserLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -494,10 +471,9 @@ namespace TRTCCSharpDemo
             this.remoteVideoPanel4.BackColor = System.Drawing.SystemColors.Control;
             this.remoteVideoPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.remoteVideoPanel4.Controls.Add(this.remoteInfoLabel4);
-            this.remoteVideoPanel4.Location = new System.Drawing.Point(1012, 1065);
-            this.remoteVideoPanel4.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.remoteVideoPanel4.Location = new System.Drawing.Point(405, 426);
             this.remoteVideoPanel4.Name = "remoteVideoPanel4";
-            this.remoteVideoPanel4.Size = new System.Drawing.Size(797, 722);
+            this.remoteVideoPanel4.Size = new System.Drawing.Size(320, 290);
             this.remoteVideoPanel4.TabIndex = 11;
             // 
             // remoteInfoLabel4
@@ -507,29 +483,28 @@ namespace TRTCCSharpDemo
             this.remoteInfoLabel4.Location = new System.Drawing.Point(0, 0);
             this.remoteInfoLabel4.Margin = new System.Windows.Forms.Padding(0);
             this.remoteInfoLabel4.Name = "remoteInfoLabel4";
-            this.remoteInfoLabel4.Size = new System.Drawing.Size(800, 725);
+            this.remoteInfoLabel4.Size = new System.Drawing.Size(320, 290);
             this.remoteInfoLabel4.TabIndex = 1;
-            this.remoteInfoLabel4.Text = "空视频位";
+            this.remoteInfoLabel4.Text = "对方未开启视频";
             this.remoteInfoLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.remoteInfoLabel4.Visible = false;
             // 
             // remoteVoiceProgressBar4
             // 
             this.remoteVoiceProgressBar4.ForeColor = System.Drawing.Color.Green;
-            this.remoteVoiceProgressBar4.Location = new System.Drawing.Point(1012, 1790);
+            this.remoteVoiceProgressBar4.Location = new System.Drawing.Point(405, 716);
             this.remoteVoiceProgressBar4.Margin = new System.Windows.Forms.Padding(0);
             this.remoteVoiceProgressBar4.Name = "remoteVoiceProgressBar4";
-            this.remoteVoiceProgressBar4.Size = new System.Drawing.Size(800, 15);
+            this.remoteVoiceProgressBar4.Size = new System.Drawing.Size(320, 6);
             this.remoteVoiceProgressBar4.TabIndex = 19;
             this.remoteVoiceProgressBar4.Visible = false;
             // 
             // remoteUserLabel5
             // 
             this.remoteUserLabel5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.remoteUserLabel5.Location = new System.Drawing.Point(1948, 1005);
-            this.remoteUserLabel5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.remoteUserLabel5.Location = new System.Drawing.Point(779, 402);
             this.remoteUserLabel5.Name = "remoteUserLabel5";
-            this.remoteUserLabel5.Size = new System.Drawing.Size(798, 55);
+            this.remoteUserLabel5.Size = new System.Drawing.Size(319, 22);
             this.remoteUserLabel5.TabIndex = 12;
             this.remoteUserLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -538,10 +513,9 @@ namespace TRTCCSharpDemo
             this.remoteVideoPanel5.BackColor = System.Drawing.SystemColors.Control;
             this.remoteVideoPanel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.remoteVideoPanel5.Controls.Add(this.remoteInfoLabel5);
-            this.remoteVideoPanel5.Location = new System.Drawing.Point(1948, 1065);
-            this.remoteVideoPanel5.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.remoteVideoPanel5.Location = new System.Drawing.Point(779, 426);
             this.remoteVideoPanel5.Name = "remoteVideoPanel5";
-            this.remoteVideoPanel5.Size = new System.Drawing.Size(794, 720);
+            this.remoteVideoPanel5.Size = new System.Drawing.Size(319, 289);
             this.remoteVideoPanel5.TabIndex = 13;
             // 
             // remoteInfoLabel5
@@ -551,19 +525,19 @@ namespace TRTCCSharpDemo
             this.remoteInfoLabel5.Location = new System.Drawing.Point(0, 0);
             this.remoteInfoLabel5.Margin = new System.Windows.Forms.Padding(0);
             this.remoteInfoLabel5.Name = "remoteInfoLabel5";
-            this.remoteInfoLabel5.Size = new System.Drawing.Size(800, 725);
+            this.remoteInfoLabel5.Size = new System.Drawing.Size(320, 290);
             this.remoteInfoLabel5.TabIndex = 2;
-            this.remoteInfoLabel5.Text = "空视频位";
+            this.remoteInfoLabel5.Text = "对方未开启视频";
             this.remoteInfoLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.remoteInfoLabel5.Visible = false;
             // 
             // remoteVoiceProgressBar5
             // 
             this.remoteVoiceProgressBar5.ForeColor = System.Drawing.Color.Green;
-            this.remoteVoiceProgressBar5.Location = new System.Drawing.Point(1948, 1790);
+            this.remoteVoiceProgressBar5.Location = new System.Drawing.Point(779, 716);
             this.remoteVoiceProgressBar5.Margin = new System.Windows.Forms.Padding(0);
             this.remoteVoiceProgressBar5.Name = "remoteVoiceProgressBar5";
-            this.remoteVoiceProgressBar5.Size = new System.Drawing.Size(800, 15);
+            this.remoteVoiceProgressBar5.Size = new System.Drawing.Size(320, 6);
             this.remoteVoiceProgressBar5.TabIndex = 20;
             this.remoteVoiceProgressBar5.Visible = false;
             // 
@@ -581,10 +555,9 @@ namespace TRTCCSharpDemo
             this.panel2.Controls.Add(this.muteVideoCheckBox);
             this.panel2.Controls.Add(this.screenShareCheckBox);
             this.panel2.Controls.Add(this.logLabel);
-            this.panel2.Location = new System.Drawing.Point(0, 1828);
-            this.panel2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.panel2.Location = new System.Drawing.Point(0, 731);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2818, 112);
+            this.panel2.Size = new System.Drawing.Size(1127, 45);
             this.panel2.TabIndex = 14;
             // 
             // startLocalAudioCheckBox
@@ -592,10 +565,9 @@ namespace TRTCCSharpDemo
             this.startLocalAudioCheckBox.AutoSize = true;
             this.startLocalAudioCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.startLocalAudioCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.startLocalAudioCheckBox.Location = new System.Drawing.Point(252, 30);
-            this.startLocalAudioCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.startLocalAudioCheckBox.Location = new System.Drawing.Point(101, 12);
             this.startLocalAudioCheckBox.Name = "startLocalAudioCheckBox";
-            this.startLocalAudioCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.startLocalAudioCheckBox.Size = new System.Drawing.Size(88, 24);
             this.startLocalAudioCheckBox.TabIndex = 19;
             this.startLocalAudioCheckBox.Text = "采集音频";
             this.startLocalAudioCheckBox.UseVisualStyleBackColor = true;
@@ -606,10 +578,9 @@ namespace TRTCCSharpDemo
             this.startLocalPreviewCheckBox.AutoSize = true;
             this.startLocalPreviewCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.startLocalPreviewCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.startLocalPreviewCheckBox.Location = new System.Drawing.Point(18, 30);
-            this.startLocalPreviewCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.startLocalPreviewCheckBox.Location = new System.Drawing.Point(7, 12);
             this.startLocalPreviewCheckBox.Name = "startLocalPreviewCheckBox";
-            this.startLocalPreviewCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.startLocalPreviewCheckBox.Size = new System.Drawing.Size(88, 24);
             this.startLocalPreviewCheckBox.TabIndex = 18;
             this.startLocalPreviewCheckBox.Text = "采集视频";
             this.startLocalPreviewCheckBox.UseVisualStyleBackColor = true;
@@ -620,10 +591,9 @@ namespace TRTCCSharpDemo
             this.bgmCheckBox.AutoSize = true;
             this.bgmCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.bgmCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.bgmCheckBox.Location = new System.Drawing.Point(1012, 30);
-            this.bgmCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.bgmCheckBox.Location = new System.Drawing.Point(405, 12);
             this.bgmCheckBox.Name = "bgmCheckBox";
-            this.bgmCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.bgmCheckBox.Size = new System.Drawing.Size(88, 24);
             this.bgmCheckBox.TabIndex = 16;
             this.bgmCheckBox.Text = "背景音乐";
             this.bgmCheckBox.UseVisualStyleBackColor = true;
@@ -634,10 +604,9 @@ namespace TRTCCSharpDemo
             this.logCheckBox.AutoSize = true;
             this.logCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.logCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.logCheckBox.Location = new System.Drawing.Point(1805, 30);
-            this.logCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.logCheckBox.Location = new System.Drawing.Point(722, 12);
             this.logCheckBox.Name = "logCheckBox";
-            this.logCheckBox.Size = new System.Drawing.Size(169, 52);
+            this.logCheckBox.Size = new System.Drawing.Size(73, 24);
             this.logCheckBox.TabIndex = 15;
             this.logCheckBox.Text = "仪表盘";
             this.logCheckBox.UseVisualStyleBackColor = true;
@@ -648,10 +617,9 @@ namespace TRTCCSharpDemo
             this.connectRoomCheckBox.AutoSize = true;
             this.connectRoomCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.connectRoomCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.connectRoomCheckBox.Location = new System.Drawing.Point(1542, 30);
-            this.connectRoomCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.connectRoomCheckBox.Location = new System.Drawing.Point(617, 12);
             this.connectRoomCheckBox.Name = "connectRoomCheckBox";
-            this.connectRoomCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.connectRoomCheckBox.Size = new System.Drawing.Size(88, 24);
             this.connectRoomCheckBox.TabIndex = 14;
             this.connectRoomCheckBox.Text = "跨房通话";
             this.connectRoomCheckBox.UseVisualStyleBackColor = true;
@@ -664,10 +632,9 @@ namespace TRTCCSharpDemo
             this.shareUrlLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.shareUrlLabel.Font = new System.Drawing.Font("微软雅黑", 11F, System.Drawing.FontStyle.Bold);
             this.shareUrlLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.shareUrlLabel.Location = new System.Drawing.Point(2340, 25);
-            this.shareUrlLabel.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.shareUrlLabel.Location = new System.Drawing.Point(936, 10);
             this.shareUrlLabel.Name = "shareUrlLabel";
-            this.shareUrlLabel.Size = new System.Drawing.Size(260, 60);
+            this.shareUrlLabel.Size = new System.Drawing.Size(105, 25);
             this.shareUrlLabel.TabIndex = 8;
             this.shareUrlLabel.Text = "分享播放地址";
             this.shareUrlLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -678,10 +645,9 @@ namespace TRTCCSharpDemo
             this.mixTransCodingCheckBox.AutoSize = true;
             this.mixTransCodingCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.mixTransCodingCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.mixTransCodingCheckBox.Location = new System.Drawing.Point(2030, 30);
-            this.mixTransCodingCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.mixTransCodingCheckBox.Location = new System.Drawing.Point(812, 12);
             this.mixTransCodingCheckBox.Name = "mixTransCodingCheckBox";
-            this.mixTransCodingCheckBox.Size = new System.Drawing.Size(280, 52);
+            this.mixTransCodingCheckBox.Size = new System.Drawing.Size(118, 24);
             this.mixTransCodingCheckBox.TabIndex = 12;
             this.mixTransCodingCheckBox.Text = "云端画面混合";
             this.mixTransCodingCheckBox.UseVisualStyleBackColor = true;
@@ -692,10 +658,9 @@ namespace TRTCCSharpDemo
             this.muteAudioCheckBox.AutoSize = true;
             this.muteAudioCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.muteAudioCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.muteAudioCheckBox.Location = new System.Drawing.Point(752, 30);
-            this.muteAudioCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.muteAudioCheckBox.Location = new System.Drawing.Point(301, 12);
             this.muteAudioCheckBox.Name = "muteAudioCheckBox";
-            this.muteAudioCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.muteAudioCheckBox.Size = new System.Drawing.Size(88, 24);
             this.muteAudioCheckBox.TabIndex = 10;
             this.muteAudioCheckBox.Text = "屏蔽音频";
             this.muteAudioCheckBox.UseVisualStyleBackColor = true;
@@ -706,10 +671,9 @@ namespace TRTCCSharpDemo
             this.muteVideoCheckBox.AutoSize = true;
             this.muteVideoCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.muteVideoCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.muteVideoCheckBox.Location = new System.Drawing.Point(488, 30);
-            this.muteVideoCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.muteVideoCheckBox.Location = new System.Drawing.Point(195, 12);
             this.muteVideoCheckBox.Name = "muteVideoCheckBox";
-            this.muteVideoCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.muteVideoCheckBox.Size = new System.Drawing.Size(88, 24);
             this.muteVideoCheckBox.TabIndex = 9;
             this.muteVideoCheckBox.Text = "屏蔽视频";
             this.muteVideoCheckBox.UseVisualStyleBackColor = true;
@@ -720,10 +684,9 @@ namespace TRTCCSharpDemo
             this.screenShareCheckBox.AutoSize = true;
             this.screenShareCheckBox.Font = new System.Drawing.Font("微软雅黑", 11F);
             this.screenShareCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(187)))), ((int)(((byte)(187)))));
-            this.screenShareCheckBox.Location = new System.Drawing.Point(1272, 30);
-            this.screenShareCheckBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.screenShareCheckBox.Location = new System.Drawing.Point(509, 12);
             this.screenShareCheckBox.Name = "screenShareCheckBox";
-            this.screenShareCheckBox.Size = new System.Drawing.Size(206, 52);
+            this.screenShareCheckBox.Size = new System.Drawing.Size(88, 24);
             this.screenShareCheckBox.TabIndex = 8;
             this.screenShareCheckBox.Text = "屏幕共享";
             this.screenShareCheckBox.UseVisualStyleBackColor = true;
@@ -731,10 +694,10 @@ namespace TRTCCSharpDemo
             // 
             // TRTCMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(240F, 240F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(2812, 1935);
+            this.ClientSize = new System.Drawing.Size(1125, 774);
             this.Controls.Add(this.remoteVoiceProgressBar5);
             this.Controls.Add(this.localVoiceProgressBar);
             this.Controls.Add(this.remoteVoiceProgressBar4);
@@ -760,7 +723,7 @@ namespace TRTCCSharpDemo
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(8, 10, 8, 10);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TRTCMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRTCCSharpDemo";
