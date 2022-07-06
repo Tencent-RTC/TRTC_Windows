@@ -1,0 +1,1274 @@
+﻿<!DOCTYPE html>
+<HTML>
+
+<HEAD>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",charste="utf-8">
+
+    <style>
+        .group {
+            margin: 20px 0
+        }
+		.video{
+			width:100%;
+			height:100%;
+		}
+        .group.btn > input {
+            margin-left: 10px;
+        }
+
+        .group > textarea {
+            display: block
+        }
+
+        .shareScreenShadow {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, .5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .shareWindowHeader {
+            width: 100%;
+            height: 30px;
+            position: relative;
+            background-color: white;
+        }
+
+        .shareWindowHeaderTitle {
+            padding-left: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 30px;
+        }
+
+        .shareScreenShadow.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transition: .5s;
+        }
+
+        .shareScreen {
+            width: 720px;
+            height: 600px;
+            position: relative;
+            background: rgb(223, 223, 223);
+        }
+
+        .shareScreen .closeBtn {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .shareWindowCanvas {
+            text-align: center;
+            padding: 20px;
+            overflow-y: scroll;
+            height: 300px;
+        }
+
+        .shareWindowCanvasItem {
+            border: 1px solid rgba(0, 0, 0, .3);
+            margin: 5px 5px;
+            width: 200px;
+            display: inline-block;
+            padding: 2px 0;
+            height: 235px;
+        }
+
+        .shareWindowCanvasItem > p {
+            font-size: 14px;
+            overflow: hidden;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+			margin: 0px;
+        }
+
+        .shareWindowCanvasItem > canvas {
+            border: 1px solid rgba(0, 0, 0, .3);
+        }
+
+        .shareWindowCanvasItem.active {
+            background: rgb(223, 255, 223);
+        }
+
+        .direction {
+            width: 100%;
+            text-align: center;
+        }
+
+        .directionItem {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .directionItem > input {
+            width: 60px;
+            text-align: center;
+        }
+
+        .function {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .functionItem {
+            display: inline-block;
+            margin: 0 55px;
+        }
+
+        .functionItem > label {
+            font-size: 14px;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .functionItem > input {
+            line-height: 30px;
+        }
+
+        .border {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .borderItem {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .borderItem > input {
+            text-align: center;
+        }
+
+        .confirm {
+            width: 100%;
+            text-align: center;
+        }
+
+        .confirm button {
+            border-radius: 5px;
+            width: 140px;
+            height: 30px;
+            text-decoration: none;
+            border: 0;
+            background: rgb(0, 164, 255);
+            margin-top: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .shareWindowFooter {
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            margin-bottom: 20px;
+        }
+
+		.ViewList {
+            border: 1px solid;
+            width: 300px;
+            height: 200px;
+        }
+		
+        .Local {
+            width: 98%;
+            height: 98%;
+			margin:3px;
+        }
+		
+		.progress{
+			width:100%;
+			color:#00ff00;
+			background:#EFEFF4;
+			border: none;
+		}
+
+		li{
+			list-style:none;
+		}
+		select::-ms-expand { 
+			display: none; 
+		}
+    </style>
+</HEAD>
+
+<BODY id="body" onload="doCheckIE();">
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+  
+    <script src="./js/lib-generate-test-usersig.min.js"></script>	
+    <script src="./js/GenerateTestUserSig.js"></script>
+	
+    <div style="display:flex;justify-content:start;">
+        <div>
+            <div class="group btn html" style="display:flex;align-items:center;margin-top:20px;">
+                <input type="button" class="ui button" value="开启本地视频的预览画面" onclick="StartLocalPreview();" />
+                <input type="button" class="ui button" value="停止本地视频采集及预览" onclick="StopLocalPreview();" />
+                <input type="button" class="ui button" value="开启本地音频的采集和上行" onclick="StartLocalAudio();" />
+                <input type="button" class="ui button" value="关闭本地音频的采集和上行" onclick="StopLocalAudio();" />
+            </div>
+			<div class="group btn html" style="display:flex;align-items:center;margin-left:10px">
+				<div class="ui input">
+					<input type="text" id="roomId" style="margin-right:5px;" placeholder="房间号(int值)" value="" />
+					<input type="text" id="userId" style="margin-right:5px;" placeholder="用户名(string值)" value="" />
+				</div>
+               
+                <input type="button" class="ui button" value="进入房间" id="btnEnter" onclick="EnterRoom();" />
+                <input type="button" class="ui button" value="退出房间" id="btnTest" onclick="ExitRoom();" />
+            </div>
+            <div class="group btn" style="display:flex;align-items:center;">
+				<select class="ui dropdown" id="remote_user_id_list" style="margin-left:10px;width:154px">
+					<option value="">远端用户ID</option>
+				</select>
+				
+                <input type="button" class="ui button" value="显示远端用户主流画面" id="startremoteview" onclick="StartRemoteView();" />
+                <input type="button" class="ui button" value="关闭远端用户主流画面" id="stopremoteview" onclick="StopRemoteView();" />
+            </div>
+			<div class="group btn" style="display:flex;align-items:center;margin-top:10px">
+				<input type="button" class="ui button" value="获取摄像头设备列表" onclick="GetCameraDevicesList();" />
+				<input type="button" class="ui button" value="设置当前摄像头设备" onclick="SetCameraDevice();" />
+				<select class="ui dropdown" id="list_camera" style="margin-left:10px;width:200px">
+					<option value="">请先获取摄像头</option>
+				</select>
+            </div>
+			<div class="group btn" style="display:flex;align-items:center;margin-top:10px">
+				<input type="button" class="ui button" value="获取麦克风设备列表" onclick="GetMicDevicesList();" />
+                <input type="button" class="ui button" value="设置当前麦克风设备" onclick="SetMicDevice();" />
+				<select class="ui dropdown" id="list_mic" style="margin-left:10px;width:200px">
+					<option value="">请先获取麦克风</option>
+				</select>
+            </div>
+			<div class="group btn" style="display:flex;align-items:center;margin-top:10px">
+			    <input type="button" class="ui button" value="获取扬声器设备列表" onclick="GetSpeakDevicesList();" />
+                <input type="button" class="ui button" value="设置当前扬声器设备" onclick="SetSpeakDevice();" />
+				<select class="ui dropdown" id="list_speaker" style="margin-left:10px;width:200px">
+					<option value="">请先获取扬声器</option>
+				</select>
+            </div>
+            <div class="group" style="margin-left:10px">
+                <input type="button" class="ui button" value="设置美颜" id="btnSetBeautyStyle" onclick="SetBeautyStyle();" />
+				<select class="ui dropdown" id="list_beauty_style" style="margin-left:2px;">
+					<option value="0">光滑</option>
+					<option value="1">自然</option>
+				</select>
+				<select class="ui dropdown" id="list_beauty_level" style="margin-left:2px;">
+					<option value="0">关闭美颜</option>
+					<option value="5">美颜级别5</option>
+					<option value="9">美颜级别9</option>
+				</select>
+				<select class="ui dropdown" id="list_beauty_whiteness" style="margin-left:2px;">
+					<option value="0">关闭美白</option>
+					<option value="5">美白级别5</option>
+					<option value="9">美白级别9</option>
+				</select>
+				<select class="ui dropdown" id="list_beauty_ruddiness" style="margin-left:2px;">
+					<option value="0">关闭红润</option>
+					<option value="5">红润级别5</option>
+					<option value="9">红润级别9</option>
+				</select>
+            </div>
+            <div class="group" style="margin-left:10px">
+                <input type="button" class="ui button" value="获取SDK采集音量" onclick="GetAudioCaptureVolume();" />
+                <input type="button" class="ui button" value="设置SDK采集音量" onclick="SetAudioCaptureVolume();" />
+				<div class="ui input">
+					<input type="text" id="paramsSetAudioCaptureVolume" placeholder="设置SDK采集音量" value="100" />
+				</div>
+            </div>
+			<div style="margin-left:10px">
+			    <input type="button" class="ui button" value="获取SDK播放音量" onclick="GetAudioPlayoutVolume();" />
+                <input type="button" class="ui button" value="设置SDK播放音量" onclick="SetAudioPlayoutVolume();" />
+				<div class="ui input">
+					<input type="text" id="paramsSetAudioPlayoutVolume" placeholder="设置SDK播放音量" value="100" />
+				</div>
+            </div>
+            <div class="group" style="margin-left:10px">
+                <input type="button" class="ui button" value="静音用户的声音" mute onclick="MuteRemoteUserAudio(event);" />
+				<select class="ui dropdown" id="mute_audio_user_id_list" style="margin-right:10px;width:154px">
+					<option value="">远端用户ID</option>
+				</select>
+				
+                <input type="button" class="ui button" value="暂停远端用户画面" mute onclick="MuteRemoteUserVideoStreams(event);" />
+				<select class="ui dropdown" id="mute_video_user_id_list" style="margin-right:10px;width:154px">
+					<option value="">远端用户ID</option>
+				</select>
+            </div>
+
+            <div class="group" style="margin-left:10px">
+                <input type="button" class="ui button" value="设置远端图像的渲染模式" id="btnSetRemoteRenderParams"
+                       onclick="SetRemoteRenderParams();" />
+				<select class="ui dropdown" id="remote_render_user_id_list" style="width:154px">
+					<option value="">远端用户ID</option>
+				</select>
+				<select class="ui dropdown" id="list_remote_render_stream_type">
+					<option value="0">主路流</option>
+					<option value="2">辅路流</option>
+				</select>
+				<select class="ui dropdown" id="list_remote_render_rotation" style="margin-left:2px;">
+					<option value="0">旋转0°</option>
+					<option value="1">旋转90°</option>
+					<option value="2">旋转180°</option>
+					<option value="3">旋转270°</option>
+				</select>
+				<select class="ui dropdown" id="list_remote_render_fill_mode" style="margin-left:2px;">
+					<option value="0">填充模式</option>
+					<option value="1">适应模式</option>
+				</select>
+				<select class="ui dropdown" id="list_remote_render_mirror" style="margin-left:2px;">
+					<option value="1">镜像</option>
+					<option value="2">非镜像</option>
+				</select>
+            </div>
+            <div class="group" style="margin-left:10px">
+                <input type="button" class="ui button" value="设置本地图像的渲染模式" id="btnSetLocalRenderParams"
+                       onclick="SetLocalRenderParams();" />
+				<select class="ui dropdown" id="list_local_render_rotation" style="width:110px;">
+					<option value="0">旋转0°</option>
+					<option value="1">旋转90°</option>
+					<option value="2">旋转180°</option>
+					<option value="3">旋转270°</option>
+				</select>
+				<select class="ui dropdown" id="list_local_render_fill_mode" style="margin-left:2px;width:110px;">
+					<option value="0">填充模式</option>
+					<option value="1">适应模式</option>
+				</select>
+				<select class="ui dropdown" id="list_local_render_mirror" style="margin-left:2px;width:110px;">
+					<option value="1">镜像</option>
+					<option value="2">非镜像</option>
+				</select>
+            </div>
+			<p/>
+            <div class="group" style="margin-left:10px">
+                <input type="button" class="ui button" value="枚举可分享的屏幕窗口" id="btnGetScreenCaptureSources"
+                       onclick="GetScreenCaptureSources();" />
+				<div class="ui label">枚举缩略图的宽高：
+					<div class="ui input">
+						<input type="text" id="screen_capture_thumb_width" placeholder="枚举缩略图的宽" value="180" style="width:60px"/>
+						<input type="text" id="screen_capture_thumb_height" placeholder="枚举缩略图的高" value="180" style="width:60px"/>
+					</div>
+				</div>
+				<div class="ui label">枚举icon的宽高：
+					<div class="ui input">
+						<input type="text" id="screen_capture_icon_height" placeholder="枚举缩略图的宽" value="180" style="width:60px"/>
+						<input type="text" id="screen_capture_icon_height" placeholder="枚举缩略图的高" value="180" style="width:60px"/>
+					</div>
+				</div>
+			</div>
+			<div style="margin-left:10px; display:none;">
+                <textarea rows="3" cols="5" id="paramsSelectScreenCaptureTarget" placeholder="选择分享目标参数"
+                          style="width:800px;">{"sourceId":1,"captureRect":{"top":0,"bottom":880,"left":0,"right":1720}}</textarea>
+				<p/>
+                <input type="button" class="ui button" value="选择分享目标" onclick="SelectScreenCaptureTarget(1);" />
+			</div>
+			<div style="margin-left:10px">
+                <input type="button" class="ui button" value="启动屏幕分享" onclick="StartScreenCapture();" />
+                <input type="button" class="ui button" value="停止屏幕采集" onclick="StopScreenCapture();" />
+            </div>
+			<p/>
+			<div class="ui form" style="margin-left:10px">
+				<div class="field">
+					<textarea rows="10" cols="30" id="log" placeholder="打印日志" style="width:800px;"></textarea>
+				</div>
+				<input type="button" class="ui button" value="清除日志" id="btnClear" onclick="ClearLog();" />
+			</div>
+        </div>
+
+        <div class="shareScreenShadow hidden" id="shareScreenWrapper" style="position:absolute;z-index:999999">
+            <div class="shareScreen">
+                <div class="shareWindowHeader">
+                    <span class="shareWindowHeaderTitle">选择分享内容</span>
+                    <span id="shareWindowCount">0</span>
+                    <span class="closeBtn" onclick="showDialog(false, '')">×</span>
+                </div>
+                <div class="shareWindowCanvas" id="shareWindowCanvasDiv">
+                    <div class="shareWindowCanvasItem" style="display:none" id="shareWindowCanvasItem"
+                         onclick="onClickSelectShareWindowCanvas(event)">
+                        <!--<canvas width="180"></canvas>-->
+                        <img style="width: 200px; height: 180px;" src="#" alt="Alternate Text" />
+                        <p>id</p>
+                        <p>标题</p>
+                    </div>
+                </div>
+                <div class="shareWindowFooter">
+                    <div class="direction">
+                        <div class="directionItem">
+                            <span>Left</span>
+                            <input id="captureRectLeft" type="text" value="0">
+                        </div>
+                        <div class="directionItem">
+                            <span>Right</span>
+                            <input id="captureRectRight" type="text" value="0">
+                        </div>
+                        <div class="directionItem">
+                            <span>Top</span>
+                            <input id="captureRectTop" type="text" value="0">
+                        </div>
+                        <div class="directionItem">
+                            <span>Bottom</span>
+                            <input id="captureRectBottom" type="text" value="0">
+                        </div>
+                    </div>
+
+                    <div class="function" style="visibility:hidden">
+                        <div class="functionItem">
+                            <label for="mouse">鼠标</label>
+                            <input type="checkbox" id="mouse">
+                        </div>
+                        <div class="functionItem">
+                            <label for="enableHighLight">高亮窗口</label>
+                            <input type="checkbox" id="enableHighLight">
+                        </div>
+                        <div class="functionItem">
+                            <label for="performance">高性能</label>
+                            <input type="checkbox" id="performance">
+                        </div>
+                    </div>
+
+                    <div class="border" style="visibility:hidden">
+                        <div class="borderItem">
+                            <span>描边颜色</span>
+                            <input type="text" id="highLightColor" value="0">
+                        </div>
+                        <div class="borderItem">
+                            <span>描边宽度</span>
+                            <input type="text" id="highLightWidth" value="0">
+                        </div>
+                    </div>
+                    <div class="confirm">
+                        <button onclick="SelectScreenCaptureTarget(0)">选择窗口</button>
+                    </div>
+                </div>
+				<iframe id="iframe1" class= "shareScreen" style="position:absolute; visibility:inherit; top:0px;left:0px;z-index:-1; filter:alpha(opacity=0);"></iframe>
+            </div>
+        </div>
+		<div style="height:620px" id='div_list_top'>
+			<ul style="float:left" id='div_list'>
+				<div class="ui card ViewList" id='div_outer_local' style="float:center;">
+					<li class="Local" id='div_local'>
+						<OBJECT ID="local_ocx" class="obj_local video"
+						codebase="../SDK/LiteAVActiveXSDK.cab#version=1,0,0,1"
+						CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
+						</OBJECT>
+					</li>
+					<Label style="text-align:left;">LocalUser</Label>
+					<progress class="progress" id="progress_" value="0" max="100"/>
+				</div>
+			</ul>
+			<div id="div_shared" class="ui card" style="float:left;display:none; margin-left:30px; margin-top:10px; margin-right:3px; width:800px; height:100%;">
+				<div class="shared" style="margin:3px; width:99%; height:95%;">
+					<OBJECT ID="shared_ocx" class="obj_shared video"
+					codebase="../SDK/LiteAVActiveXSDK.cab#version=1,0,0,1"
+					CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
+					</OBJECT>
+					<Label style="text-align:left;">Share</Label>
+				</div>
+			</div>
+		</div>
+    </div>
+	<div ID="CheckIEStatus" align="center" style="z-index:10000; display:none; background:#999; position:absolute; left:0px; top:0px; width:100%; height:100%; border:1px solid #F00; ">
+        <h1 style="font-size: 50px">ActiveX插件只支持IE,请用IE打开网页</h1>
+        <object ID="PreviewInstallActiveX" CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C"
+                width="0"
+                height="0"></object>
+    </div>
+    <script>
+		function doCheckIE() {
+            var bIE = false;
+            if (!!window.ActiveXObject || "ActiveXObject" in window)
+                bIE = true;
+            else if (window.navigator.userAgent.indexOf("MSIE") >= 1)
+                bIE = true;
+            else
+                bIE = false;
+            if (bIE == false)
+            {
+                document.getElementById('CheckIEStatus').style.display = 'block';
+            } else {
+				local_ocx.initObject();
+			}
+        }
+    </script>
+
+    <script language="javascript" for="local_ocx" event="onError(code, message)" type="text/javascript">
+        AddLog('onError:' + code + ' message:' + message);
+    </script>
+	
+	<script language="javascript" for="local_ocx" event="onWarning(code, message)" type="text/javascript">
+        AddLog('onWarning:' + code + ' message:' + message);
+    </script>
+
+    <script language="javascript" for="local_ocx" event="onEnterRoom(result)" type="text/javascript">
+        AddLog("onEnterRoom :" + result);
+		if (result > 0) {
+			AddLog('打开麦克风和摄像头');
+			local_ocx.enableAudioVolumeEvaluation(300);
+            local_ocx.startLocalAudio(2);
+			local_ocx.startLocalPreview();
+		}
+    </script>
+
+    <script language="javascript" for="local_ocx" event="onExitRoom(result)" type="text/javascript">
+        AddLog("onExitRoom :" + result);
+
+		var list = document.getElementById("remote_user_id_list");
+		list.innerHTML = "";
+		
+		var mute_remote_user_list = document.getElementById("mute_video_user_id_list");
+		mute_remote_user_list.innerHTML = "";
+		var mute_audio_user_id_list = document.getElementById("mute_audio_user_id_list");
+		mute_audio_user_id_list.innerHTML = "";
+		
+		var remote_render_user_id_list = document.getElementById("remote_render_user_id_list");
+		remote_render_user_id_list.innerHTML = "";
+		
+		if (div_shared.style. display!="none") {
+			div_shared.style.setProperty("display", "none");
+		}
+		ClearDivChildren();
+    </script>
+
+    <script language="javascript" for="local_ocx" event="onRemoteUserEnterRoom(userId)" type="text/javascript">
+        AddLog("Js 远端用户进入房间 :userId " + userId);
+		
+		AddObject(userId);
+		
+		var remote_user_list = document.getElementById("remote_user_id_list");
+		var optionObj = document.createElement('option');
+		optionObj.value = userId;
+		optionObj.text = userId;
+		remote_user_list.appendChild(optionObj);
+    </script>
+    <script language="javascript" for="local_ocx" event="onRemoteUserLeaveRoom(userId,reason)"
+            type="text/javascript">
+        AddLog("Js 远端用户离开房间 :userId " + userId + " available " + reason);
+		DeleteObject(userId);
+		
+		var selectBox = document.getElementById("remote_user_id_list")
+		for (var i = 0, len = selectBox.options.length; i < len; i++) {
+			option = selectBox.options[i]
+			if (option.value == userId) {
+				selectBox.options.remove(i);
+				break;
+			}
+		}
+		
+		selectBox = document.getElementById('mute_video_user_id_list')
+		for (var i = 0, len = selectBox.options.length; i < len; i++) {
+			option = selectBox.options[i]
+			if (option.value == userId) {
+				selectBox.options.remove(i);
+				break;
+			}
+		}
+		
+		selectBox = document.getElementById('remote_render_user_id_list')
+		for (var i = 0, len = selectBox.options.length; i < len; i++) {
+			option = selectBox.options[i]
+			if (option.value == userId) {
+				selectBox.options.remove(i);
+				break;
+			}
+		}
+    </script>
+    <script language="javascript" for="local_ocx" event="onUserVideoAvailable(userId,available)"
+            type="text/javascript">
+        AddLog("Js 远端用户是否开启摄像头 :userId " + userId + " available " + available);
+		if (available) {
+			var remote_user_list = document.getElementById("mute_video_user_id_list");
+			var optionObj = document.createElement('option');
+			optionObj.value = userId;
+			optionObj.text = userId;
+			remote_user_list.appendChild(optionObj);
+			
+					
+			var remote_render_user_id_list = document.getElementById("remote_render_user_id_list");
+			var optionObj = document.createElement('option');
+			optionObj.value = userId;
+			optionObj.text = userId;
+			remote_render_user_id_list.appendChild(optionObj);
+
+			var objectId = "object_"+userId;
+			document.getElementById(objectId).startRemoteView(userId, 0);
+		} else {
+			var selectBox = document.getElementById('mute_video_user_id_list')
+			for (var i = 0, len = selectBox.options.length; i < len; i++) {
+				option = selectBox.options[i]
+				if (option.value == userId) {
+					selectBox.options.remove(i);
+					break;
+				}
+			}
+			
+			selectBox = document.getElementById("remote_render_user_id_list")
+			for (var i = 0, len = selectBox.options.length; i < len; i++) {
+				option = selectBox.options[i]
+				if (option.value == userId) {
+					selectBox.options.remove(i);
+					break;
+				}
+			}
+		}
+    </script>
+    <script language="javascript" for="local_ocx" event="onUserAudioAvailable(userId,available)"
+            type="text/javascript">
+        AddLog("Js 远端用户是否开启音频 :userId " + userId + " available " + available);
+		
+		if (available) {
+			var remote_user_list = document.getElementById("mute_audio_user_id_list");
+			var optionObj = document.createElement('option');
+			optionObj.value = userId;
+			optionObj.text = userId;
+			remote_user_list.appendChild(optionObj);
+		} else {
+			var selectBox = document.getElementById('mute_audio_user_id_list')
+			for (var i = 0, len = selectBox.options.length; i < len; i++) {
+				option = selectBox.options[i]
+				if (option.value == userId) {
+					selectBox.options.remove(i);
+					break;
+				}
+			}
+		}
+    </script>
+    <script language="javascript" for="local_ocx" event="onFirstVideoFrame(userId,streamType,width,height)"
+            type="text/javascript">
+        AddLog("Js 用户开始渲染首帧视频 :userId " + userId + " streamType " + streamType + " width " + width + " height " + height);
+    </script>
+
+    <!--
+    * 用户音量回调：user_volumes 以JSON数组的形式进行返回。
+    * [
+    *   {
+    *       "userId":"",    //说话者的 userId, 如果 userId 为空则代表是当前用户自己。
+    *       "volume": 0     //说话者的音量大小, 取值范围[0 - 100]。
+    *   },
+    *   ...
+    * ]
+    -->
+    <script language="javascript" for="local_ocx"
+            event="onUserVoiceVolume(user_volumes, user_volumes_count, total_volume)" type="text/javascript">
+		var volumes_json = JSON.parse(user_volumes);
+		for(var i = 0;i < volumes_json.length;i++){
+			var user_id = volumes_json[i].userId;
+			var volume = volumes_json[i].volume;
+			
+			var user_progress = document.getElementById("progress_"+user_id);
+			user_progress.value = volume;
+			user_progress.setAttribute("value", volume);
+		}
+		
+		releaseEvents();
+    </script>
+
+    <script language="javascript" for="local_ocx"
+            event="onGetScreenCaptureSources(thumbBGRAData, thumbBGRAInfo, iconBGRAData,  iconBGRAInfo,  type,  sourceName)"
+            type="text/javascript">
+        AddLog("Js 枚举可分享的屏幕窗口 sourceName" + sourceName + " type " + type);
+        releaseEvents();
+    </script>
+    <script language="javascript" for="local_ocx" event="onUserSubStreamAvailable(userId, available)"
+            type="text/javascript">
+        AddLog("Js 用户是否开启屏幕分享 :userId " + userId + " available " + available);
+        var shared_ocx = document.getElementById("shared_ocx");
+		if (available) {
+			div_shared.style.setProperty("display", "inline-block");
+			setTimeout(function(){ shared_ocx.startRemoteView(userId, 2); }, 10);
+		} else {
+			div_shared.style.setProperty("display", "none");
+			shared_ocx.stopRemoteView(userId, 2);
+		}
+        releaseEvents();
+    </script>
+    <script language="javascript" for="local_ocx" event="onScreenCaptureStarted()" type="text/javascript">
+        AddLog("Js 屏幕分享开始 ");
+        releaseEvents();
+    </script>
+    <script language="javascript" for="local_ocx" event="onScreenCaptureStoped(reason)" type="text/javascript">
+        AddLog("Js 屏幕分享停止 reason: " + reason);
+		if (reason == 0) {
+			div_shared.style.setProperty("display", "none");
+		}
+        releaseEvents();
+    </script>
+
+    <script type="text/javascript">
+        const REMOTE_VIDEO = "remoteVideo";
+        function AddLog(str) {
+            var log = document.getElementById("log");
+            if (log.value.length > 2000) {
+                log.value = "";
+            }
+            var now = new Date();
+            log.value += now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + ':' + now.getMilliseconds() + ' ' + str + "\n";
+			
+			log.scrollTop = log.scrollHeight;
+        }
+
+        function ClearLog() {
+            var log = document.getElementById("log");
+            log.innerHTML = "";
+        }
+		
+		function AddObject(uid) {
+			var div_outer=document.createElement("div");
+			div_outer.setAttribute("class","ui card ViewList");
+			div_outer.style.float="center";
+			div_outer.id='div_outer_new_'+uid;
+			document.getElementById('div_list').appendChild(div_outer);
+		
+			var div=document.createElement("li");
+			div.style.width="98%";
+			div.style.height="98%";
+			div.style.margin='3px';
+			div.id='div_new_'+uid;
+			div.setAttribute("class","view");
+			//div.style.marginLeft='7px';
+			//div.style.marginTop='30px';
+			div_outer.appendChild(div);
+			
+			var strOcxPath = "../SDK/LiteAVActiveXSDK.cab#version=1,0,0,1";
+			var ocxObject = document.createElement('object');
+			ocxObject.setAttribute("id", "object_"+uid);
+			ocxObject.setAttribute("class", "obj_local_new video");
+			ocxObject.setAttribute("classid","CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C");
+			ocxObject.setAttribute("width", "0");
+			ocxObject.setAttribute("height","0"); 
+			ocxObject.setAttribute("codebase",strOcxPath );
+			div.appendChild(ocxObject);
+			
+			var label_text = document.createTextNode(uid);
+			div_outer.appendChild(label_text);
+
+			var audio_progress=document.createElement("progress");
+			audio_progress.id="progress_"+uid;
+			audio_progress.setAttribute("class", "progress");
+			audio_progress.setAttribute("value", "0");
+			audio_progress.value=0;
+			audio_progress.setAttribute("max", "100");
+			audio_progress.max=100;
+			div_outer.appendChild(audio_progress);
+			
+			console.log("add user view: object_"+uid);
+        }
+		
+		function DeleteObject(uid) {
+            document.getElementById('div_list').removeChild(document.getElementById('div_outer_new_'+uid));
+			console.log("remove user view: "+uid);
+        }
+		
+		function ClearDivChildren(userId) {
+			var list = document.getElementById("div_list").getElementsByTagName("div");
+			for(var i = 0; i < list.length; i++) {
+				if(list[i].id != "div_outer_local") {
+					list[i].parentNode.removeChild(list[i]);
+					i--;
+				}
+			}
+		}
+
+        function EnterRoom() {
+            var roomIdEl = document.getElementById("roomId");//房间号(int值)
+            var userIdEl = document.getElementById("userId");//用户名(string值)
+			const config = genTestUserSig(userIdEl.value);
+			const sdkappid = config.sdkAppId;
+			const usersig = config.userSig;
+            local_ocx.enterRoom(sdkappid, usersig, roomIdEl.value, userIdEl.value, 20, 0, "");
+        }
+        function ExitRoom() {
+			local_ocx.stopLocalPreview();
+            local_ocx.exitRoom();
+			
+			list_beauty_style.options[0].selected = true;
+			list_beauty_level.options[0].selected = true;
+			list_beauty_whiteness.options[0].selected = true;
+			list_beauty_ruddiness.options[0].selected = true;
+			
+			list_remote_render_stream_type.options[0].selected = true;
+			list_remote_render_rotation.options[0].selected = true;
+			list_remote_render_fill_mode.options[0].selected = true;
+			list_remote_render_mirror.options[0].selected = true;
+			
+			list_local_render_rotation.options[0].selected = true;
+			list_local_render_fill_mode.options[0].selected = true;
+			list_local_render_mirror.options[0].selected = true;
+        }
+
+        function StartRemoteView() {
+            var remoteUserId = document.getElementById("remote_user_id_list");//远端用户ID
+			var objectId = "object_"+remoteUserId.value;
+			document.getElementById(objectId).startRemoteView(remoteUserId.value, 0);
+        }
+        function StopRemoteView() {
+            var remoteUserId = document.getElementById("remote_user_id_list");//远端用户ID
+			var objectId = "object_"+remoteUserId.value;
+			document.getElementById(objectId).stopRemoteView(remoteUserId.value, 0);
+        }
+		
+        //* @param style     美颜风格，0 光滑 1自然，光滑风格磨皮更加明显，适合娱乐场景。
+        //* @param beautyLevel    美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
+        //* @param whitenessLevel     美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
+        //* @param ruddinessLevel 红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数暂未生效
+        function SetBeautyStyle() {
+			var style = document.getElementById("list_beauty_style").value;
+			var beautyLevel = document.getElementById("list_beauty_level").value;
+			var whitenessLevel = document.getElementById("list_beauty_whiteness").value;
+			var ruddinessLevel = document.getElementById("list_beauty_ruddiness").value;
+			
+            local_ocx.setBeautyStyle(style, beautyLevel, whitenessLevel, ruddinessLevel);
+
+            AddLog("设置美颜");
+        }
+
+        function Uint8ClampedArrayToUintArray(data) {
+            var ary = [];
+            for (var i = 0; i < data.length; i++) {
+                ary[i] = data[i];
+            }
+            return ary;
+        }
+
+        function GetAudioCaptureVolume() {
+            var result = local_ocx.getAudioCaptureVolume();
+			var audio_capture_volume = document.getElementById("paramsSetAudioCaptureVolume");
+			audio_capture_volume.value = result;
+            AddLog("获取SDK采集音量 " + result);
+        }
+
+        function SetAudioCaptureVolume() {
+            var el = document.getElementById("paramsSetAudioCaptureVolume");
+            var params = el.value.trim();
+			if (params < 0 || params > 100) {
+				alert("输入错误：请将音量值设置在0~100之间。");
+				return;
+			} else if (isNaN(params)) {
+				alert("输入错误：请输入0~100之间的数字。");
+				return;
+			}
+            local_ocx.setAudioCaptureVolume(params);
+            AddLog("设置SDK采集音量 " + params);
+        }
+
+        function GetAudioPlayoutVolume() {
+            var result = local_ocx.getAudioPlayoutVolume();
+			var el = document.getElementById("paramsSetAudioPlayoutVolume");
+			el.value = result;
+            AddLog("获取SDK播放音量 " + result);
+        }
+
+        function SetAudioPlayoutVolume() {
+            var el = document.getElementById("paramsSetAudioPlayoutVolume");
+            var params = el.value.trim();
+			if (params < 0 || params > 100) {
+				alert("输入错误：请将音量值设置在0~100之间。");
+				return;
+			} else if (isNaN(params)) {
+				alert("输入错误：请输入0~100之间的数字。");
+				return;
+			}
+            local_ocx.setAudioPlayoutVolume(params);
+            AddLog("设置SDK播放音量 " + params);
+        }
+
+        function canvasRender(el, data, width, height) {
+            var ctx = el.getContext("2d");
+            var imgData = ctx.createImageData(width, height);
+            console.log(imgData.data.length);
+            for (var i = 0, j = 0; i < imgData.data.length; i += 4, j += 4) {
+                // 返回的数据格式为 BGRA32  canvas 接收 RGBA
+                imgData.data[i + 0] = data[j + 2] || 0; //R
+                imgData.data[i + 1] = data[j + 1] || 0; //G
+                imgData.data[i + 2] = data[j + 0] || 0; //B
+                imgData.data[i + 3] = 255; //之所以这样是因为canvas只接受rgba数据，而我们只有rgb,因此最后一个直接为255即可
+            }
+            ctx.putImageData(imgData, 0, 0);//后边的两个参数是渲染的起始位置，这里就设为（0，0）了，表示左上角
+        }
+
+        // 切换图标
+        function SwitchElement(el, mute, muteTrue, muteFalse) {
+            //document.getElementById().removeAttribute('')
+            if (mute) {
+                el.value = muteFalse || "取消静音";
+                el.removeAttribute('mute');
+            } else {
+                el.value = muteTrue || "静音";
+                el.setAttribute('mute', null);
+            }
+        }
+
+        function MuteLocalAudio(mute) {
+            var result = local_ocx.muteLocalAudio(mute);
+        }
+
+        function MuteRemoteAudio(userId, mute) {
+            var result = local_ocx.muteRemoteAudio(userId, mute);
+        }
+
+        function MuteRemoteUserAudio(e) {
+            var el = e.currentTarget;
+            var mute = el.hasAttribute('mute');
+			
+			var userIdEl = document.getElementById("mute_audio_user_id_list");
+            var userId = userIdEl.value;
+			
+            local_ocx.muteRemoteAudio(userId, mute);
+            SwitchElement(el, mute, "静音远端用户的声音", "取消静音远端用户的声音");
+        }
+
+        function MuteLocalVideo(mute) {
+            var result = local_ocx.MuteLocalVideo(mute);
+        }
+
+        function MuteRemoteVideoStream(userId, mute) {
+            var result = local_ocx.muteRemoteVideoStream(userId, 0, mute);
+        }
+
+        function MuteRemoteUserVideoStreams(e) {
+            var el = e.currentTarget;
+            var mute = el.hasAttribute('mute');
+
+			var userIdEl = document.getElementById("mute_video_user_id_list");
+            var userId = userIdEl.value;
+
+            local_ocx.muteRemoteVideoStream(userId, 0, mute);
+            SwitchElement(el, mute, "暂停远端用户画面", "取消暂停远端用户画面");
+        }
+
+        /**
+         * userId  远程用户 userid
+         * streamType   0 主画面视频流 1 小画面视频流 2 辅流（屏幕分享）
+         * rotation 0 顺时针旋转0度 1 顺时针旋转90度 2 顺时针旋转180度 3 顺时针旋转270度
+         * fillMode 0 图像铺满屏幕，超出显示视窗的视频部分将被裁剪 1 图像长边填满屏幕，短边区域会被填充黑色
+         * mirrorType  1 所有画面均镜像 2 所有画面均不镜像
+         * */
+        //{"userId":"20201217","streamType":1,"render":{"rotation":1,"fillMode":0,"mirrorType":0}}
+        function SetRemoteRenderParams() { //这个方法对自定义渲染不起作用
+            var userId = document.getElementById("remote_render_user_id_list").value;
+
+			var streamType = document.getElementById("list_remote_render_stream_type").value;
+			var rotation = document.getElementById("list_remote_render_rotation").value;
+			var fillMode = document.getElementById("list_remote_render_fill_mode").value;
+			var mirrorType = document.getElementById("list_remote_render_mirror").value;
+
+            local_ocx.setRemoteRenderParams(userId, streamType, rotation, fillMode, mirrorType);
+
+            AddLog("已设置远端图像的渲染模式");
+        }
+
+        /**
+        * rotation 0 顺时针旋转0度 1 顺时针旋转90度 2 顺时针旋转180度 3 顺时针旋转270度
+        * fillMode 0 图像铺满屏幕，超出显示视窗的视频部分将被裁剪 1 图像长边填满屏幕，短边区域会被填充黑色
+        * mirrorType  1 所有画面均镜像 2 所有画面均不镜像
+        * */
+        //{"rotation":1,"fillMode":0,"mirrorType":0}
+        function SetLocalRenderParams() { //这个方法对自定义渲染不起作用
+            var rotation = document.getElementById("list_local_render_rotation").value;
+			var fillMode = document.getElementById("list_local_render_fill_mode").value;
+			var mirrorType = document.getElementById("list_local_render_mirror").value;
+			
+            local_ocx.setLocalRenderParams(rotation, fillMode,mirrorType);
+
+            AddLog("已设置本地图像的渲染模式");
+        }
+
+        function StartLocalPreview() {
+			AddLog("Start Local Preview.");
+			var local_ocx = document.getElementById("local_ocx");
+			local_ocx.style.setProperty("visibility", "visible");
+            local_ocx.startLocalPreview();
+        }
+
+        function StopLocalPreview() {
+            local_ocx.stopLocalPreview();
+        }
+
+        function GetCameraDevicesList() {
+            var result = local_ocx.getDevicesList(2);
+            if (result.length != 0) {
+                AddLog("摄像头列表为: " + result);
+            }
+			
+			var cur_camera = local_ocx.getCurrentDevice(2);
+            if (cur_camera.length != 0) {
+                AddLog("当前摄像头为: " + cur_camera);
+            }
+			var json = JSON.parse(result);
+			
+			console.log(json);
+			var listCamera = document.getElementById("list_camera");
+			listCamera.innerHTML = "";
+			for(var i = 0;i < json.length;i++){
+				var optionObj = document.createElement('option');
+				optionObj.value = json[i].device_id;
+				optionObj.text = json[i].name;
+				listCamera.appendChild(optionObj);
+			}
+			json = JSON.parse(cur_camera);
+			listCamera.value = json.device_id;
+        }
+		function SetCameraDevice(){
+			var userIdEl = document.getElementById("list_camera");
+            var deviceId = userIdEl.value;
+			var result = local_ocx.setCurrentDevice(2, deviceId);
+            
+			AddLog("已设置当前摄像头 " + deviceId);
+		}
+		function SetMicDevice(){
+			var userIdEl = document.getElementById("list_mic");
+            var deviceId = userIdEl.value;
+			var result = local_ocx.setCurrentDevice(0, deviceId);
+
+            AddLog("已设置麦克风 " + deviceId);
+		}
+		function SetSpeakDevice(){
+			var userIdEl = document.getElementById("list_speaker");
+            var deviceId = userIdEl.value;
+			var result = local_ocx.setCurrentDevice(1, deviceId);
+
+            AddLog("已设置扬声器 " + deviceId);
+		}
+		
+        function GetMicDevicesList() {
+			var result = local_ocx.getDevicesList(0);
+            if (result.length != 0) {
+                AddLog("麦克风列表为：" + result);
+            }
+			
+			var cur_mic = local_ocx.getCurrentDevice(0);
+            if (cur_mic.length != 0) {
+                AddLog("当前麦克风为: " + cur_mic);
+            }
+			
+			var json = JSON.parse(result);
+			console.log(json);
+			var listMic = document.getElementById("list_mic");
+			listMic.innerHTML = "";
+			for(var i = 0;i < json.length;i++){
+				var optionObj = document.createElement('option');
+				optionObj.value = json[i].device_id;
+				optionObj.text = json[i].name;
+				listMic.appendChild(optionObj);
+			}
+			json = JSON.parse(cur_mic);
+			listMic.value = json.device_id;
+        }
+        function GetSpeakDevicesList() {
+            var result = local_ocx.getDevicesList(1);
+            if (result.length != 0) {
+                AddLog("扬声器列表为：" + result);
+            }
+			
+			var cur_speaker = local_ocx.getCurrentDevice(1);
+            if (cur_speaker.length != 0) {
+                AddLog("当前扬声器为: " + cur_speaker);
+            }
+			
+			var json = JSON.parse(result);
+			console.log(json);
+			var listSpeaker = document.getElementById("list_speaker");
+			listSpeaker.innerHTML = "";
+			for(var i = 0;i < json.length;i++){
+				var optionObj = document.createElement('option');
+				optionObj.value = json[i].device_id;
+				optionObj.text = json[i].name;
+				listSpeaker.appendChild(optionObj);
+			}
+			json = JSON.parse(cur_speaker);
+			listSpeaker.value = json.device_id;
+        }
+        function StartLocalAudio() {
+			var local_ocx = document.getElementById("local_ocx");
+			local_ocx.enableAudioVolumeEvaluation(300);
+            local_ocx.startLocalAudio(2);
+            AddLog("打开本地麦克风");
+        }
+        function StopLocalAudio() {
+            var result = local_ocx.stopLocalAudio();
+            AddLog("关闭本地麦克风");
+        }
+
+        //枚举可分享的屏幕窗口
+        function GetScreenCaptureSources() {
+            ClearShareWindowCanvasItem();
+			
+			var thumbSize_cx = document.getElementById("screen_capture_thumb_width").value;
+			var thumbSize_cy = document.getElementById("screen_capture_thumb_height").value;
+			var iconSize_cx = document.getElementById("screen_capture_icon_height").value;
+			var iconSize_cy = document.getElementById("screen_capture_icon_height").value;
+			
+            var result = local_ocx.getScreenCaptureSources(thumbSize_cx, thumbSize_cy, iconSize_cx, iconSize_cy);
+            console.log(result);
+            showDialog(true, result);
+
+			var strResult="枚举可分享的屏幕窗口ID：";
+            var obj = JSON.parse(result);
+            for (var i = 0; i < obj.length; i++) {
+                var id = obj[i].sourceId;
+                var name = obj[i].sourceName;
+                var thumbBGRABuffer = obj[i].thumbBGRA.buffer;
+                var thumbBGRAWidth = obj[i].thumbBGRA.width;
+                var thumbBGRAHeight = obj[i].thumbBGRA.height;
+				
+				strResult += id;
+				strResult += ", ";
+
+                AddShareWindowCanvasItem(id, name, thumbBGRABuffer, thumbBGRAWidth, thumbBGRAHeight);
+            }
+			AddLog(strResult);
+
+            document.getElementById("shareWindowCount").innerText = obj.length;
+        }
+
+        function showDialog(show, result) {
+            var shareWindow = document.getElementById("shareScreenWrapper")
+            if (show) {
+				var ret=window.showModalDialog("dialog.html",result,"dialogWidth=700px;dialogHeight=600px;status=no;help=no;scrollbars=no;location=no");
+				console.log(ret);
+				if (ret != undefined) {
+					var obj = JSON.parse(ret);
+					crtSelectShareWindowCanvasId = obj.sourceId;
+					var left = obj.left;
+					var right = obj.right;
+					var top = obj.top;
+					var bottom = obj.bottom;
+					var select_param = document.getElementById("paramsSelectScreenCaptureTarget");
+					select_param.setAttribute('selected');
+					local_ocx.selectScreenCaptureTarget(crtSelectShareWindowCanvasId, left, top, right-left, bottom-top);
+				}
+            }
+        }
+
+        var shareWindowList = [];
+        var crtSelectShareWindowCanvasId = 1;
+        function AddShareWindowCanvasItem(id, name, data, width, height) {
+            if (shareWindowList.indexOf(id) == -1) {
+                shareWindowList.push(id);
+                addShareWindow(id, name, data, width, height);
+            }
+        }
+
+        function ClearShareWindowCanvasItem() {
+            for (var i = 0; i < shareWindowList.length; i++) {
+                var item = shareWindowList[i];
+                removeShareWindow(item);
+            }
+            shareWindowList.length = 0;
+        }
+
+        function addShareWindow(id, name, data, width, height) {
+            var item = document.getElementById("shareWindowCanvasItem");
+            var newitem = item.cloneNode(true);
+            newitem.style.setProperty("display", "");
+            newitem.id = id;
+            var el = newitem.getElementsByTagName("p")[0];
+            el.innerText = id;
+            el = newitem.getElementsByTagName("p")[1];
+            el.innerText = name;
+            item.parentElement.appendChild(newitem);
+
+            //var canvasEl = newitem.getElementsByTagName("canvas")[0];
+            //canvasRender(canvasEl, data, width, height);
+            var imgEl = newitem.getElementsByTagName("img")[0];
+            //imgEl.style.setProperty("display", "none");
+            imgEl.src = "data:image/png;base64," + data;
+        }
+
+        function removeShareWindow(id) {
+            var el = document.getElementById(id);
+            el.parentElement.removeChild(el);
+        }
+
+        function onClickSelectShareWindowCanvas(e) {
+            var crtId = e.currentTarget.id;
+            SelectShareWindowCanvas(crtId);
+        }
+
+        function SelectShareWindowCanvas(crtId) {
+            crtSelectShareWindowCanvasId = crtId;
+            for (var i = 0; i < shareWindowList.length; i++) {
+                var el = document.getElementById(shareWindowList[i]);
+                if (shareWindowList[i] != crtId) {
+                    if (el.classList.contains("active"))
+                        el.classList.remove('active');
+                } else {
+                    if (!el.classList.contains("active")) {
+                        el.classList.add('active')
+                    }
+                }
+            }
+        }
+
+        /**
+         *  sourceId  选择的窗口
+         *  captureRect.top  上边距
+         *  captureRect.bottom 下边距
+         *  captureRect.left 左边距
+         *  captureRect.right 右边距
+         *
+         *{"sourceId":1,"captureRect":{"top":0,"bottom":880,"left":0,"right":1720}}
+         *
+         * */
+        function SelectScreenCaptureTarget(type) {
+            var select_param = document.getElementById("paramsSelectScreenCaptureTarget");
+            var params = select_param.value;
+			var obj = JSON.parse(params);
+			if(type == 0){
+				obj.sourceId = parseInt(crtSelectShareWindowCanvasId);
+				obj.captureRect.top = parseInt(document.getElementById('captureRectTop').value);
+				obj.captureRect.bottom = parseInt(document.getElementById('captureRectBottom').value);
+				obj.captureRect.left = parseInt(document.getElementById('captureRectLeft').value);
+				obj.captureRect.right = parseInt(document.getElementById('captureRectRight').value);
+			}
+           
+			select_param.setAttribute('selected');
+			local_ocx.selectScreenCaptureTarget(obj.sourceId, obj.captureRect.left, obj.captureRect.top, obj.captureRect.right-obj.captureRect.left, obj.captureRect.bottom-obj.captureRect.top);
+            showDialog(false, "");
+        }
+
+        function StartScreenCapture() {
+			var select_param = document.getElementById("paramsSelectScreenCaptureTarget");
+			var has_selected = select_param.hasAttribute('selected');
+			if (!has_selected) {
+				alert("请先枚举选择要分享的窗口！");
+				return;
+			}
+
+			if (div_shared.style.display=="none") {
+				div_shared.style.setProperty("display", "inline-block");
+				setTimeout(function(){
+					shared_ocx.startScreenCapture(2, 114, 15, true); 
+				}, 10);
+			}
+            
+			AddLog("开始屏幕分享...");
+        }
+
+        function StopScreenCapture() {
+            shared_ocx.stopScreenCapture();
+			AddLog("停止屏幕分享");
+        }
+    </script>
+</BODY>
+
+</HTML>

@@ -55,13 +55,18 @@ For the release notes of earlier versions, click [More](https://cloud.tencent.co
 │  ├─SDK                            // C# SDK directory
 │  │  ├─CSharp              
 │  │  ├─README.md
+├─ TRTC-API-Example-ActiveX          // Demo for ActiveX SDK 
+│  ├─TRTC-API-Example-ActiveX        // Demo for ActiveX
+│  ├─SDK                             // ActiveX SDK directory
+│  │  ├─ActiveX              
+│  │  ├─README.md
 ```
 
 
 
 ## Note
 
-- Currently, only the TRTC-API-Example-Qt and TRTC-API-Example-CSharp projects are provided. If you want to use the demo of other Windows platforms, see [TRTC SDK](https://github.com/tencentyun /TRTCSDK);
+- Currently, only the TRTC-API-Example-Qt、TRTC-API-Example-CSharp and TRTC-API-Example-ActiveX projects are provided. If you want to use the demo of other Windows platforms, see [TRTC SDK](https://github.com/tencentyun /TRTCSDK);
 
 
 
