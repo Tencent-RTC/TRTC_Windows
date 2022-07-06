@@ -52,13 +52,18 @@ _[English](README.md) | 简体中文_
 │  ├─SDK                            // C# SDK 目录
 │  │  ├─CSharp              
 │  │  ├─README.md
+├─ TRTC-API-Example-ActiveX          // 提供 ActiveX SDK 的使用Demo
+│  ├─TRTC-API-Example-ActiveX        // 提供 ActiveX 版本的Demo
+│  ├─SDK                             // 生成的 ActiveX SDK 目录
+│  │  ├─ActiveX              
+│  │  ├─README.md
 ```
 
 
 
 ## 提示
 
-- 目前只提供了的TRTC-API-Example-Qt工程和TRTC-API-Example-CSharp工程，如果你想使用其他的Windows平台的Demo，请参考[TRTCSDK](https://github.com/tencentyun/TRTCSDK)；
+- 目前只提供了的TRTC-API-Example-Qt工程、TRTC-API-Example-CSharp工程和TRTC-API-Example-ActiveX工程，如果你想使用其他的Windows平台的Demo，请参考[TRTCSDK](https://github.com/tencentyun/TRTCSDK)；
 
 
 
