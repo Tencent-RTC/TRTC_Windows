@@ -63,10 +63,10 @@ For the release notes of earlier versions, click [More](https://cloud.tencent.co
 
 
 ## Contact Us
-- If you have questions, see [FAQs](https://cloud.tencent.com/document/product/647/43018).
+- If you have questions, see [FAQs](https://www.tencentcloud.com/document/product/647/36057?lang=en&pg=).
 
-- To learn about how the TRTC SDK can be used in different scenarios, see [Sample Code](https://intl.cloud.tencent.com/document/product/647/42963).
+- To learn about how the TRTC SDK can be used in different scenarios, see [Sample Code](https://www.tencentcloud.com/document/product/647/42963).
 
 - For the complete API documentation, see [SDK API Documentation](http://doc.qcloudtrtc.com/md_introduction_trtc_Windows_cpp_%E6%A6%82%E8%A7%88.html).
-- For aftersales technical support, please [contact us](https://intl.cloud.tencent.com/contact-us).
+- For aftersales technical support, please [contact us](https://t.me/+EPk6TMZEZMM5OGY1).
 - To report bugs in our sample code, please create an issue.
