@@ -76,8 +76,7 @@
         .shareWindowCanvas {
             text-align: center;
             padding: 20px;
-            overflow-y: scroll;
-            height: 300px;
+            height: 500px;
         }
 
         .shareWindowCanvasItem {
@@ -305,15 +304,17 @@
 				</div>
             </div>
             <div class="group" style="margin-left:10px">
-                <input type="button" class="ui button" value="静音用户的声音" mute onclick="MuteRemoteUserAudio(event);" />
+                <input type="button" class="ui button" value="静音用户声音" mute onclick="MuteRemoteUserAudio(event);" />
 				<select class="ui dropdown" id="mute_audio_user_id_list" style="margin-right:10px;width:154px">
-					<option value="">远端用户ID</option>
+					<option value="">本地用户</option>
 				</select>
 				
-                <input type="button" class="ui button" value="暂停远端用户画面" mute onclick="MuteRemoteUserVideoStreams(event);" />
+                <input type="button" class="ui button" value="暂停用户画面" mute onclick="MuteRemoteUserVideoStreams(event);" />
 				<select class="ui dropdown" id="mute_video_user_id_list" style="margin-right:10px;width:154px">
-					<option value="">远端用户ID</option>
+					<option value="">本地用户</option>
 				</select>
+				
+				<input type="button" class="ui button" value="测试截图" onclick="StartSnapshot();" />
             </div>
 
             <div class="group" style="margin-left:10px">
@@ -398,69 +399,16 @@
         <div class="shareScreenShadow hidden" id="shareScreenWrapper" style="position:absolute;z-index:999999">
             <div class="shareScreen">
                 <div class="shareWindowHeader">
-                    <span class="shareWindowHeaderTitle">选择分享内容</span>
-                    <span id="shareWindowCount">0</span>
-                    <span class="closeBtn" onclick="showDialog(false, '')">×</span>
+                    <span class="shareWindowHeaderTitle">截图内容</span>
+                    <span class="closeBtn" onclick="ShowSnapshotWindow(false)">×</span>
                 </div>
                 <div class="shareWindowCanvas" id="shareWindowCanvasDiv">
-                    <div class="shareWindowCanvasItem" style="display:none" id="shareWindowCanvasItem"
-                         onclick="onClickSelectShareWindowCanvas(event)">
-                        <!--<canvas width="180"></canvas>-->
-                        <img style="width: 200px; height: 180px;" src="#" alt="Alternate Text" />
-                        <p>id</p>
-                        <p>标题</p>
-                    </div>
+                    <!--<canvas id="image_snapshot"></canvas>-->
+                    <img style="width:100%; height:100%;" id="image_snapshot"/>
+                    <p>id</p>
                 </div>
-                <div class="shareWindowFooter">
-                    <div class="direction">
-                        <div class="directionItem">
-                            <span>Left</span>
-                            <input id="captureRectLeft" type="text" value="0">
-                        </div>
-                        <div class="directionItem">
-                            <span>Right</span>
-                            <input id="captureRectRight" type="text" value="0">
-                        </div>
-                        <div class="directionItem">
-                            <span>Top</span>
-                            <input id="captureRectTop" type="text" value="0">
-                        </div>
-                        <div class="directionItem">
-                            <span>Bottom</span>
-                            <input id="captureRectBottom" type="text" value="0">
-                        </div>
-                    </div>
 
-                    <div class="function" style="visibility:hidden">
-                        <div class="functionItem">
-                            <label for="mouse">鼠标</label>
-                            <input type="checkbox" id="mouse">
-                        </div>
-                        <div class="functionItem">
-                            <label for="enableHighLight">高亮窗口</label>
-                            <input type="checkbox" id="enableHighLight">
-                        </div>
-                        <div class="functionItem">
-                            <label for="performance">高性能</label>
-                            <input type="checkbox" id="performance">
-                        </div>
-                    </div>
-
-                    <div class="border" style="visibility:hidden">
-                        <div class="borderItem">
-                            <span>描边颜色</span>
-                            <input type="text" id="highLightColor" value="0">
-                        </div>
-                        <div class="borderItem">
-                            <span>描边宽度</span>
-                            <input type="text" id="highLightWidth" value="0">
-                        </div>
-                    </div>
-                    <div class="confirm">
-                        <button onclick="SelectScreenCaptureTarget(0)">选择窗口</button>
-                    </div>
-                </div>
-				<iframe id="iframe1" class= "shareScreen" style="position:absolute; visibility:inherit; top:0px;left:0px;z-index:-1; filter:alpha(opacity=0);"></iframe>
+				<iframe id="iframe3" class= "shareScreen" style="position:absolute; visibility:inherit; top:0px;left:0px;z-index:-1; filter:alpha(opacity=0);"></iframe>
             </div>
         </div>
 		<div style="height:620px" id='div_list_top'>
@@ -468,7 +416,7 @@
 				<div class="ui card ViewList" id='div_outer_local' style="float:center;">
 					<li class="Local" id='div_local'>
 						<OBJECT ID="local_ocx" class="obj_local video"
-						codebase="../SDK/LiteAVActiveXSDK.cab#version=1,0,0,1"
+						codebase="../SDK/LiteAVActiveXSDK.cab#version=10,7,0,4267"
 						CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
 						</OBJECT>
 					</li>
@@ -479,7 +427,7 @@
 			<div id="div_shared" class="ui card" style="float:left;display:none; margin-left:30px; margin-top:10px; margin-right:3px; width:800px; height:100%;">
 				<div class="shared" style="margin:3px; width:99%; height:95%;">
 					<OBJECT ID="shared_ocx" class="obj_shared video"
-					codebase="../SDK/LiteAVActiveXSDK.cab#version=1,0,0,1"
+					codebase="../SDK/LiteAVActiveXSDK.cab#version=10,7,0,4267"
 					CLASSID="CLSID:99DD15EF-B353-4E47-9BE7-7DB4BC13613C">
 					</OBJECT>
 					<Label style="text-align:left;">Share</Label>
@@ -537,8 +485,17 @@
 		
 		var mute_remote_user_list = document.getElementById("mute_video_user_id_list");
 		mute_remote_user_list.innerHTML = "";
+		var optionVideoObj = document.createElement('option');
+		optionVideoObj.value = '';
+		optionVideoObj.text = "本地用户";
+		mute_remote_user_list.appendChild(optionVideoObj);
+		
 		var mute_audio_user_id_list = document.getElementById("mute_audio_user_id_list");
 		mute_audio_user_id_list.innerHTML = "";
+		var optionAudioObj = document.createElement('option');
+		optionAudioObj.value = '';
+		optionAudioObj.text = "本地用户";
+		mute_audio_user_id_list.appendChild(optionAudioObj);
 		
 		var remote_render_user_id_list = document.getElementById("remote_render_user_id_list");
 		remote_render_user_id_list.innerHTML = "";
@@ -712,9 +669,50 @@
 		}
         releaseEvents();
     </script>
+	<script language="javascript" for="local_ocx" event="onSnapshotComplete(user_id, buffer, length, width, height);" type="text/javascript">
+        AddLog("Js 截图完成: " + user_id + " width:" + width + " height:" + height);
+
+		var image_div = document.getElementById("shareWindowCanvasDiv");
+		image_div.style.visibility="visible";
+		
+		var img_element = document.getElementById("image_snapshot");
+		img_element.src = "data:image/png;base64," + buffer;
+
+		var userid_element = image_div.getElementsByTagName("p")[0];
+		if(user_id == "") {
+			userid_element.innerText = "User ID：local user";
+		} else {
+			userid_element.innerText = "User ID：" + user_id;
+		}
+		releaseEvents();
+    </script>
+	
+	<script type="text/javascript">
+		function ShowSnapshotWindow(show){
+			var shareWindow = document.getElementById("shareScreenWrapper")
+            if (show) {
+			    document.getElementById("body").style.overflow = "hidden";
+                shareWindow.className = shareWindow.className.replace('hidden', '')
+            } else {
+			    document.getElementById("body").style.overflow = "visible";
+                shareWindow.className += ' hidden'
+            }
+			
+			var image_div = document.getElementById("shareWindowCanvasDiv");
+			image_div.style.visibility="hidden";
+		}
+		function StartSnapshot() {
+			var userIdEl = document.getElementById("mute_video_user_id_list");
+            var userId = userIdEl.value;
+		
+			var result = local_ocx.snapshotVideo(userId, 0);
+            AddLog(userId + " 开始截图...");
+			
+			ShowSnapshotWindow(true);
+		}
+	</script>
 
     <script type="text/javascript">
-        const REMOTE_VIDEO = "remoteVideo";
         function AddLog(str) {
             var log = document.getElementById("log");
             if (log.value.length > 2000) {
@@ -748,7 +746,7 @@
 			//div.style.marginTop='30px';
 			div_outer.appendChild(div);
 			
-			var strOcxPath = "../SDK/LiteAVActiveXSDK.cab#version=1,0,0,1";
+			var strOcxPath = "../SDK/LiteAVActiveXSDK.cab#version=10,7,0,4267";
 			var ocxObject = document.createElement('object');
 			ocxObject.setAttribute("id", "object_"+uid);
 			ocxObject.setAttribute("class", "obj_local_new video");
@@ -795,7 +793,20 @@
 			const sdkappid = config.sdkAppId;
 			const usersig = config.userSig;
             local_ocx.enterRoom(sdkappid, usersig, roomIdEl.value, userIdEl.value, 20, 0, "");
+			SetVideoMuteBackgroundImage();
         }
+		function SetVideoMuteBackgroundImage() {
+			const canvas = document.createElement('canvas'); 
+			var ctx=canvas.getContext("2d");
+			ctx.fillStyle="gray";
+			//ctx.fillStyle="#ff00ff";
+			ctx.fillRect(0,0,20,20);
+			const rgba = ctx.getImageData(0,0,20,20).data;
+			console.log("buffer length: " + rgba.length);
+			
+			var rgba_base64 =  btoa(String.fromCharCode.apply(null, new Uint8Array(rgba.buffer)));
+			local_ocx.setVideoMuteImage(20, 20, rgba_base64, rgba_base64.length);
+		}
         function ExitRoom() {
 			local_ocx.stopLocalPreview();
             local_ocx.exitRoom();
@@ -930,10 +941,19 @@
             var mute = el.hasAttribute('mute');
 			
 			var userIdEl = document.getElementById("mute_audio_user_id_list");
+			if (mute) {
+				userIdEl.setAttribute("disabled", "disabled");
+			} else {
+				userIdEl.removeAttribute("disabled");
+			}
             var userId = userIdEl.value;
+			if (userId == "") {
+				local_ocx.muteLocalAudio(mute);
+			} else {
+				local_ocx.muteRemoteAudio(userId, mute);
+			}
 			
-            local_ocx.muteRemoteAudio(userId, mute);
-            SwitchElement(el, mute, "静音远端用户的声音", "取消静音远端用户的声音");
+            SwitchElement(el, mute, "静音用户声音", "取消静音用户声音");
         }
 
         function MuteLocalVideo(mute) {
@@ -949,10 +969,18 @@
             var mute = el.hasAttribute('mute');
 
 			var userIdEl = document.getElementById("mute_video_user_id_list");
+			if (mute) {
+				userIdEl.setAttribute("disabled", "disabled");
+			} else {
+				userIdEl.removeAttribute("disabled");
+			}
             var userId = userIdEl.value;
-
-            local_ocx.muteRemoteVideoStream(userId, 0, mute);
-            SwitchElement(el, mute, "暂停远端用户画面", "取消暂停远端用户画面");
+			if (userId == "") {
+				local_ocx.muteLocalVideo(0, mute);
+			} else {
+				local_ocx.muteRemoteVideoStream(userId, 0, mute);
+			}
+            SwitchElement(el, mute, "暂停用户画面", "取消暂停用户画面");
         }
 
         /**
@@ -1141,7 +1169,6 @@
         }
 
         function showDialog(show, result) {
-            var shareWindow = document.getElementById("shareScreenWrapper")
             if (show) {
 				var ret=window.showModalDialog("dialog.html",result,"dialogWidth=700px;dialogHeight=600px;status=no;help=no;scrollbars=no;location=no");
 				console.log(ret);
