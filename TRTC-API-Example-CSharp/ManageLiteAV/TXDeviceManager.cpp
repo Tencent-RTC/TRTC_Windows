@@ -1,4 +1,4 @@
-﻿#include "Utils.h"
+#include "Utils.h"
 
 // C++ Header
 #include "TRTC/ITRTCCloud.h"
@@ -92,6 +92,14 @@ namespace ManageLiteAV {
     {
         assert(nullptr != device_manager_);
     }
+    
+    ITXDeviceManager::ITXDeviceManager(liteav::ITXDeviceManager* manager)
+        : device_manager_(nullptr)
+        , m_ObserverImpl(nullptr)
+        , m_callback(nullptr)
+        , m_cb_locker(gcnew Object()) {
+        device_manager_ = manager;
+    }
 
     ITXDeviceManager::~ITXDeviceManager() {
         if (m_ObserverImpl)
@@ -101,10 +109,10 @@ namespace ManageLiteAV {
         }
     }
 
-    ITRTCDeviceCollection ^ ITXDeviceManager::getDevicesList(TRTCDeviceType type) {
+    ITRTCDeviceCollection ^ ITXDeviceManager::getDevicesList(TXMediaDeviceType type) {
         if (nullptr != device_manager_) {
             liteav::ITRTCDeviceCollection* collection =
-                device_manager_->getDevicesList(static_cast<liteav::TRTCDeviceType>(type));
+                device_manager_->getDevicesList(static_cast<liteav::TXMediaDeviceType>(type));
             if (nullptr != collection) {
                 TRTCDeviceCollectionImpl ^ impl = gcnew TRTCDeviceCollectionImpl();
                 impl->setDeviceCollection(collection);
@@ -114,21 +122,21 @@ namespace ManageLiteAV {
         return nullptr;
     }
 
-    int ITXDeviceManager::setCurrentDevice(TRTCDeviceType type, String ^ deviceId) {
+    int ITXDeviceManager::setCurrentDevice(TXMediaDeviceType type, String ^ deviceId) {
         int result = -1;
         if (nullptr != device_manager_) {
             char * device_id = Utils::StringToUTF8CharPtr(deviceId);
-            result = device_manager_->setCurrentDevice(static_cast<liteav::TRTCDeviceType>(type), device_id);
+            result = device_manager_->setCurrentDevice(static_cast<liteav::TXMediaDeviceType>(type), device_id);
             delete[] device_id;
             device_id = nullptr;
         }
         return result;
     }
 
-    ITRTCDeviceInfo ^ ITXDeviceManager::getCurrentDevice(TRTCDeviceType type) {
+    ITRTCDeviceInfo ^ ITXDeviceManager::getCurrentDevice(TXMediaDeviceType type) {
         if (nullptr != device_manager_) {
             liteav::ITRTCDeviceInfo* info =
-                device_manager_->getCurrentDevice(static_cast<liteav::TRTCDeviceType>(type));
+                device_manager_->getCurrentDevice(static_cast<liteav::TXMediaDeviceType>(type));
             if (nullptr != info) {
                 TRTCDeviceInfoImpl ^ impl = gcnew TRTCDeviceInfoImpl();
                 impl->setDeviceInfo(info);
@@ -138,31 +146,31 @@ namespace ManageLiteAV {
         return nullptr;
     }
 
-    int ITXDeviceManager::setCurrentDeviceVolume(TRTCDeviceType type, UInt32 volume) {
+    int ITXDeviceManager::setCurrentDeviceVolume(TXMediaDeviceType type, UInt32 volume) {
         if (nullptr != device_manager_) {
-            return device_manager_->setCurrentDeviceVolume(static_cast<liteav::TRTCDeviceType>(type),
+            return device_manager_->setCurrentDeviceVolume(static_cast<liteav::TXMediaDeviceType>(type),
                                                              volume);
         }
         return -1;
     }
 
-    UInt32 ITXDeviceManager::getCurrentDeviceVolume(TRTCDeviceType type) {
+    UInt32 ITXDeviceManager::getCurrentDeviceVolume(TXMediaDeviceType type) {
         if (nullptr != device_manager_) {
-            return device_manager_->getCurrentDeviceVolume(static_cast<liteav::TRTCDeviceType>(type));
+            return device_manager_->getCurrentDeviceVolume(static_cast<liteav::TXMediaDeviceType>(type));
         }
         return 0;
     }
 
-    int ITXDeviceManager::setCurrentDeviceMute(TRTCDeviceType type, bool mute) {
+    int ITXDeviceManager::setCurrentDeviceMute(TXMediaDeviceType type, bool mute) {
         if (nullptr != device_manager_) {
-            return device_manager_->setCurrentDeviceMute(static_cast<liteav::TRTCDeviceType>(type), mute);
+            return device_manager_->setCurrentDeviceMute(static_cast<liteav::TXMediaDeviceType>(type), mute);
         }
         return -1;
     }
 
-    bool ITXDeviceManager::getCurrentDeviceMute(TRTCDeviceType type) {
+    bool ITXDeviceManager::getCurrentDeviceMute(TXMediaDeviceType type) {
         if (nullptr != device_manager_) {
-            return device_manager_->getCurrentDeviceMute(static_cast<liteav::TRTCDeviceType>(type));
+            return device_manager_->getCurrentDeviceMute(static_cast<liteav::TXMediaDeviceType>(type));
         }
         return false;
     }

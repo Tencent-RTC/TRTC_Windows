@@ -1,4 +1,4 @@
-﻿// ITXDeviceManager.h
+// ITXDeviceManager.h
 #pragma once
 
 #include "TXDeviceObserver.h"
@@ -14,29 +14,6 @@ namespace ManageLiteAV {
     /// @defgroup ITXDeviceManager_csharp ITXDeviceManager
     /// 腾讯云视频通话功能的设备管理接口类
     /// @{
-
-    /// <summary>
-    /// 设备类型
-    /// </summary>
-    public enum class TRTCDeviceType {
-        /// <summary>
-        /// 未知设备
-        /// </summary>
-        TRTCDeviceTypeUnknow = -1,
-        /// <summary>
-        /// 麦克风
-        /// </summary>
-        TRTCDeviceTypeMic = 0,
-        /// <summary>
-        /// 扬声器
-        /// </summary>
-        TRTCDeviceTypeSpeaker = 1,
-        /// <summary>
-        /// 摄像头
-        /// </summary>
-        TRTCDeviceTypeCamera = 2,
-    };
-
     /// <summary>
     /// 设备列表
     /// <para>【获取SDK设备信息接口 ITRTCDeviceCollection】</para>
@@ -45,21 +22,21 @@ namespace ManageLiteAV {
     /// 枚举硬件设备列表，列表通过 ITRTCDeviceCollection 返回</para>
     /// </summary>
     public interface class ITRTCDeviceCollection {
-        public:
-         /// <returns>设备个数</returns>
-         UInt32 getCount();
+    public:
+        /// <returns>设备个数</returns>
+        UInt32 getCount();
 
-         /// <returns>设备名称，字符编码格式是UTF-8</returns>
-         String ^ getDeviceName(UInt32 index);
+        /// <returns>设备名称，字符编码格式是UTF-8</returns>
+        String^ getDeviceName(UInt32 index);
 
-         /// <returns>设备PID，字符编码格式是UTF-8</returns>
-         String ^ getDevicePID(UInt32 index);
+        /// <returns>设备PID，字符编码格式是UTF-8</returns>
+        String^ getDevicePID(UInt32 index);
 
-         /// <summary>
-         /// 遍历完设备后，调用release释放资源。
-         /// </summary>
-         void release();
-     };
+        /// <summary>
+        /// 遍历完设备后，调用release释放资源。
+        /// </summary>
+        void release();
+    };
 
     /// <summary>
     /// 设备Item信息
@@ -69,40 +46,46 @@ namespace ManageLiteAV {
     /// 获取当前使用设备。</para>
     /// </summary>
     public interface class ITRTCDeviceInfo {
-        public:
-         /// <returns>设备名称，字符编码格式是UTF-8</returns>
-         String ^ getDeviceName();
+    public:
+        /// <returns>设备名称，字符编码格式是UTF-8</returns>
+        String^ getDeviceName();
 
-         /// <returns>设备PID，字符编码格式是UTF-8</returns>
-         String ^ getDevicePID();
+        /// <returns>设备PID，字符编码格式是UTF-8</returns>
+        String^ getDevicePID();
 
-         /// <summary>
-         /// 获取完设备信息后，调用release释放资源。
-         /// </summary>
-         void release();
-     };
+        /// <summary>
+        /// 获取完设备信息后，调用release释放资源。
+        /// </summary>
+        void release();
+    };
 
     /// <summary>
     /// 设备类型（仅适用于桌面平台）
     /// </summary>
     public enum class TXMediaDeviceType {
-        /// <summary>
-        /// 未知设备
-        /// </summary>
+        //<summary>
+        //未知设备
+        //</summary>
         TXMediaDeviceTypeUnknown = -1,
-        /// <summary>
-        /// 麦克风
-        /// </summary>
+        //<summary>
+        //麦克风
+        //</summary>
         TXMediaDeviceTypeMic = 0,
-        /// <summary>
-        /// 扬声器
-        /// </summary>
+        //<summary>
+        //扬声器
+        //</summary>
         TXMediaDeviceTypeSpeaker = 1,
-        /// <summary>
-        /// 摄像头
-        /// </summary>
+        //<summary>
+        //摄像头
+        //</summary>
         TXMediaDeviceTypeCamera = 2,
     };
+
+    typedef TXMediaDeviceType TRTCDeviceType;
+#define TRTCDeviceTypeUnknow TXMediaDeviceType::TXMediaDeviceTypeUnknown
+#define TRTCDeviceTypeMic TXMediaDeviceType::TXMediaDeviceTypeMic
+#define TRTCDeviceTypeSpeaker TXMediaDeviceType::TXMediaDeviceTypeSpeaker
+#define TRTCDeviceTypeCamera TXMediaDeviceType::TXMediaDeviceTypeCamera
 
     /// <summary>
     /// 设备操作
@@ -200,9 +183,9 @@ namespace ManageLiteAV {
     public ref class ITXDeviceManager {
     protected:
         ~ITXDeviceManager();
-
     public:
         ITXDeviceManager();
+        ITXDeviceManager(liteav::ITXDeviceManager* manager);
 
         /// <summary>
         /// 获取设备列表
@@ -212,7 +195,7 @@ namespace ManageLiteAV {
         /// - SDK 会维护 ITXDeviceCollection 对象的生命周期，使用完毕后请调用 release 方法释放资源。
         /// - type 只支持 TRTCDeviceTypeMic、TRTCDeviceTypeSpeaker、TRTCDeviceTypeCamera
         /// </remarks>
-        ITRTCDeviceCollection^ getDevicesList(TRTCDeviceType type);
+        ITRTCDeviceCollection^ getDevicesList(TXMediaDeviceType type);
 
         /// <summary>
         /// 指定当前设备
@@ -223,14 +206,14 @@ namespace ManageLiteAV {
         /// <remarks>
         /// type 只支持 TRTCDeviceTypeMic、TRTCDeviceTypeSpeaker、TRTCDeviceTypeCamera
         /// </remarks>
-        int setCurrentDevice(TRTCDeviceType type, String^ deviceId);
+        int setCurrentDevice(TXMediaDeviceType type, String^ deviceId);
 
         /// <summary>
         /// 获取当前使用的设备
         /// </summary>
         /// <param name="type">设备类型，根据设备类型获取当前设备信息。详见 TRTCDeviceType 定义</param>
         /// <returns>ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称</returns>
-        ITRTCDeviceInfo ^ getCurrentDevice(TRTCDeviceType type);
+        ITRTCDeviceInfo^ getCurrentDevice(TXMediaDeviceType type);
 
         /// <summary>
         /// 设置当前设备的音量
@@ -239,14 +222,14 @@ namespace ManageLiteAV {
         /// <param name="volume">音量大小</param>
         /// <returns>0：操作成功 负数：失败</returns>
         /// <remarks>type 只支持 TRTCDeviceTypeMic、TRTCDeviceTypeSpeaker</remarks>
-        int setCurrentDeviceVolume(TRTCDeviceType type, UInt32 volume);
+        int setCurrentDeviceVolume(TXMediaDeviceType type, UInt32 volume);
 
         /// <summary>
         /// 获取当前设备的音量
         /// </summary>
         /// <param name="type">设备类型，根据设备类型获取当前设备音量。详见TRTCDeviceType定义。</param>
         /// <remarks>type 只支持 TRTCDeviceTypeMic、TRTCDeviceTypeSpeaker</remarks>
-        UInt32 getCurrentDeviceVolume(TRTCDeviceType type);
+        UInt32 getCurrentDeviceVolume(TXMediaDeviceType type);
 
         /// <summary>
         /// 设置当前设备是否静音
@@ -255,7 +238,7 @@ namespace ManageLiteAV {
         /// <param name="mute">是否静音/禁画</param>
         /// <returns>0：操作成功 负数：失败</returns>
         /// <remarks>type 只支持 TRTCDeviceTypeMic、TRTCDeviceTypeSpeaker</remarks>
-        int setCurrentDeviceMute(TRTCDeviceType type, bool mute);
+        int setCurrentDeviceMute(TXMediaDeviceType type, bool mute);
 
         /// <summary>
         /// 查询当前设备是否静音
@@ -263,7 +246,7 @@ namespace ManageLiteAV {
         /// <param name="type">设备类型，根据设备类型获取当前设备状态。详见TRTCDeviceType定义。</param>
         /// <returns>true : 当前设备已静音；false : 当前设备未静音</returns>
         /// <remarks>type 只支持 TRTCDeviceTypeMic、TRTCDeviceTypeSpeaker</remarks>
-        bool getCurrentDeviceMute(TRTCDeviceType type);
+        bool getCurrentDeviceMute(TXMediaDeviceType type);
 
         /// <summary>
         /// 开始摄像头测试
@@ -351,7 +334,7 @@ namespace ManageLiteAV {
         ITXDeviceObserver^ m_callback;
 
         TXDeviceObserverImpl* m_ObserverImpl;
-        
+
         Object^ m_cb_locker;
 
         // ITXDeviceObserver

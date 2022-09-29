@@ -226,6 +226,13 @@ copy /Y "$(ProjectDir)thirdparty\liteav\CPlusPlus\Win64\lib\*.dll"  "$(ProjectDi
     <ClInclude Include="cli\ITRTCAudioEffectManager.h" />
     <ClInclude Include="cli\ITRTCDeviceManager.h" />
     <ClInclude Include="cli\ITXLiteAVNetworkProxy.h" />
+    <ClInclude Include="cli\Live\V2TXLiveCode.h" />
+    <ClInclude Include="cli\Live\V2TXLiveDef.h" />
+    <ClInclude Include="cli\Live\V2TXLivePlayer.h" />
+    <ClInclude Include="cli\Live\V2TXLivePlayerObserver.h" />
+    <ClInclude Include="cli\Live\V2TXLivePremier.h" />
+    <ClInclude Include="cli\Live\V2TXLivePusher.h" />
+    <ClInclude Include="cli\Live\V2TXLivePusherObserver.h" />
     <ClInclude Include="cli\TRTC\ITRTCCloud.h" />
     <ClInclude Include="cli\TRTC\ITRTCCloudCallback.h" />
     <ClInclude Include="cli\TRTC\TRTCCloudDef.h" />
@@ -234,6 +241,8 @@ copy /Y "$(ProjectDir)thirdparty\liteav\CPlusPlus\Win64\lib\*.dll"  "$(ProjectDi
     <ClInclude Include="cli\TXLiteAVCode.h" />
     <ClInclude Include="cli\Vod\ITXVodPlayer.h" />
     <ClInclude Include="crashdump.h" />
+    <ClInclude Include="Live\V2TXLivePlayerObserverImpl.h" />
+    <ClInclude Include="Live\V2TXLivePusherObserverImpl.h" />
     <ClInclude Include="TRTCCloudCallback.h" />
     <ClInclude Include="TXDeviceObserver.h" />
     <ClInclude Include="TXVodPlayerCallback.h" />
@@ -243,6 +252,11 @@ copy /Y "$(ProjectDir)thirdparty\liteav\CPlusPlus\Win64\lib\*.dll"  "$(ProjectDi
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="crashdump.cpp" />
     <ClCompile Include="ITXLiteAVNetworkProxy.cpp" />
+    <ClCompile Include="Live\V2TXLivePlayer.cpp" />
+    <ClCompile Include="Live\V2TXLivePlayerObserverImpl.cpp" />
+    <ClCompile Include="Live\V2TXLivePremier.cpp" />
+    <ClCompile Include="Live\V2TXLivePusher.cpp" />
+    <ClCompile Include="Live\V2TXLivePusherObserverImpl.cpp" />
     <ClCompile Include="TRTCCloudCallback.cpp" />
     <ClCompile Include="TXDeviceManager.cpp" />
     <ClCompile Include="TRTCAudioEffectManager.cpp" />
@@ -251,6 +265,7 @@ copy /Y "$(ProjectDir)thirdparty\liteav\CPlusPlus\Win64\lib\*.dll"  "$(ProjectDi
     <ClCompile Include="TXLiteAVBase.cpp" />
     <ClCompile Include="TXVodPlayer.cpp" />
     <ClCompile Include="TXVodPlayerCallback.cpp" />
+    <ClCompile Include="V2TXLiveDef.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

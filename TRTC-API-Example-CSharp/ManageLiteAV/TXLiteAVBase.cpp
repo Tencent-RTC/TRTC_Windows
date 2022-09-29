@@ -36,6 +36,8 @@ namespace ManageLiteAV
     int TXLiteAVBase::setGlobalEnv(String^ env_config) {
         char* env = Utils::StringToUTF8CharPtr(env_config);
         int ret = ::setGlobalEnv(env);
+        delete[] env;
+        env = nullptr;
         return ret;
     }
 

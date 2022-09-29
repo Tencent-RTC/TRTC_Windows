@@ -138,6 +138,12 @@
     <Compile Include="Common\Log.cs" />
     <Compile Include="Common\Util.cs" />
     <Compile Include="DataManager.cs" />
+    <Compile Include="LiveWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LiveWindow.Designer.cs">
+      <DependentUpon>LiveWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="MessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,12 @@
     </Compile>
     <Compile Include="OtherSettingForm.Designer.cs">
       <DependentUpon>OtherSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortalWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PortalWindow.Designer.cs">
+      <DependentUpon>PortalWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,11 +252,17 @@
     <EmbeddedResource Include="AudioSettingForm.resx">
       <DependentUpon>AudioSettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LiveWindow.resx">
+      <DependentUpon>LiveWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OtherSettingForm.resx">
       <DependentUpon>OtherSettingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageForm.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortalWindow.resx">
+      <DependentUpon>PortalWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -307,6 +325,7 @@
     <EmbeddedResource Include="Resources\trtcres\48_1_audio.pcm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Resources\font\iconfont.ttf" />
     <None Include="Resources\trtcskin\logo_court_demo.png" />
     <None Include="Resources\trtcskin\logo_court.png" />
     <None Include="Resources\trtcskin\close_normal.png" />
@@ -347,6 +366,7 @@
     </Content>
     <Content Include="Resources\trtcskin\close_white.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>set Platform=Win64
@@ -356,6 +376,7 @@ if $(PlatformName)==x86 (
   set Platform=Win32
 )
 copy /Y "$(ProjectDir)..\SDK\CSharp\!Platform!\lib\*.dll" "$(ProjectDir)$(OutDir)"
+xcopy /E /Y "$(ProjectDir)Resources\font\*.ttf" "$(ProjectDir)$(OutDir)Resources\font\*.ttf"
 ENDLOCAL</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -186,14 +186,14 @@ namespace TRTCCSharpDemo
         {
             if (mDeviceManager == null) return;
             this.cameraDeviceComboBox.Items.Clear();
-            mCameraDeviceList = mDeviceManager.getDevicesList(TRTCDeviceType.TXMediaDeviceTypeCamera);
+            mCameraDeviceList = mDeviceManager.getDevicesList(TXMediaDeviceType.TXMediaDeviceTypeCamera);
             if (mCameraDeviceList.getCount() <= 0)
             {
                 this.cameraDeviceComboBox.Items.Add("");
                 this.cameraDeviceComboBox.SelectionStart = this.cameraDeviceComboBox.Text.Length;
                 return;
             }
-            mCameraDevice = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeCamera);
+            mCameraDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeCamera);
             for (uint i = 0; i < mCameraDeviceList.getCount(); i++)
             {
                 this.cameraDeviceComboBox.Items.Add(mCameraDeviceList.getDeviceName(i));
@@ -269,7 +269,7 @@ namespace TRTCCSharpDemo
             {
                 if (mCameraDeviceList.getDeviceName(i).Equals(this.cameraDeviceComboBox.Text))
                 {
-                    mDeviceManager.setCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeCamera, mCameraDeviceList.getDevicePID(i));
+                    mDeviceManager.setCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeCamera, mCameraDeviceList.getDevicePID(i));
                     mMainForm.OnCameraDeviceChange(mCameraDeviceList.getDevicePID(i));
                 }
             }

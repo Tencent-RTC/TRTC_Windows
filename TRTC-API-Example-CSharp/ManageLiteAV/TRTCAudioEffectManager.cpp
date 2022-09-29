@@ -1,4 +1,4 @@
-﻿#include "Utils.h"
+#include "Utils.h"
 
 // C++ Header
 #include "include/TRTC/ITRTCCloud.h"
@@ -87,6 +87,15 @@ namespace ManageLiteAV
         music_play_observer_impl_ = new TXMusicPlayObserverImpl;
     }
 
+    ITXAudioEffectManager::ITXAudioEffectManager(liteav::ITXAudioEffectManager* manager)
+        : audio_effect_manager_(nullptr)
+        , music_play_observer_impl_()
+        , music_play_observer_callback_()
+    {
+        audio_effect_manager_ = manager;
+        music_play_observer_impl_ = new TXMusicPlayObserverImpl;
+    }
+
     ITXAudioEffectManager::~ITXAudioEffectManager()
     {
         this->!ITXAudioEffectManager();
@@ -172,7 +181,7 @@ namespace ManageLiteAV
             
             audio_effect_manager_->startPlayMusic(audio_music_temp);
 
-            delete path;
+            delete[] path;
             path = nullptr;
 
         }
@@ -268,7 +277,7 @@ namespace ManageLiteAV
 
             long res = audio_effect_manager_->getMusicDurationInMS(path_temp);
 
-            delete path_temp;
+            delete[] path_temp;
             path_temp = nullptr;
 
             return res;

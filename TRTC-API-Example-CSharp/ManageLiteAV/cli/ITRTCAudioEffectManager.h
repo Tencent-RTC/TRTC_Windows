@@ -1,4 +1,4 @@
-﻿#ifndef __ITRTCAUDIOEFFECTMANAGER_H__
+#ifndef __ITRTCAUDIOEFFECTMANAGER_H__
 #define __ITRTCAUDIOEFFECTMANAGER_H__
 #include <windows.h>
 // C++ Header
@@ -126,6 +126,7 @@ namespace ManageLiteAV
 
     public:
         ITXAudioEffectManager();
+        ITXAudioEffectManager(liteav::ITXAudioEffectManager *manager);
         /////////////////////////////////////////////////////////////////////////////////
         //
         //                      （一）人声相关特效函数
