@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Vod">
       <UniqueIdentifier>{0d9a2fbf-1608-445f-96a7-c89cdea9e2d3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Live">
+      <UniqueIdentifier>{db3f7840-5150-43d3-8c54-9902f0004a10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Live">
+      <UniqueIdentifier>{792c2e80-438d-4644-8ad5-d3522d14450a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="crashdump.h">
@@ -66,6 +72,33 @@
     <ClInclude Include="cli\TXLiteAVBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLiveCode.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLiveDef.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLivePlayer.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLivePlayerObserver.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLivePremier.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="Live\V2TXLivePlayerObserverImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLivePusher.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="cli\Live\V2TXLivePusherObserver.h">
+      <Filter>Header Files\Live</Filter>
+    </ClInclude>
+    <ClInclude Include="Live\V2TXLivePusherObserverImpl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -100,6 +133,24 @@
     </ClCompile>
     <ClCompile Include="TXLiteAVBase.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Live\V2TXLivePlayer.cpp">
+      <Filter>Source Files\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Live\V2TXLivePlayerObserverImpl.cpp">
+      <Filter>Source Files\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Live\V2TXLivePremier.cpp">
+      <Filter>Source Files\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="V2TXLiveDef.cpp">
+      <Filter>Source Files\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Live\V2TXLivePusher.cpp">
+      <Filter>Source Files\Live</Filter>
+    </ClCompile>
+    <ClCompile Include="Live\V2TXLivePusherObserverImpl.cpp">
+      <Filter>Source Files\Live</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

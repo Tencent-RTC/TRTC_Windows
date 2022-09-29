@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using TRTCCSharpDemo.Common;
@@ -46,7 +46,7 @@ namespace TRTCCSharpDemo
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TRTCCSharpDemo.TRTCLoginForm());
+            Application.Run(new TRTCCSharpDemo.PortalWindow());
 
             // 退出程序前写入最新的 Local 配置信息。
             DataManager.GetInstance().Uninit();

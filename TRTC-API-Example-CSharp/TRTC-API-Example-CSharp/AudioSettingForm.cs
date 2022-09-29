@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -125,11 +125,11 @@ namespace TRTCCSharpDemo
             RefreshMicDeviceList();
             RefreshSpeakerList();
 
-            mMicVolume = (int)mDeviceManager.getCurrentDeviceVolume(TRTCDeviceType.TXMediaDeviceTypeMic);
+            mMicVolume = (int)mDeviceManager.getCurrentDeviceVolume(TXMediaDeviceType.TXMediaDeviceTypeMic);
             this.micVolumeTrackBar.Value = mMicVolume;
             this.micVolumeNumLabel.Text = mMicVolume + "%";
 
-            mSpeakerVolume = (int)mDeviceManager.getCurrentDeviceVolume(TRTCDeviceType.TXMediaDeviceTypeSpeaker);
+            mSpeakerVolume = (int)mDeviceManager.getCurrentDeviceVolume(TXMediaDeviceType.TXMediaDeviceTypeSpeaker);
             this.speakerVolumeTrackBar.Value = mSpeakerVolume;
             this.speakerVolumeNumLabel.Text = mSpeakerVolume + "%";
         }
@@ -137,14 +137,14 @@ namespace TRTCCSharpDemo
         {
             if (mDeviceManager == null) return;
             this.micDeviceComboBox.Items.Clear();
-            mMicDeviceList = mDeviceManager.getDevicesList(TRTCDeviceType.TXMediaDeviceTypeMic);
+            mMicDeviceList = mDeviceManager.getDevicesList(TXMediaDeviceType.TXMediaDeviceTypeMic);
             if (mMicDeviceList.getCount() <= 0)
             {
                 this.micDeviceComboBox.Items.Add("");
                 this.micDeviceComboBox.SelectionStart = this.micDeviceComboBox.Text.Length;
                 return;
             }
-            mMicDevice = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeMic);
+            mMicDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeMic);
             for (uint i = 0; i < mMicDeviceList.getCount(); i++)
             {
                 this.micDeviceComboBox.Items.Add(mMicDeviceList.getDeviceName(i));
@@ -157,14 +157,14 @@ namespace TRTCCSharpDemo
         {
             if (mDeviceManager == null) return;
             this.speakerDeviceComboBox.Items.Clear();
-            mSpeakerDeviceList = mDeviceManager.getDevicesList(TRTCDeviceType.TXMediaDeviceTypeSpeaker);
+            mSpeakerDeviceList = mDeviceManager.getDevicesList(TXMediaDeviceType.TXMediaDeviceTypeSpeaker);
             if (mSpeakerDeviceList.getCount() <= 0)
             {
                 this.speakerDeviceComboBox.Items.Add("");
                 this.speakerDeviceComboBox.SelectionStart = this.speakerDeviceComboBox.Text.Length;
                 return;
             }
-            mSpeakerDevice = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeSpeaker);
+            mSpeakerDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeSpeaker);
             for (uint i = 0; i < mSpeakerDeviceList.getCount(); i++)
             {
                 this.speakerDeviceComboBox.Items.Add(mSpeakerDeviceList.getDeviceName(i));
@@ -190,7 +190,7 @@ namespace TRTCCSharpDemo
             {
                 if (mMicDeviceList.getDeviceName(i).Equals(this.micDeviceComboBox.Text))
                 {
-                    mDeviceManager.setCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeMic, mMicDeviceList.getDevicePID(i));
+                    mDeviceManager.setCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeMic, mMicDeviceList.getDevicePID(i));
                     mMainForm.OnMicDeviceChange(mMicDeviceList.getDevicePID(i));
                 }
             }
@@ -200,7 +200,7 @@ namespace TRTCCSharpDemo
         {
             mMicVolume = this.micVolumeTrackBar.Value;
             this.micVolumeNumLabel.Text = mMicVolume + "%";
-            mDeviceManager.setCurrentDeviceVolume(TRTCDeviceType.TXMediaDeviceTypeMic, (uint)(mMicVolume * 100 / 100));
+            mDeviceManager.setCurrentDeviceVolume(TXMediaDeviceType.TXMediaDeviceTypeMic, (uint)(mMicVolume * 100 / 100));
         }
 
         private void speakerDeviceComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -210,7 +210,7 @@ namespace TRTCCSharpDemo
             {
                 if (mSpeakerDeviceList.getDeviceName(i).Equals(this.speakerDeviceComboBox.Text))
                 {
-                    mDeviceManager.setCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeSpeaker, mSpeakerDeviceList.getDevicePID(i));
+                    mDeviceManager.setCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeSpeaker, mSpeakerDeviceList.getDevicePID(i));
                     mMainForm.OnSpeakerDeviceChange(mSpeakerDeviceList.getDevicePID(i));
                 }
             }
@@ -220,7 +220,7 @@ namespace TRTCCSharpDemo
         {
             mSpeakerVolume = this.speakerVolumeTrackBar.Value;
             this.speakerVolumeNumLabel.Text = mSpeakerVolume + "%";
-            mDeviceManager.setCurrentDeviceVolume(TRTCDeviceType.TXMediaDeviceTypeSpeaker, (uint)(mSpeakerVolume * 100 / 100));
+            mDeviceManager.setCurrentDeviceVolume(TXMediaDeviceType.TXMediaDeviceTypeSpeaker, (uint)(mSpeakerVolume * 100 / 100));
         }
 
         private void micTestBtn_Click(object sender, EventArgs e)

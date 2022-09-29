@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using TRTCCSharpDemo.Common;
@@ -20,11 +20,13 @@ namespace TRTCCSharpDemo
 {
     public partial class TRTCLoginForm : Form
     {
-        public TRTCLoginForm()
+        PortalWindow m_portal;
+        public TRTCLoginForm(PortalWindow portal)
         {
             InitializeComponent();
 
             this.Disposed += new EventHandler(OnDisposed);
+            m_portal = portal;
         }
 
         private void OnDisposed(object sender, EventArgs e)
@@ -186,7 +188,7 @@ namespace TRTCCSharpDemo
         private void OnExitPicBoxClick(object sender, EventArgs e)
         {
             this.Close();
-            Application.Exit();
+            m_portal.Show();
         }
 
         private void OnRoomTextBoxKeyPress(object sender, KeyPressEventArgs e)

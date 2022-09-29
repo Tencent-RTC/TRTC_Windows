@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -413,27 +413,27 @@ namespace TRTCCSharpDemo
         /// </summary>
         private void InitLocalDevice()
         {
-            ITRTCDeviceCollection cameraList = mDeviceManager.getDevicesList(TRTCDeviceType.TXMediaDeviceTypeCamera);
+            ITRTCDeviceCollection cameraList = mDeviceManager.getDevicesList(TXMediaDeviceType.TXMediaDeviceTypeCamera);
             mCurCameraDevice = "";
             if (cameraList.getCount() > 0)
             {
-                ITRTCDeviceInfo camera = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeCamera);
+                ITRTCDeviceInfo camera = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeCamera);
                 mCurCameraDevice = camera.getDevicePID();
             }
             cameraList.release();
-            ITRTCDeviceCollection micList = mDeviceManager.getDevicesList(TRTCDeviceType.TXMediaDeviceTypeMic);
+            ITRTCDeviceCollection micList = mDeviceManager.getDevicesList(TXMediaDeviceType.TXMediaDeviceTypeMic);
             mCurMicDevice = "";
             if (micList.getCount() > 0)
             {
-                ITRTCDeviceInfo mic = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeMic);
+                ITRTCDeviceInfo mic = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeMic);
                 mCurMicDevice = mic.getDevicePID();
             }
             micList.release();
-            ITRTCDeviceCollection speakerList = mDeviceManager.getDevicesList(TRTCDeviceType.TXMediaDeviceTypeSpeaker);
+            ITRTCDeviceCollection speakerList = mDeviceManager.getDevicesList(TXMediaDeviceType.TXMediaDeviceTypeSpeaker);
             mCurSpeakerDevice = "";
             if (speakerList.getCount() > 0)
             {
-                ITRTCDeviceInfo speaker = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeSpeaker);
+                ITRTCDeviceInfo speaker = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeSpeaker);
                 mCurSpeakerDevice = speaker.getDevicePID();
             }
             speakerList.release();
@@ -929,8 +929,6 @@ namespace TRTCCSharpDemo
                 mTRTCCloud.exitRoom();
             else
                 onExitRoom(0);
-            if (mLoginForm == null)
-                mLoginForm = new TRTCLoginForm();
             mLoginForm.Show();
         }
 
@@ -1524,7 +1522,7 @@ namespace TRTCCSharpDemo
             Log.I(String.Format("onCameraDidReady"));
             // 实时获取当前使用的摄像头设备信息
             if (mTRTCCloud != null)
-                mCurCameraDevice = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeCamera).getDevicePID();
+                mCurCameraDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeCamera).getDevicePID();
         }
 
         public void onMicDidReady()
@@ -1532,7 +1530,7 @@ namespace TRTCCSharpDemo
             Log.I(String.Format("onMicDidReady"));
             // 实时获取当前使用的麦克风设备信息
             if (mTRTCCloud != null)
-            mCurMicDevice = mDeviceManager.getCurrentDevice(TRTCDeviceType.TXMediaDeviceTypeMic).getDevicePID();
+            mCurMicDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeMic).getDevicePID();
         }
 
         public void onConnectionLost()
@@ -2176,7 +2174,7 @@ namespace TRTCCSharpDemo
             }));
         }
 
-        public void onDeviceChange(string deviceId, TRTCDeviceType type, TRTCDeviceState state)
+        public void onDeviceChange(string deviceId, TXMediaDeviceType type, TRTCDeviceState state)
         {
             // 推荐使用 onDeviceChanged
         }

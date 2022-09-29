@@ -339,15 +339,6 @@ namespace TRTCCSharpDemo
 
         }
 
-        private void TimeBar_Scroll(object sender, EventArgs e)
-        {
-            if(mVodPlayerController != null)
-            {
-                int iPos = TimeBar.Value;
-                ulong vodPos =Convert.ToUInt64(mDurationMS * (iPos / 1000.0));
-                mVodPlayerController.seek(vodPos);
-            }
-        }
         private void PlayBox_Click(object sender, EventArgs e)
         {
             if (mVodStatus == VodStatus.Vod_Stop)
@@ -449,6 +440,16 @@ namespace TRTCCSharpDemo
         public int onVodAudioFrame(ref TRTCAudioFrame frame)
         {
             return 0;
+        }
+
+        private void TimeBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (mVodPlayerController != null)
+            {
+                int iPos = TimeBar.Value;
+                ulong vodPos = Convert.ToUInt64(mDurationMS * (iPos / 1000.0));
+                mVodPlayerController.seek(vodPos);
+            }
         }
     }
 }

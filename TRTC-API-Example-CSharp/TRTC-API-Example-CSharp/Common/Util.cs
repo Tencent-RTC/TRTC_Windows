@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -93,5 +93,28 @@ namespace TRTCCSharpDemo.Common
 
             return strTime;
         }
+
+
+        private static System.Drawing.Text.PrivateFontCollection pfcc;
+        
+        public static System.Drawing.Text.PrivateFontCollection PFCC
+        {
+            get { return pfcc ?? LoadFont(); }
+            set { pfcc = value; }
+        }
+        
+        public static bool isLoadFont { get; private set; } = false;
+        
+        public static System.Drawing.Text.PrivateFontCollection LoadFont()
+        {
+            if (!isLoadFont)
+            {
+                pfcc = new System.Drawing.Text.PrivateFontCollection();
+                pfcc.AddFontFile(Environment.CurrentDirectory + "/Resources/font/iconfont.ttf");
+                isLoadFont = true;
+            }
+            return pfcc;
+        }
+
     }
 }

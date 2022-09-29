@@ -138,7 +138,7 @@
             this.TimeBar.TabIndex = 1;
             this.TimeBar.TickFrequency = 0;
             this.TimeBar.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.TimeBar.Scroll += new System.EventHandler(this.TimeBar_Scroll);
+            this.TimeBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TimeBar_MouseDown);
             // 
             // VolumeBar
             // 
