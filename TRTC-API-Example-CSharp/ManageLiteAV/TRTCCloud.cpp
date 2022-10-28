@@ -1456,7 +1456,9 @@ namespace ManageLiteAV
             temp->height = frame->height;
             temp->length = frame->length;
             temp->rotation = static_cast<::TRTCVideoRotation>(frame->rotation);
-            temp->textureId = frame->textureId;
+            if (temp->texture) {
+              temp->texture->glTextureId = frame->texture.glTextureId;
+            }
             temp->timestamp = frame->timestamp;
             temp->videoFormat = static_cast<::TRTCVideoPixelFormat>(frame->videoFormat);
             temp->width = frame->width;
@@ -1478,7 +1480,9 @@ namespace ManageLiteAV
             temp->height = frame->height;
             temp->length = frame->length;
             temp->rotation = static_cast<::TRTCVideoRotation>(frame->rotation);
-            temp->textureId = frame->textureId;
+            if (temp->texture) {
+              temp->texture->glTextureId = frame->texture.glTextureId;
+            }
             temp->timestamp = frame->timestamp;
             temp->videoFormat = static_cast<::TRTCVideoPixelFormat>(frame->videoFormat);
             temp->width = frame->width;
@@ -3099,7 +3103,9 @@ namespace ManageLiteAV
             Marshal::Copy(IntPtr(frame->data), videoFrame->data, 0, frame->length);
             videoFrame->bufferType = static_cast<TRTCVideoBufferType>(frame->bufferType);
             videoFrame->rotation = static_cast<TRTCVideoRotation>(frame->rotation);
-            videoFrame->textureId = frame->textureId;
+            if (frame->texture) {
+              videoFrame->texture.glTextureId = frame->texture->glTextureId;
+            }
             videoFrame->timestamp = frame->timestamp;
             videoFrame->videoFormat = static_cast<TRTCVideoPixelFormat>(frame->videoFormat);
             videoRenderCallback->onRenderVideoFrame(Utils::CharPtrToString(userId), stream_type, videoFrame);
@@ -3135,7 +3141,9 @@ namespace ManageLiteAV
             srcVideoFrame->bufferType = static_cast<TRTCVideoBufferType>(srcFrame->bufferType);
             srcVideoFrame->rotation = static_cast<TRTCVideoRotation>(srcFrame->rotation);
             srcVideoFrame->videoFormat = static_cast<TRTCVideoPixelFormat>(srcFrame->videoFormat);
-            srcVideoFrame->textureId = srcFrame->textureId;
+            if (srcFrame->texture) {
+              srcVideoFrame->texture.glTextureId = srcFrame->texture->glTextureId;
+            }
             srcVideoFrame->timestamp = srcFrame->timestamp;
             Marshal::Copy(IntPtr(srcFrame->data), srcVideoFrame->data, 0, srcFrame->length);
 
@@ -3168,7 +3176,9 @@ namespace ManageLiteAV
             dstFrame->width = dstVideoFrame->width;
             dstFrame->height = dstVideoFrame->height;
             dstFrame->length = dstVideoFrame->length;
-            dstFrame->textureId = dstVideoFrame->textureId;
+            if (dstFrame->texture) {
+              dstFrame->texture->glTextureId = dstVideoFrame->texture.glTextureId;
+            }
             dstFrame->timestamp = dstVideoFrame->timestamp;
             pin_ptr<Byte> pByte = &dstVideoFrame->data[0];
             memcpy(dstFrame->data, pByte, dstVideoFrame->data->Length);

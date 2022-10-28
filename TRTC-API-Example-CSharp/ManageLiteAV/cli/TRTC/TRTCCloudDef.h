@@ -1157,7 +1157,17 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.6 视频帧数据
+    /// 6.6 视频纹理数据
+    /// </summary>
+    public ref struct TRTCTexture {
+        ///【字段含义】视频纹理 ID。
+        int glTextureId;
+
+        TRTCTexture() : glTextureId(0) {}
+    };
+
+    /// <summary>
+    /// 6.7 视频帧数据
     /// </summary>
     public ref struct TRTCVideoFrame
     {
@@ -1176,7 +1186,7 @@ namespace ManageLiteAV {
         /// <summary>
         /// 视频纹理ID，字段bufferType是LiteAVVideoBufferType_Texture时生效
         /// </summary>
-        int textureId;
+        TRTCTexture texture;
         /// <summary>
         /// 视频数据的长度，单位是字节，对于i420而言， length = width * height * 3 / 2，对于BGRA32而言， length = width * height * 4
         /// </summary>
@@ -1202,7 +1212,6 @@ namespace ManageLiteAV {
             : videoFormat(TRTCVideoPixelFormat::TRTCVideoPixelFormat_Unknown)
             , bufferType(TRTCVideoBufferType::TRTCVideoBufferType_Unknown)
             , data(nullptr)
-            , textureId(-1)
             , length(0)
             , width(640)
             , height(360)
@@ -1212,7 +1221,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.7 音频帧数据
+    /// 6.8 音频帧数据
     /// </summary>
     public ref struct TRTCAudioFrame
     {
@@ -1252,7 +1261,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.8 网络测速结果
+    /// 6.9 网络测速结果
     /// <para>
     /// 您可以在用户进入房间前通过 TRTCCloud 的 startSpeedTest 接口进行测速 （注意：请不要在通话中调用），
     /// 测速结果会每2 - 3秒钟返回一次，每次返回一个 IP 地址的测试结果。
@@ -1320,7 +1329,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.9 云端混流中每一路子画面的位置信息
+    /// 6.10 云端混流中每一路子画面的位置信息
     /// 
     /// <para>TRTCMixUser 用于指定每一路（即每一个 userId）视频画面的具体摆放位置</para>
     /// </summary>
@@ -1371,7 +1380,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.10 混流参数配置模式
+    /// 6.11 混流参数配置模式
     /// 
     /// <para>目前暂仅支持手动配置这一种模式，即需要指定 TRTCTranscodingConfig 的全部参数。</para>
     /// </summary>
@@ -1423,7 +1432,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.11 云端混流（转码）配置
+    /// 6.12 云端混流（转码）配置
     ///
     /// <para>包括最终编码质量和各路画面的摆放位置</para>
     /// </summary>
@@ -1532,7 +1541,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.12 CDN 旁路推流参数 
+    /// 6.13 CDN 旁路推流参数 
     /// </summary>
     public ref struct TRTCPublishCDNParam
     {
@@ -1559,7 +1568,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.13 录音参数
+    /// 6.14 录音参数
     ///
     /// <para>请正确填写参数，确保录音文件顺利生成。</para>
     /// </summary>
@@ -1587,7 +1596,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.14 音效播放（已废弃）
+    /// 6.15 音效播放（已废弃）
     /// </summary>
     public ref struct TRTCAudioEffectParam {
 
@@ -1631,7 +1640,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.15 切换房间参数
+    /// 6.16 切换房间参数
     /// </summary>
     public ref struct TRTCSwitchRoomConfig {
         /// <summary>
@@ -1669,7 +1678,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.16 画面渲染参数
+    /// 6.17 画面渲染参数
     /// 
     /// <para>您可以通过设置此参数来控制画面的旋转、填充、镜像模式</para>
     /// </summary>
@@ -1697,7 +1706,7 @@ namespace ManageLiteAV {
     };
 
     /// <summary>
-    /// 6.17 测速参数
+    /// 6.18 测速参数
     ///
     /// <para>您可以在用户进入房间前通过 startSpeedTest 接口测试网速（注意：请不要在通话中调用）。</para>
     /// </summary>

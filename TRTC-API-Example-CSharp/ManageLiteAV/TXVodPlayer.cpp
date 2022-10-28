@@ -77,7 +77,9 @@ namespace ManageLiteAV
             videoFrame->data = gcnew array<Byte>(frame.length);
             Marshal::Copy(IntPtr(frame.data), videoFrame->data, 0, frame.length);
             videoFrame->rotation = static_cast<TRTCVideoRotation>(frame.rotation);
-            videoFrame->textureId = frame.textureId;
+            if (frame.texture) {
+              videoFrame->texture.glTextureId = frame.texture->glTextureId;
+            }
             videoFrame->timestamp = frame.timestamp;
 
             return callback->onVodVideoFrame(videoFrame);
