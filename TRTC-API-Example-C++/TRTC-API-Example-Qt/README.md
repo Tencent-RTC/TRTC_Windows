@@ -61,17 +61,17 @@
 3. 设置 `defs.h` 文件中的相关参数：
 	<ul>
 	<li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
-	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
+	<li/>SDKSECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
     <img src="https://main.qcloudimg.com/raw/8f64723d3e202a5345517a18f9e8c5d8.png"> 
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
->**注意：**此处获取 SECRETKEY 的方案仅适用于调试 Demo ，正式上线前请将 UserSig 的计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用, [详细文档](https://cloud.tencent.com/document/product/647/17275#Server)。
+>**注意：**此处获取 SDKSECRETKEY 的方案仅适用于调试 Demo ，正式上线前请将 UserSig 的计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用, [详细文档](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:step4)
 ### 步骤4：如何跑通Demo
 > 
->**Mac:** 下载并安装 [Qt Creator](https://www.qt.io/download-qt-installer?hsCtaTracking=99d9dd4f-5681-48d2-b096-470725510d34%7C074ddad0-fdef-4e53-8aa8-5e8a876d6ab4)，然后用 Qt Creator 打开 `QTDemo.pro` ，到 `QTDemo/base/Defs.h` 头文件中配置好对应的 `SECRETKEY` 和 `SDKAppID` 即可开始编译运行调试；
+>**Mac:** 下载并安装 [Qt Creator](https://www.qt.io/download-qt-installer?hsCtaTracking=99d9dd4f-5681-48d2-b096-470725510d34%7C074ddad0-fdef-4e53-8aa8-5e8a876d6ab4)，然后用 Qt Creator 打开 `QTDemo.pro` ，到 `QTDemo/base/Defs.h` 头文件中配置好对应的 `SDKSECRETKEY` 和 `SDKAppID` 即可开始编译运行调试；
 >
 > `注意：`请您确保已将`TXLiteAVSDK_TRTC_Mac.framework`[下载](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2)并保存到 `Mac/SDK` 文件夹下。最终的工程路径如下——
 >```

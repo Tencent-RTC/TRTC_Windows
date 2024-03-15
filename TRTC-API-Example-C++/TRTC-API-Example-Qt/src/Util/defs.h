@@ -42,7 +42,7 @@ static const int SDKAppID = PLACEHOLDER;
  * Notes:  This method is for testing only. Before commercial launch, please migrate the UserSig calculation code and key to your backend server to prevent key disclosure and traffic theft.
  * Documentation: https://intl.cloud.tencent.com/document/product/647/35166#Server
  */
-static const char* SECRETKEY = "PLACEHOLDER";
+static const char* SDKSECRETKEY = "PLACEHOLDER";
 
 /**
  *  签名过期时间，建议不要设置得过短
