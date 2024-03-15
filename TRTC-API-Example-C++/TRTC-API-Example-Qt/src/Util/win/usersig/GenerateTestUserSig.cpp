@@ -302,8 +302,8 @@ GenerateTestUserSig::~GenerateTestUserSig() {
 const char* GenerateTestUserSig::genTestUserSig(const char* userId, int appid, const char* token) {
     uint32_t currTime = (uint32_t)time(NULL);
 
-    std::string secretkey = token;
-    GenerateTestUserSigImpl impl(appid, secretkey, currTime, EXPIRETIME);
+    std::string sdkSecretkey = token;
+    GenerateTestUserSigImpl impl(appid, sdkSecretkey, currTime, EXPIRETIME);
 
     std::string usersig_str = impl.genTestUserSig(userId);
 

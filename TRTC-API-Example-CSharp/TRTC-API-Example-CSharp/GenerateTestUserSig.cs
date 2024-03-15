@@ -12,7 +12,7 @@ using tencentyun;
 /// Attention：请不要将如下代码发布到您的线上正式版本的 App 中，原因如下：
 /// 
 ///            本文件中的代码虽然能够正确计算出 UserSig，但仅适合快速调通 SDK 的基本功能，不适合线上产品，
-///            这是因为客户端代码中的 SECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。
+///            这是因为客户端代码中的 SDKSECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。
 ///             一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
 ///             
 ///            正确的做法是将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。
@@ -46,7 +46,7 @@ namespace TRTCCSharpDemo
         /// 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
         /// 文档：https://cloud.tencent.com/document/product/647/17275#GetFromServer
         /// </remarks>
-        public const string SECRETKEY = @"";
+        public const string SDKSECRETKEY = @"";
 
         /// <summary>
         /// 签名过期时间，建议不要设置的过短
@@ -90,7 +90,7 @@ namespace TRTCCSharpDemo
         /// 请不要将如下代码发布到您的线上正式版本的 App 中，原因如下：
         /// 
         /// 本文件中的代码虽然能够正确计算出 UserSig，但仅适合快速调通 SDK 的基本功能，不适合线上产品，
-        /// 这是因为客户端代码中的 SECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。
+        /// 这是因为客户端代码中的 SDKSECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。
         /// 一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
         /// 
         /// 正确的做法是将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。
@@ -100,8 +100,8 @@ namespace TRTCCSharpDemo
         /// </remarks>
         public string GenTestUserSig(string userId)
         {
-            if (SDKAPPID == 0 || string.IsNullOrEmpty(SECRETKEY)) return null;
-            TLSSigAPIv2 api = new TLSSigAPIv2(SDKAPPID, SECRETKEY);
+            if (SDKAPPID == 0 || string.IsNullOrEmpty(SDKSECRETKEY)) return null;
+            TLSSigAPIv2 api = new TLSSigAPIv2(SDKAPPID, SDKSECRETKEY);
             // 统一转换为UTF8，SDK内部是用UTF8编码。
             return api.GenSig(Util.UTF16To8(userId));
         }
