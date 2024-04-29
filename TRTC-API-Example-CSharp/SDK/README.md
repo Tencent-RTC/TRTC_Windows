@@ -1,5 +1,5 @@
-# TRTC C# SDK （Windows）
+# TRTC C# SDK (Windows)
 
-## 下载地址
+## Download Link
 
-[下载SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip)
+[Download SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip)

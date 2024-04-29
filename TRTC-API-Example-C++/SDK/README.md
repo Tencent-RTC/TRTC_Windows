@@ -1,5 +1,5 @@
-# TRTC SDK （Windows）
+# TRTC SDK (Windows)
 
-## 下载地址
+## Download Link
 
-[下载SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip)
+[Download SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip)
