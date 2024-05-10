@@ -23,12 +23,12 @@ namespace ManageLiteAV {
         ~CrashDump();
 
         /// <summary>
-        /// 开启minidump生成功能，发生崩溃时，自动生成minidump转储文件，用于分析崩溃原因
+        /// Enable minidump generation. For generate dump file to analyse crash cause.
         /// </summary>
         void open();
 
         /// <summary>
-        /// 关闭minidump生成功能
+        /// Disable minidump generation
         /// </summary>
         void close();
     private:

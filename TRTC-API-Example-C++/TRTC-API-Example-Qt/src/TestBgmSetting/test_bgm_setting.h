@@ -1,21 +1,4 @@
 /**
- * TRTC 背景音乐和混响设置
- *
- * 参考此模块中的方法调用，可以设置进房后主播的背景音乐效果，和人声混响效果，包括：
- * - startPlayBgmMusic      :开始播放背景音乐
- * - stopPlayBgmMusic       :停止播放背景音乐
- * - pausePlayBgmMusic      :暂停播放背景音乐
- * - resumePlayBgmMusic     :恢复播放背景音乐
- * - setVoiceReverbType     :设置人声混响效果（KTV、小房间、大会堂、低沉、洪亮...）
- * - setMusicPublishVolume  :设置背景音乐的远端音量大小, 即主播可以通过此接口设置远端观众能听到的背景音乐的音量大小。
- * - setMusicPlayoutVolume  :设置背景音乐的本地音量大小，即主播可以通过此接口设置主播自己本地的背景音乐的音量大小。
- * - setAllMusicVolume      :设置全局背景音乐的本地和远端音量的大小
- * - setMusicPitch          :调整背景音乐的音调高低
- * - setMusicSpeedRate      :调整背景音乐的变速效果
- * - setVoiceCaptureVolume  :设置麦克风采集人声的音量
- */
-
-/**
  * Background music and reverb effects
  *
  * In this module, you can use the methods below to set background music and reverb effects for anchors after room entry.

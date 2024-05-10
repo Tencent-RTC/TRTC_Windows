@@ -76,7 +76,7 @@ static LONG WINAPI customUnhandledExceptionFilter(struct _EXCEPTION_POINTERS* pE
     std::wstring exeDirPath(fullPath, lastSlash - fullPath + 1);
 
     WCHAR filePath[MAX_PATH] = { 0 };
-    for (int i = 0; ; ++i)  // 避免同名
+    for (int i = 0; ; ++i)  // Avoid same defintion
     {
         SYSTEMTIME sys_time = { 0 };
         ::GetLocalTime(&sys_time);
@@ -168,11 +168,11 @@ namespace ManageLiteAV {
 
     void CrashDump::open()
     {
-        // 堆异常
+        // Heap exception
         BOOL bRet = ::HeapSetInformation(NULL, HeapEnableTerminationOnCorruption, NULL, 0);
         ::OutputDebugStringW(L"HeapSetInformation\n");
 
-        // DEP策略
+        // DEP Strategy
         bRet = ::SetProcessDEPPolicy(PROCESS_DEP_ENABLE | PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION);
         ::OutputDebugStringW(L"SetProcessDEPPolicy\n");
 

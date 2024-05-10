@@ -1,14 +1,4 @@
 /**
- * TRTC Log 相关接口函数示例
- *
- * 1.setLogLevel           :设置 Log 输出级别
- * 2.setConsoleEnabled     :启用或禁用控制台日志打印
- * 3.setLogCompressEnabled :启用或禁用 Log 的本地压缩
- * 4.setLogDirPath         :设置日志保存路径
- * 5.onLog                 :日志打印时的回调
- */
-
-/**
  * Logs
  *
  * 1. setLogLevel: set the log output level

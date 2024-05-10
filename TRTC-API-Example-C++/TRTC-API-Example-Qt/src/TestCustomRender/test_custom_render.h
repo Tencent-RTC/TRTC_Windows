@@ -1,16 +1,4 @@
 /**
- * TRTC 视频自定义渲染，即不依赖TRTC库的默认渲染能力，接收视频数据，自定义渲染
- *
- * - 核心方法调用：setLocalVideoRenderCallback()/setRemoteVideoRenderCallback()，通过设置回调接收SDK接收到的本地/远程数据，进行自定义的渲染操作
- * -
- * - 调用方法参考 :
- * - startLocalVideoRender() / stopLocalVideoRender()
- * - startRemoteVideoRender() / stopRemoteVideoRender()
- * -
- * - 具体API说明可参见：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#ad64031e060146f7985263aad994fc733
- */
-
-/**
  * Custom video rendering, i.e., receiving video data and rendering it by yourself instead of using the default rendering capability of the TRTC library
  *
  * - Method:  Call setLocalVideoRenderCallback()/setRemoteVideoRenderCallback() to set callbacks for the receiving of local/remote data so that you can render the data by yourself.

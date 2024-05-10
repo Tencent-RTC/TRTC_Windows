@@ -1,14 +1,4 @@
 /**
- * TRTC 网络测试
- *
- * - 开始进行网络测速（视频通话期间请勿测试，以免影响通话质量）
- * - 测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器。 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络。
- *
- * - 调用方式参考：startSpeedTest()/stopSpeedTest()
- * - 测速回调： onSpeedTest()
- */
-
-/**
  * Network speed testing
  *
  * - Start network speed testing, which should be avoided during video calls to ensure call quality

@@ -1,5 +1,5 @@
 /**
- * TRTC 远端用户共享屏幕的展示窗口
+ * Display window of remote user's screen in TRTC rooms
  */
 
 /**
