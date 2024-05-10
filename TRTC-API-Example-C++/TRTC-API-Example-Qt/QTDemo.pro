@@ -164,7 +164,7 @@ DEPENDPATH += $${SOURCE_PATHS}
 
 QMAKE_INFO_PLIST += Info.plist
 
-# 添加库依赖
+# Add library dependency
 LIBS += "-F$$PWD/src/Util/mac/usersig"
 LIBS += "-F$$PWD/../SDK"
 LIBS += -framework TXLiteAVSDK_TRTC_Mac
@@ -175,7 +175,7 @@ LIBS += -lresolv
 #without c++11 & AppKit library compiler can't solve address for symbols
 LIBS += -framework AppKit
 
-# 添加TXLiteAVSDK_TRTC_Mac.framework头文件
+# Add the TXLiteAVSDK TRTC Mac.framework header file
 INCLUDEPATH += $$PWD/../SDK/TXLiteAVSDK_TRTC_Mac.framework/Headers/cpp_interface \
                $$PWD/../SDK/TXLiteAVSDK_TRTC_Mac.framework/Headers
 
