@@ -20,7 +20,7 @@
  */
 function genTestUserSig(userID) {
   /**
-   * Tencent Cloud SDKAppId should be replaced with your SDKAppId.
+   * Tencent Cloud SDKAppId should be replaced with your own SDKAppId.
    *
    * Enter Tencent Cloud real-time audio and video[Console](https://console.cloud.tencent.com/rav )
      to create app then can check SDKAppId，
