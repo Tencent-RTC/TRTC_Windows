@@ -1,14 +1,4 @@
 /**
- * TRTC 自定义采集模块，演示如何自定义采集音频/视频上行
- *
- * - 核心用法即需要用 sendCustomVideoData() /sendCustomAudioData() 不断地向 SDK 塞入自己采集的视频/音频画面。
- * -
- * - 音频采集 : 参考startCustomAudioData()/stopCustomAudioData()
- * - 视频采集 : 参考startCustomVideoData()/stopCustomVideoData()
- * - 具体API说明可参见：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#aeeff994b8a298fa4948a11225312f629
- */
-
-/**
  * Custom capturing, i.e., capturing custom audio/video to send to the cloud
  *
  * - The key is using sendCustomVideoData()/sendCustomAudioData() to keep feeding video/audio captured by yourself into the SDK.

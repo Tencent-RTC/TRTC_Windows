@@ -1,19 +1,4 @@
 /**
- * TRTC 音频检测
- *
- * - 需要通过getDeviceManager()获取ITXDeviceManager实例执行音频检测
- * - 调用方式参见：
- * - 1.麦克风检测 - startMicTest();stopMicTest();
- * - 2.扬声器检测 - startSpeakerTest();stopSpeakerTest();
- * -
- * - 获取可用设备方式参见：
- * - refreshMicDevices()/refreshSpeakerDevices();
- * -
- * - 需要关注的回调方法：
- * - onTestMicVolume(uint32_t volume);void onTestSpeakerVolume(uint32_t volume);
- */
-
-/**
  * Audio testing
  *
  * - Call getDeviceManager() to get an ITXDeviceManager instance for audio testing.

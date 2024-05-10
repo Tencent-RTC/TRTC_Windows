@@ -1,15 +1,4 @@
 /**
- * TRTC 美颜和水印功能
- *
- * - 美颜:参考updateBeautyStyle:
- * - 设置美颜、美白、红润效果级别
- * - SDK 内部集成了两套风格不同的磨皮算法，一套我们取名叫“光滑”，适用于美女秀场，效果比较明显。 另一套我们取名“自然”，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
- * -
- * - 水印：参考setWatermark()/unsetWatermark()
- * - 设置水印后，远端用户看到你的画面上会叠加水印浮层，注意水印只支持主路视频流
- */
-
-/**
  * Beauty filters and watermarks
  *
  * - For beauty filters, please refer to:updateBeautyStyle:

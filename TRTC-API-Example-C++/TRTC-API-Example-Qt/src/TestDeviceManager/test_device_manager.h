@@ -1,17 +1,4 @@
 /**
- * TRTC 设备管理
- *
- * - 需要通过getDeviceManager()获取ITXDeviceManager实例，获取当前设备列表，设置当前使用设备
- * - 获取当前视频采集设备/麦克风/扬声器设备列表的调用方式参考：
- * - refreshMicDevices()
- * - refreshCameraDevices()
- * - refreshSpeakerDevices()
- * -
- * - 设置当前使用设备：
- * - setCurrentDevice(); API文档参见：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITXDeviceManager__cplusplus.html#abedb16669f004919730e9c027b71808c
- */
-
-/**
  * Device management
  *
  * - Call getDeviceManager() to get an ITXDeviceManager instance, get the device list, and set the device to use.

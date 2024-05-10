@@ -1,19 +1,4 @@
 /**
- * TRTC 音频设置
- *
- * - 此功能模块中，可以参考并调用如下功能
- * - setRemoteAudioVolume -> 设置某个远程用户的播放音量
- * - setAudioPlayoutVolume -> 设置 SDK 播放音量
- * - setApplicationPlayVolume -> 设置 Windows 系统音量合成器中当前进程的音量
- * - setApplicationMuteState -> 设置 Windows 系统音量合成器中当前进程的静音状态
- * - setCurrentDeviceVolume -> 设置当前设备的音量
- * - setCurrentDeviceMute -> 设置当前设备是否静音
- * - setAudioCaptureVolume -> 设置 SDK 采集音量
- * - setSystemAudioLoopbackVolume -> 设置系统声音采集的音量
- * - startSystemAudioLoopback -> 打开系统声音采集(开启后可以采集整个操作系统的播放声音（参数path 为空）或某一个播放器（参数path 不为空）的声音， 并将其混入到当前麦克风采集的声音中一起发送到云端。)
- */
-
-/**
  * Audio settings
  *
  * - In this module, you can do the following by calling the corresponding APIs.

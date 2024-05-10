@@ -1,24 +1,4 @@
 /**
- * TRTC 房间用户展示、状态管理的父控件
- *
- * - 主要关注用户的进出房间状态，音视频可见性，房间状态的统一管理
- * -
- * - 房间的统一管理：
- * - setNetworkQosParam ： 设置网络流控相关参数。
- * - muteAllRemoteVideoStreams : 暂停/恢复接收所有远端视频流。
- * - muteAllRemoteAudio :  静音/取消静音所有用户的声音。
- * - showDebugView : 显示仪表盘, 包含状态统计和事件消息浮层，方便调试
- * -
- * - 关注的用户状态：
- * - onRemoteUserEnterRoom：远端用户进房
- * - onRemoteUserLeaveRoom：远端用户退房
- * - onUserVideoAvailable：远端用户是否有视频数据到达，可以调用startRemoteView展示用户画面
- * - onUserAudioAvailable：远端用户是否有音频到达
- * - onUserSubStreamAvailable：远端用户是否开启屏幕分享，可以调用startRemoteView展示屏幕分享
- * - onUserVoiceVolume：返回每个远端用户的音量和总音量，可以通过enableAudioVolumeEvaluation开启这个回调
- */
-
-/**
  * Parent control for user display and status management in TRTC rooms
  *
  * - Users' entry and exit, audio/video availability, unified room management

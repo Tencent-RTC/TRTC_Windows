@@ -1,13 +1,4 @@
 /**
- * TRTC 屏幕分享（参数设置）
- *
- * - 核心逻辑实现参考：
- * - 1. setSubStreamEncoderParam()  :设置屏幕分享的编码器参数，具体参见：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#abdc3d6339afd741bd8d3ed88ea551282
- * - 2. setSubStreamMixVolume()     :设置屏幕分享的混音音量大小，这个数值越高，屏幕分享音量的占比就越高，麦克风音量占比就越小
- * - 3. updateScreenSharingParams() :设置屏幕分享的captureRECT(捕获区域)，设置屏幕分享的TRTCScreenCaptureProperty(包含是否捕获鼠标，高亮捕获窗口等特性)，具体可参考：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#adc372b21294cd36bf4f4af0d1ac6624a
- */
-
-/**
  * Screen sharing (parameter setting)
  *
  * - Implementation logic:
