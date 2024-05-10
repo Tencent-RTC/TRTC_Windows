@@ -1,15 +1,4 @@
 ﻿/**
- * TRTC 房间用户展示的子控件
- *
- * - 控制单个用户的音频、视频行为
- * -
- * - 静音：参见muteAudio实现，控制本地静音和远端用户静音
- * - 静画：参加muteVideo实现，控制本地静画和远端用户静画
- * - 设置图像渲染参数：参见setRenderParams，设置本地图像和远端图像的渲染参数，包含旋转，镜像，填充模式
- * - 设置显示远端画面的类型：支持主画面(TRTCVideoStreamTypeBig),小画面(TRTCVideoStreamTypeSmall),辅流(屏幕分享 TRTCVideoStreamTypeSub)
- */
-
-/**
  * Sub-control for user display
  *
  * - Managing the audio/video status of a single user

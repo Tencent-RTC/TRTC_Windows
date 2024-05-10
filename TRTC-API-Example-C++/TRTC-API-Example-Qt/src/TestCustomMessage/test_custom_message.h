@@ -1,16 +1,4 @@
 /**
- * TRTC 自定义消息发送模块，
- *
- * - 两种消息发送方式：
- * - 1. 借助音视频数据传输通道向当前房间里的其他用户广播您自定义的数据
- * - 2. 将小数据量的自定义数据嵌入视频帧中，即使视频帧被旁路到了直播 CDN 上，这些数据也会一直存在，最常见的用法是把自定义的时间戳（timstamp）用 sendSEIMsg 嵌入视频帧中，这种方案的最大好处就是可以实现消息和画面的完美对齐。
- * -
- * - 音视频数据通道发送消息 : 参考sendCustomMessage()
- * - 视频帧介质发送消息 : 参考sendSEIMessage()
- * - 具体API说明可参见：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#a858b11d4d32ee0fd69b42d64a1d65389
- */
-
-/**
  * Custom message sending
  *
  * - Two methods:

@@ -1,15 +1,4 @@
 /**
- * TRTC 音频录制
- *
- * - 使用音频录制功能，SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM等)录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
- * -
- * - 使用方式参考：
- * - startAudioRecording();
- * - stopAudioRecording();
- * - handleWithRecordingResult(int result);
- */
-
-/**
  * Audio recording
  *
  * - The audio recording feature records all audio during a call, including local audio, remote audio, and background music, into a file.  This API works regardless of whether you have entered the room.  When exitRoom is called, audio recording will stop automatically.

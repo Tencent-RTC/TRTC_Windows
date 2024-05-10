@@ -195,12 +195,12 @@ void TestMixStreamPublish::startManualTemplate() {
     mix_users_array[0].rect.left = 0;
     mix_users_array[0].rect.top = 0;
     if (background_imag_.empty()) {
-        // 没有背景图片时，本地视频铺满屏幕
+        // Local video fills the screen without no background image
         mix_users_array[0].rect.right = video_width_;
         mix_users_array[0].rect.bottom = video_height_;
     }
     else {
-        // 有背景图片时，留点空间显示背景图片
+        // Display the background image
         mix_users_array[0].rect.right = video_width_ / 2;
         mix_users_array[0].rect.bottom = video_height_ / 2;
     }

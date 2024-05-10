@@ -1,18 +1,4 @@
 /**
- * TRTC 屏幕分享（选择屏幕）
- *
- * - 核心逻辑实现参考：
- * - 1. initScreenCaptureSources()          : 通过getScreenCaptureSources()获取可分享的屏幕窗口，包含屏幕和应用窗口两种类型，在返回值中，仅保留TRTCScreenCaptureSourceType为TRTCScreenCaptureSourceTypeScreen的窗口
- * - 2. initScreenSharingScreenSelections() : 将获取到的TRTCScreenCaptureSourceInfo列表展示到UI上，供用户选择
- * - 3. selectScreenCaptureTarget()         : 设置屏幕分享参数，具体参数参考test_screen_share_setting.h
- * - 4. startScreenSharing()                : 开始屏幕分享
- * - 5. pauseScreenCapture()                : 暂停屏幕分享
- * - 6. resumeScreenCapture()               : 恢复屏幕分享
- * - 7. stopScreenSharing()                 : 停止屏幕分享
- * - 8. releaseScreenCaptureSourceList()    : 遍历完窗口列表后，需要调用release释放资源。
- */
-
-/**
  * Screen sharing (screen)
  *
  * - Implementation logic:

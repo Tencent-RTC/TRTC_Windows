@@ -1,13 +1,4 @@
 /**
- * TRTC 视频设置
- *
- * - 此模块展示了设置了如何设置本地采集到视频数据的编码方式（决定了远端用户看到的效果），以及如何设置本地采集视频数据的渲染方式（决定本地显示的效果"localpreview"）
- * - 核心接口调用：setVideoEncoderParam()，setLocalRenderParams()，具体API说明可参考：https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__ITRTCCloud__cplusplus.html#aa2bc2739031035b40e8f2a76184c20d9
- * -
- * - 调用方法参考：updateVideoEncoderParams() / updateLocalRenderParams()
- */
-
-/**
  * Video settings
  *
  * - This module shows how to set encoding parameters for locally captured video, which determine the effects presented to remote users, as well as how to set rendering parameters for local video, which determine the effects of local preview.

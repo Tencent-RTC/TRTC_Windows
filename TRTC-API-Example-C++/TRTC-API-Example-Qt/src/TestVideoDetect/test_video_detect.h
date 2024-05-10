@@ -1,14 +1,4 @@
 /**
- * TRTC 视频采集设备检测
- *
- * - 需要通过getDeviceManager()获取ITXDeviceManager实例执行视频采集设备检测
- * - 调用方式参见：startCameraTest()/stopCameraTest();
- * -
- * - 获取可用设备方式参见：
- * - refreshCameraDevices()
- */
-
-/**
  * Testing video capturing devices
  *
  * - Call getDeviceManager() to get an ITXDeviceManager instance to test the video capturing device.
