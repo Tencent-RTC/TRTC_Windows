@@ -30,7 +30,7 @@ namespace TRTCCSharpDemo
         VodStatus mVodStatus = VodStatus.Vod_Stop;
         VolumeStatus mVolumeStatus = VolumeStatus.MuteOn;
 
-        float mPlaySpeed = 1.0f;  //默认正常倍速播放
+        float mPlaySpeed = 1.0f;  // By default, play at normal speed
         const float maxSpeed = 2.0f;
         const float minSpeed = 0.4f;
 
@@ -38,8 +38,8 @@ namespace TRTCCSharpDemo
         string mFileName = "http://1252463788.vod2.myqcloud.com/95576ef5vodtransgzp1252463788/e1ab85305285890781763144364/v.f30.mp4";
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         public TXVodPlayerForm(TRTCMainForm mainform)
         {
@@ -105,7 +105,7 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mVodPlayerController != null)
             {
                 ITXVodPlayer.destroyTXVodPlayer(mVodPlayerController);
@@ -220,7 +220,7 @@ namespace TRTCCSharpDemo
             }
             mVodPlayerController.setView(IntPtr.Zero);
             StopVideo();
-            //刷新页面，清除最后一帧视频数据。
+            // Refresh the page to clear the last video frame.
             PlayPanel.Invalidate();
         }
 
@@ -266,7 +266,7 @@ namespace TRTCCSharpDemo
             ChangeUiStatus(mVodStatus);
             TimeBar.Value = 0;
             TimeLabel.Text = Common.Util.ConvertMSToTime(0, 0);
-            //刷新页面，清除最后一帧视频数据。
+            // Refresh the page to clear the last video frame.
             PlayPanel.Invalidate();
         }
 

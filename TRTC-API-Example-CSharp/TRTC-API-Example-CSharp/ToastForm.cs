@@ -19,17 +19,17 @@ namespace TRTCCSharpDemo
 
             this.Disposed += new EventHandler(OnDisposed);
             
-            // 显示在顶部中间
+            // Displayed in the top middle
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.ClientSize.Width) / 2;
             int y = 0;
-            this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)
+            this.StartPosition = FormStartPosition.Manual; // Location of the form determined by the location attribute
+            this.Location = (Point)new Size(x, y);         // The form starts at (x,y)
 
         }
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mTimer != null)
             {
                 mTimer.Stop();
@@ -60,8 +60,8 @@ namespace TRTCCSharpDemo
 
         public void SetPosition(int x, int y)
         {
-            this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)
+            this.StartPosition = FormStartPosition.Manual; // Location of the form determined by the location attribute
+            this.Location = (Point)new Size(x, y);         // The form starts at (x,y)
         }
 
         public void SetBackgroundColor(Color color)

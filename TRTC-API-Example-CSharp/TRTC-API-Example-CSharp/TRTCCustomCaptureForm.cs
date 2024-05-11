@@ -10,7 +10,7 @@ using TRTCCSharpDemo.Common;
 /// <summary>
 /// Module:   TRTCCustomCaptureForm
 /// 
-/// Function: 用于选择是否打开自定义采集音视频的功能
+/// Function: Used to select whether to enable the custom audio and video collection function
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -57,7 +57,7 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mTRTCCloud != null && mMainForm != null)
             {
                 mTRTCCloud.enableCustomAudioCapture(false);
@@ -86,8 +86,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -129,7 +129,7 @@ namespace TRTCCSharpDemo
         {
             if (this.customAudioCheckBox.Checked)
             {
-                // 开启自定义渲染音频
+                // Turn on custom render audio
                 if (this.customAudioComboBox.SelectedIndex == 0)
                     StartCustomCaptureAudio(mTestPath + "48_1_audio.pcm", 48000, 1);
                 else if (this.customAudioComboBox.SelectedIndex == 1)
@@ -137,7 +137,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 停止自定义渲染音频
+                // Turn off custom render audio
                 StopCustomCaptureAudio();
             }
         }
@@ -232,7 +232,7 @@ namespace TRTCCSharpDemo
             }
             if (this.customVideoCheckBox.Checked)
             {
-                // 开启自定义渲染视频
+                // Open custom rendered video
                 if (this.customVideoComboBox.SelectedIndex == 0)
                 {
                     StartCustomCaptureVideo(mTestPath + "320x240_video.yuv", 320, 240);
@@ -240,7 +240,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 关闭自定义渲染视频
+                // Close custom rendered video
                 StopCustomCaptureVideo();
             }
         }

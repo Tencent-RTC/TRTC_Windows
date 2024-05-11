@@ -6,7 +6,7 @@ using ManageLiteAV;
 /// <summary>
 /// Module:   TRTCDeviceForm
 /// 
-/// Function: 用于选择本地设备（摄像头、扬声器、麦克风）的功能
+/// Function: Function for selecting local devices (camera, speaker, microphone)
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -36,7 +36,7 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mCameraDevice != null)
                 mCameraDevice.release();
             if (mMicDevice != null)
@@ -61,8 +61,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {

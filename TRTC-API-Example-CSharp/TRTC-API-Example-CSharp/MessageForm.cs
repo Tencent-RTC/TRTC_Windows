@@ -7,8 +7,8 @@ namespace TRTCCSharpDemo
     public partial class MessageForm : Form
     {
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
         private System.Timers.Timer mTimer = null;
 
         public MessageForm()
@@ -92,7 +92,7 @@ namespace TRTCCSharpDemo
 
         private void MessageForm_Load(object sender, EventArgs e)
         {
-            //文字内容太小时，就居中显示，Form高度适中就可以
+            // Displayed in the center when text content too small, and the Form height is moderate
             if (this.labelTitle.Height < 50)
             {
                 labelTitle.Location = new Point((this.Width - labelTitle.Width) / 2, 25);

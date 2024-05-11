@@ -6,17 +6,22 @@ using tencentyun;
 /// <summary>
 /// Module： GenerateTestUserSig
 /// 
-/// Function：用于生成测试用的 UserSig，UserSig 是腾讯云为其云服务设计的一种安全保护签名。
-///           其计算方法是对 SDKAppID、UserID 和 EXPIRETIME 进行加密，加密算法为 HMAC-SHA256。
+/// Function：UserSig for test is generated. UserSig is a security protection signature designed.
+///           Calculation method is to encrypt SDKAppID, UserID and EXPIRETIME,
+///           and the encryption algorithm is HMAC-SHA256.
 ///      
-/// Attention：请不要将如下代码发布到您的线上正式版本的 App 中，原因如下：
+/// Attention：Do not publish the following code to your online official version of the App for the following reasons:
 /// 
-///            本文件中的代码虽然能够正确计算出 UserSig，但仅适合快速调通 SDK 的基本功能，不适合线上产品，
-///            这是因为客户端代码中的 SDKSECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。
-///             一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
+///            Although the code in this file can correctly calculate UserSig, it is only suitable
+///            for quickly tuning the basic functions of the SDK, and is not suitable for online products.
+///            This is because SDKSECRETKEY in client code is easy to decompile and reverse crack,
+///            especially on the Web side, the difficulty of cracking is almost zero.
+///            Once your key compromised, an attacker can calculate the correct UserSig to steal your cloud traffic.
 ///             
-///            正确的做法是将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。
-///            由于破解服务器的成本要高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
+///            The correct approach is to put the calculation code and encryption key of UserSig on your
+///            business server, and then the App obtains the real-time calculated UserSig from your server on demand.
+///            Since the cost of cracking the server is higher than cracking the client App,
+///            the solution calculated by the server can better protect your encryption key.
 ///            
 /// Reference：https://cloud.tencent.com/document/product/647/17275#Server
 /// </summary>
@@ -26,40 +31,48 @@ namespace TRTCCSharpDemo
     class GenerateTestUserSig
     {
         /// <summary>
-        /// 腾讯云 SDKAppId，需要替换为您自己账号下的 SDKAppId。
+        /// Tencent Cloud SDKAppId, need to be replaced with your own account SDKAppId.
         /// 
-        /// 进入腾讯云云通信[控制台](https://console.cloud.tencent.com/avc) 创建应用，即可看到 SDKAppId，
+        /// Create in Tencent Yunyun communication[Console](https://console.cloud.tencent.com/avc)
+        /// and SDKAppId can be seen，
         /// </summary>
         /// <remarks>
-        /// 它是腾讯云用于区分客户的唯一标识。
+        /// It is a unique identifier used by Tencent Cloud to distinguish customers.
         /// </remarks>
         public const int SDKAPPID = 0;
 
         /// <summary>
-        /// 计算签名用的加密密钥
+        /// Calculate the encryption key for the signature
         /// 
-        /// step1. 进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav) ，如果还没有应用就创建一个，
-        /// step2.单击“应用配置”进入基础配置页面，并进一步找到“帐号体系集成”部分。
-        /// step3.点击“查看密钥”按钮，就可以看到计算 UserSig 使用的加密的密钥了，请将其拷贝并复制到如下的变量中
+        /// step1. Enter Tencent Cloud real-time audio and video[Console](https://console.cloud.tencent.com/rav),
+        ///        if you create one without an application,
+        /// step2. Click Application Configuration to go to the basic configuration page,
+        ///        and further locate the Account System Integration section.
+        /// step3. Click the "View key" button,
+        ///        you can see the encryption key used to calculate UserSig,
+        ///        please copy and copy it to the following variables
         /// </summary>
         /// <remarks>
-        /// 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
-        /// 文档：https://cloud.tencent.com/document/product/647/17275#GetFromServer
+        /// Note: This solution is only applicable to debugging Demo. Before the official launch,
+        ///       migrate the UserSig calculation code and key to your background server
+        ///       to avoid traffic theft caused by encryption key disclosure.
+        /// Document：https://cloud.tencent.com/document/product/647/17275#GetFromServer
         /// </remarks>
         public const string SDKSECRETKEY = @"";
 
         /// <summary>
-        /// 签名过期时间，建议不要设置的过短
+        /// Do not set the signature expiration time too short
         /// 
-        /// 时间单位：秒
-        /// 默认时间：7 x 24 x 60 x 60 = 604800 = 7 天
+        /// Time unit: second
+        /// Default time：7 x 24 x 60 x 60 = 604800 = 7 days
         /// </summary>
         public const int EXPIRETIME = 604800;
 
         /// <summary>
-        /// 混流接口功能实现需要补齐此账号信息。
+        /// Mixed-flow interface needs to complete the account information.
         /// 
-        /// 获取途径：腾讯云网页控制台->实时音视频->您的应用(eg客服通话)->账号信息面板可以获取 appid/bizid
+        /// Access: Tencent Cloud web console -> real-time audio and video ->
+        ///         Your application (eg customer service call)-> Account information panel can obtain appid/bizid
         /// </summary>
         public const int APPID = 0;
         public const int BIZID = 0;
@@ -80,29 +93,34 @@ namespace TRTCCSharpDemo
         }
 
         /// <summary>
-        /// 计算 UserSig 签名
+        /// Calculate the UserSig signature
         /// 
-        /// 函数内部使用 HMAC-SHA256 非对称加密算法，对 SDKAPPID、userId 和 EXPIRETIME 进行加密
+        /// The HMAC-SHA256 asymmetric encryption algorithm is used to encrypt SDKAPPID, userId, and EXPIRETIME
         /// 
-        /// 该方案仅适合本地跑通demo和功能调试，产品真正上线发布，要使用服务器获取方案避免私钥被破解。
+        /// This solution is only suitable for local runthrough demo and function debugging. When the product is really
+        /// released online, the server should be used to obtain the solution to avoid the private key being cracked.
         /// </summary>
         /// <remarks>
-        /// 请不要将如下代码发布到您的线上正式版本的 App 中，原因如下：
+        /// Do not publish the following code to your online official version of the App for the following reasons:
         /// 
-        /// 本文件中的代码虽然能够正确计算出 UserSig，但仅适合快速调通 SDK 的基本功能，不适合线上产品，
-        /// 这是因为客户端代码中的 SDKSECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。
-        /// 一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
+        /// Although the code in this file can correctly calculate UserSig,
+        /// only suitable for quickly tuning the basic functions of the SDK, and is not suitable for online products.
+        /// This is because SDKSECRETKEY in client code is easy to decompile and reverse crack,
+        /// especially on the Web side, the difficulty of cracking is almost zero.
+        /// Once your key is compromised, an attacker can calculate the correct UserSig to steal your cloud traffic.
         /// 
-        /// 正确的做法是将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。
-        /// 由于破解服务器的成本要高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
+        /// The correct approach is to put the calculation code and encryption key of UserSig on your business server,
+        /// and then the App obtains the real-time calculated UserSig from your server on demand.
+        /// Since the cost of cracking the server is higher than cracking the client App,
+        /// the solution calculated by the server can better protect your encryption key.
         /// 
-        /// 文档：https://cloud.tencent.com/document/product/647/17275#GetFromServer
+        /// Document：https://cloud.tencent.com/document/product/647/17275#GetFromServer
         /// </remarks>
         public string GenTestUserSig(string userId)
         {
             if (SDKAPPID == 0 || string.IsNullOrEmpty(SDKSECRETKEY)) return null;
             TLSSigAPIv2 api = new TLSSigAPIv2(SDKAPPID, SDKSECRETKEY);
-            // 统一转换为UTF8，SDK内部是用UTF8编码。
+            // Unified conversion to UTF8, SDK internal is using UTF8 encoding.
             return api.GenSig(Util.UTF16To8(userId));
         }
         

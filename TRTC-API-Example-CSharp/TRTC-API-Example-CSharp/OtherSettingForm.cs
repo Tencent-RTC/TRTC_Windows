@@ -56,7 +56,7 @@ namespace TRTCCSharpDemo
         }
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mTRTCCloud != null && mMainForm != null)
             {
                 mTRTCCloud.enableCustomAudioCapture(false);
@@ -98,7 +98,7 @@ namespace TRTCCSharpDemo
                 mTRTCCloud.stopAudioRecording();
             }
 
-            //清理资源
+            //Resource cleaning
             if (mTRTCCloud == null) return;
             mTRTCCloud = null;
         }
@@ -106,8 +106,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -146,7 +146,7 @@ namespace TRTCCSharpDemo
         {
             if (this.customAudioCheckBox.Checked)
             {
-                // 开启自定义渲染音频
+                // Turn on custom render audio
                 if (this.customAudioComboBox.SelectedIndex == 0)
                     StartCustomCaptureAudio(mTestPath + "48_1_audio.pcm", 48000, 1);
                 else if (this.customAudioComboBox.SelectedIndex == 1)
@@ -154,7 +154,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 停止自定义渲染音频
+                // Turn off custom render audio
                 StopCustomCaptureAudio();
             }
         }
@@ -256,7 +256,7 @@ namespace TRTCCSharpDemo
             }
             if (this.customVideoCheckBox.Checked)
             {
-                // 开启自定义渲染视频
+                // Open custom rendered video
                 if (this.customVideoComboBox.SelectedIndex == 0)
                 {
                     StartCustomCaptureVideo(mTestPath + "320x240_video.yuv", 320, 240);
@@ -264,7 +264,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 关闭自定义渲染视频
+                // Close custom rendered video
                 StopCustomCaptureVideo();
             }
         }
@@ -298,11 +298,11 @@ namespace TRTCCSharpDemo
         #region 自定义辅流推送,仅提供接口
 
         /// <summary>
-        /// 开始自定义辅流视频
+        /// Start to customize auxiliary streaming video
         /// </summary>
         /// <param name="path"></param>
         /// <param name="width"></param>
-        /// <param name="height"></param>推送
+        /// <param name="height"></param>push
         private void StartSubCustomCaptureVideo(string path, uint width, uint height)
         {
             mVideoFilePath = path;
@@ -375,7 +375,7 @@ namespace TRTCCSharpDemo
         }
 
         /// <summary>
-        /// 开始自定义辅流音频推送
+        /// Start to customize auxiliary stream audio push
         /// </summary>
         /// <param name="path"></param>
         /// <param name="samplerate"></param>
@@ -508,7 +508,7 @@ namespace TRTCCSharpDemo
 
         private void OnMirrorCheckBoxClick(object sender, EventArgs e)
         {
-            // 这里同时同步本地和远端的镜像模式，用户可自行拆分功能
+            // Local and remote mirroring modes are synchronized. Can be splited
             if (this.mirrorCheckBox.Checked)
             {
                 DataManager.GetInstance().isLocalVideoMirror = true;
@@ -526,7 +526,7 @@ namespace TRTCCSharpDemo
         }
         private void ShowMessage(string text, int delay = 0)
         {
-            // 判断是否此时该窗口句柄已创建，防止出现问题
+            // Whether HWND created, in case of exception
             if (this.IsHandleCreated)
             {
                 this.BeginInvoke(new Action(() =>
@@ -559,7 +559,7 @@ namespace TRTCCSharpDemo
         {
             if (this.audioRecordBtn.Text.Equals("开启录音"))
             {
-                // 开启音效测试
+                // Start sound test
                 this.audioRecordBtn.Text = "停止录音";
                 TRTCAudioRecordingParams param = new TRTCAudioRecordingParams();
                 param.filePath = Environment.CurrentDirectory + "\\Test\\audio.wav";
@@ -567,7 +567,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 关闭音效测试
+                // Close sound test
                 this.audioRecordBtn.Text = "开启录音";
                 mTRTCCloud.stopAudioRecording();
             }

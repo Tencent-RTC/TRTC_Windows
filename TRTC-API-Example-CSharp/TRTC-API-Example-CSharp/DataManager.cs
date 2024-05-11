@@ -6,20 +6,20 @@ using TRTCCSharpDemo.Common;
 namespace TRTCCSharpDemo
 {
     /// <summary>
-    /// SDK 的 Local 数据信息，使用 ini 本地存储
+    /// The Local data information of the SDK is stored locally using the ini
     /// </summary>
     class DataManager : IDisposable
     {
         public const string INI_ROOT_KEY                  = "TRTCDemo";
-        // 用户
+        // User
         public const string INI_KEY_USER_ID               = "INI_KEY_USER_ID";
         public const string INI_KEY_ROOM_ID               = "INI_KEY_ROOM_ID";
         public const string INI_KEY_ROLE_TYPE             = "INI_KEY_ROLE_TYPE";
-        // 设备
+        // Device
         public const string INI_KEY_CHOOSE_CAMERA         = "INI_KEY_CHOOSE_CAMERA";
         public const string INI_KEY_CHOOSE_SPEAK          = "INI_KEY_CHOOSE_SPEAK";
         public const string INI_KEY_CHOOSE_MIC            = "INI_KEY_CHOOSE_MIC";
-        // 视频
+        // Video
         public const string INI_KEY_VIDEO_BITRATE         = "INI_KEY_VIDEO_BITRATE";
         public const string INI_KEY_VIDEO_RESOLUTION      = "INI_KEY_VIDEO_RESOLUTION";
         public const string INI_KEY_VIDEO_RES_MODE        = "INI_KEY_VIDEO_RES_MODE";
@@ -29,32 +29,32 @@ namespace TRTCCSharpDemo
         public const string INI_KEY_VIDEO_APP_SCENE       = "INI_KEY_VIDEO_APP_SCENE";
         public const string INI_KEY_VIDEO_FILL_MODE       = "INI_KEY_VIDEO_FILL_MODE";
         public const string INI_KEY_VIDEO_ROTATION        = "INI_KEY_VIDEO_ROTATION";
-        // 音频
+        // Radio
         public const string INI_KEY_AUDIO_MIC_VOLUME      = "INI_KEY_AUDIO_MIC_VOLUME";
         public const string INI_KEY_AUDIO_SPEAKER_VOLUME  = "INI_KEY_AUDIO_SPEAKER_VOLUME";
         public const string INI_KEY_AUDIO_SAMPLERATE      = "INI_KEY_AUDIO_SAMPLERATE";
         public const string INI_KEY_AUDIO_CHANNEL         = "INI_KEY_AUDIO_CHANNEL";
         public const string INI_KEY_AUDIO_QUALITY         = "INI_KEY_AUDIO_QUALITY";
-        // 美颜
+        // beauty
         public const string INI_KEY_BEAUTY_OPEN           = "INI_KEY_BEAUTY_OPEN";
         public const string INI_KEY_BEAUTY_STYLE          = "INI_KEY_BEAUTY_STYLE";
         public const string INI_KEY_BEAUTY_VALUE          = "INI_KEY_BEAUTY_VALUE";
         public const string INI_KEY_WHITE_VALUE           = "INI_KEY_WHITE_VALUE";
         public const string INI_KEY_RUDDINESS_VALUE       = "INI_KEY_RUDDINESS_VALUE";
-        // 大小流
+        // Stream size
         public const string INI_KEY_SET_PUSH_SMALLVIDEO   = "INI_KEY_SET_PUSH_SMALLVIDEO";
         public const string INI_KEY_SET_PLAY_SMALLVIDEO   = "INI_KEY_SET_PLAY_SMALLVIDEO";
-        // 测试
+        // Test
         public const string INI_KEY_SET_NETENV_STYLE      = "INI_KEY_SET_NETENV_STYLE";
         public const string INI_KEY_ROOMCALL_STYLE        = "INI_KEY_ROOMCALL_STYLE";
-        // 镜像
+        // Mirror image
         public const string INI_KEY_LOCAL_VIDEO_MIRROR    = "INI_KEY_LOCAL_VIDEO_MIRROR";
         public const string INI_KEY_REMOTE_VIDEO_MIRROR   = "INI_KEY_REMOTE_VIDEO_MIRROR";
-        // 音量提示
+        // Volume cue
         public const string INI_KEY_SHOW_AUDIO_VOLUME     = "INI_KEY_SHOW_AUDIO_VOLUME";
-        // 混流
+        // Mixed stream
         public const string INI_KEY_CLOUD_MIX_TRANSCODING = "INI_KEY_CLOUD_MIX_TRANSCODING";
-        //sock5代理
+        // sock5 agent
         public const string INI_KEY_SOCKS5_PROXY_IP       = "INI_KEY_SOCKS5_PROXY_IP";
         public const string INI_KEY_SOCKS5_PROXY_PORT     = "INI_KEY_SOCKS5_PROXY_PORT";
 
@@ -109,7 +109,7 @@ namespace TRTCCSharpDemo
 
         public void InitConfig()
         {
-            // 用户信息配置
+            // configure user information
             string userId = storage.GetValue(INI_ROOT_KEY, INI_KEY_USER_ID);
             if (string.IsNullOrEmpty(userId))
                 this.userId = Util.GetRandomString(8);
@@ -126,7 +126,7 @@ namespace TRTCCSharpDemo
             else 
                 this.roleType = (TRTCRoleType)(int.Parse(role));
 
-            // 视频参数配置
+            // configure video paras
             string param;
             param = storage.GetValue(INI_ROOT_KEY, INI_KEY_VIDEO_BITRATE);
             if (string.IsNullOrEmpty(param))
@@ -221,7 +221,7 @@ namespace TRTCCSharpDemo
             else
                 this.videoRotation = (TRTCVideoRotation)int.Parse(param);
 
-            // 音频参数配置
+            // configure radio paras
             param = storage.GetValue(INI_ROOT_KEY, INI_KEY_AUDIO_MIC_VOLUME);
             if (string.IsNullOrEmpty(param))
                 this.micVolume = 25;
@@ -246,7 +246,7 @@ namespace TRTCCSharpDemo
                 this.AudioQuality = (TRTCAudioQuality)int.Parse(param);
 
 
-            // 测试参数配置
+            // configure test paras
             param = storage.GetValue(INI_ROOT_KEY, INI_KEY_SET_NETENV_STYLE);
             if (string.IsNullOrEmpty(param))
                 this.testEnv = 0;
@@ -258,14 +258,14 @@ namespace TRTCCSharpDemo
             else
                 this.pureAudioStyle = bool.Parse(param);
 
-            // 混流配置
+            // configure mixed stream
             param = storage.GetValue(INI_ROOT_KEY, INI_KEY_CLOUD_MIX_TRANSCODING);
             if (string.IsNullOrEmpty(param))
                 this.isMixTranscoding = false;
             else
                 this.isMixTranscoding = bool.Parse(param);
 
-            //socks5配置
+            // socks5 configuration
             param = storage.GetValue(INI_ROOT_KEY, INI_KEY_SOCKS5_PROXY_IP);
             if (string.IsNullOrEmpty(param))
             {
@@ -354,7 +354,7 @@ namespace TRTCCSharpDemo
 
         public string strRoomId { get; set; }
 
-        // 该字段只作用于直播模式
+        // Only for live stream mode
         public TRTCRoleType roleType { get; set; }
 
         public bool enterRoom { get; set; }
@@ -379,7 +379,7 @@ namespace TRTCCSharpDemo
 
         public bool isMixTranscoding { get; set; }
 
-        //socks5代理相关
+        // relative tosocks5 agent
         public bool isUseProxy { get; set; }
         public string socks5ProxyIp { get; set; }
         public ushort socks5ProxyPort { get; set; }
@@ -489,11 +489,11 @@ namespace TRTCCSharpDemo
 
     class IniStorage
     {
-        // 声明INI文件的写操作函数 
+        // Declares the INI file write operation function
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
 
-        // 声明INI文件的读操作函数 
+        // Declares the INI file read function
         [DllImport("kernel32")]
         private static extern int GetPrivateProfileString(string section, string key, string def, System.Text.StringBuilder retVal, int size, string filePath);
 
@@ -506,15 +506,15 @@ namespace TRTCCSharpDemo
 
         public void SetValue(string section, string key, string value)
         {
-            // section=配置节，key=键名，value=键值，path=路径
+            // section= configuration section, key= key name, value= key value, path= path
             WritePrivateProfileString(section, key, value, sPath);
         }
 
         public string GetValue(string section, string key)
         {
-            // 每次从ini中读取多少字节
+            // How many bytes are read from the ini each time
             System.Text.StringBuilder temp = new System.Text.StringBuilder(255);
-            // section=配置节，key=键名，temp=上面，path=路径
+            // section= Configuration section, key= key name, temp= above, path= path
             GetPrivateProfileString(section, key, "", temp, 255, sPath);
             return temp.ToString();
         }

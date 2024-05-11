@@ -87,7 +87,7 @@ namespace TRTCCSharpDemo
         }
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mTRTCCloud == null) return;
 
             mTRTCCloud = null;
@@ -97,8 +97,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -249,7 +249,7 @@ namespace TRTCCSharpDemo
         {
             if (mMusicStatus != BGM_MusicStatus.BGM_Music_Stop)
             {
-                // 停止BGM测试
+                // Stop BGM test
 
                 if (AudioEffectManager != null)
                 {

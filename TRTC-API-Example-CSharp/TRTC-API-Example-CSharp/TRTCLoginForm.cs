@@ -7,13 +7,15 @@ using ManageLiteAV;
 /// <summary>
 /// Module： TRTCLoginForm
 /// 
-/// Function： 该界面可以让用户输入一个【房间号】和一个【用户名】
+/// Function： The interface allows the user to enter a room number and a user name.
 /// 
 /// Notice：
-/// （1）房间号为数字类型，用户名为字符串类型
+/// （1）The room number is a number, and the user name is a string
 ///
-/// （2）在真实的使用场景中，房间号大多不是用户手动输入的，而是系统分配的，
-///      比如视频会议中的会议号是会控系统提前预定好的，客服系统中的房间号也是根据客服员工的工号决定的。
+/// （2）In real usage scenarios, room numbers are mostly not manually entered by users, but assigned by the system.
+///      For example, the meeting number in the video conference is booked in advance by the control system,
+///      and the room number in the customer service system is also determined by the job number of
+///      the customer service employee.
 /// </summary>
 
 namespace TRTCCSharpDemo
@@ -31,7 +33,7 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
         }
 
         private void ShowMessage(string text)
@@ -83,8 +85,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -144,10 +146,12 @@ namespace TRTCCSharpDemo
             DataManager.GetInstance().userId = userId;
             DataManager.GetInstance().roomId = room;
 
-            // 从本地计算获取 userId 对应的 userSig
-            // 注意！本地计算是适合在本地环境下调试使用，正确的做法是将 UserSig 的计算代码和加密密钥放在您的业务服务器上，
-            // 然后由 App 按需向您的服务器获取实时算出的 UserSig。
-            // 由于破解服务器的成本要高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
+            // Obtain the userSig corresponding to the userId from the local calculation
+            // Attention: Local computing is suitable for debugging in a local environment,
+            // the correct practice is to put the UserSig calculation code and encryption key on your business server.
+            // The App then gets the UserSig calculated in real time from your server on demand.
+            // Since the cost of cracking the server is higher than cracking the client App,
+            // the solution calculated by the server can better protect your encryption key.
             string userSig = GenerateTestUserSig.GetInstance().GenTestUserSig(userId);
             if (string.IsNullOrEmpty(userSig))
             {
@@ -162,7 +166,7 @@ namespace TRTCCSharpDemo
         }
 
         /// <summary>
-        /// 设置连接环境，只适用于本地调试测试使用
+        /// Setting the connection environment applies only to the local debugging test
         /// </summary>
         private void SetTestEnv()
         {
@@ -175,7 +179,7 @@ namespace TRTCCSharpDemo
         }
 
         /// <summary>
-        /// 设置是否使用纯音频环境进房
+        /// Set whether to use audio-only environment to enter the room
         /// </summary>
         private void SetPureAudioStyle()
         {
@@ -201,7 +205,7 @@ namespace TRTCCSharpDemo
         }
 
         /// <summary>
-        /// 主要用于本地调试环境时，存在该文件时启动测试功能
+        /// Mainly used when the local debugging environment, and the test function is started when the file exists
         /// </summary>
         
     }

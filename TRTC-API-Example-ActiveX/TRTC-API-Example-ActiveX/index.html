@@ -615,11 +615,11 @@
     </script>
 
     <!--
-    * 用户音量回调：user_volumes 以JSON数组的形式进行返回。
+    * User volume callback: user_volumes is returned as a JSON array.
     * [
     *   {
-    *       "userId":"",    //说话者的 userId, 如果 userId 为空则代表是当前用户自己。
-    *       "volume": 0     //说话者的音量大小, 取值范围[0 - 100]。
+    *       "userId":"",    // The userId of the speaker, or the current user if the userId is empty.
+    *       "volume": 0     // The value ranges from 0 to 100.
     *   },
     *   ...
     * ]
@@ -787,8 +787,8 @@
 		}
 
         function EnterRoom() {
-            var roomIdEl = document.getElementById("roomId");//房间号(int值)
-            var userIdEl = document.getElementById("userId");//用户名(string值)
+            var roomIdEl = document.getElementById("roomId");// Room number (int value)
+            var userIdEl = document.getElementById("userId");// User name (string value)
 			const config = genTestUserSig(userIdEl.value);
 			const sdkappid = config.sdkAppId;
 			const usersig = config.userSig;
@@ -827,20 +827,20 @@
         }
 
         function StartRemoteView() {
-            var remoteUserId = document.getElementById("remote_user_id_list");//远端用户ID
+            var remoteUserId = document.getElementById("remote_user_id_list");// ID of a remote user
 			var objectId = "object_"+remoteUserId.value;
 			document.getElementById(objectId).startRemoteView(remoteUserId.value, 0);
         }
         function StopRemoteView() {
-            var remoteUserId = document.getElementById("remote_user_id_list");//远端用户ID
+            var remoteUserId = document.getElementById("remote_user_id_list");// ID of a remote user
 			var objectId = "object_"+remoteUserId.value;
 			document.getElementById(objectId).stopRemoteView(remoteUserId.value, 0);
         }
 		
-        //* @param style     美颜风格，0 光滑 1自然，光滑风格磨皮更加明显，适合娱乐场景。
-        //* @param beautyLevel    美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-        //* @param whitenessLevel     美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-        //* @param ruddinessLevel 红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数暂未生效
+        //* @param style     Beauty style: 0:smooth 1:natural, suitable for entertainment scenes.
+        //* @param beautyLevel    Beauty level: Range from 0 to 9. 0 for off. Larger value gets more obvious effect.
+        //* @param whitenessLevel   Whiteness Level: Range from 0 to 9.0 for off. Larger value gets more obvious effect.
+        //* @param ruddinessLevel RuddinessLevel: This parameter has not taken effect
         function SetBeautyStyle() {
 			var style = document.getElementById("list_beauty_style").value;
 			var beautyLevel = document.getElementById("list_beauty_level").value;
@@ -907,16 +907,18 @@
             var imgData = ctx.createImageData(width, height);
             console.log(imgData.data.length);
             for (var i = 0, j = 0; i < imgData.data.length; i += 4, j += 4) {
-                // 返回的数据格式为 BGRA32  canvas 接收 RGBA
+                // The returned data format is BGRA32 canvas receives RGBA
                 imgData.data[i + 0] = data[j + 2] || 0; //R
                 imgData.data[i + 1] = data[j + 1] || 0; //G
                 imgData.data[i + 2] = data[j + 0] || 0; //B
-                imgData.data[i + 3] = 255; //之所以这样是因为canvas只接受rgba数据，而我们只有rgb,因此最后一个直接为255即可
+                imgData.data[i + 3] = 255;
+                // Reason for this: canvas only accepts rgba data, and we only have rgb, so the last one is just 255
             }
-            ctx.putImageData(imgData, 0, 0);//后边的两个参数是渲染的起始位置，这里就设为（0，0）了，表示左上角
+            ctx.putImageData(imgData, 0, 0);
+            // Next two parameters are the starting position of the render. (0,0) represents the upper left corner.
         }
 
-        // 切换图标
+        // Toggle icon
         function SwitchElement(el, mute, muteTrue, muteFalse) {
             //document.getElementById().removeAttribute('')
             if (mute) {
@@ -984,14 +986,16 @@
         }
 
         /**
-         * userId  远程用户 userid
-         * streamType   0 主画面视频流 1 小画面视频流 2 辅流（屏幕分享）
-         * rotation 0 顺时针旋转0度 1 顺时针旋转90度 2 顺时针旋转180度 3 顺时针旋转270度
-         * fillMode 0 图像铺满屏幕，超出显示视窗的视频部分将被裁剪 1 图像长边填满屏幕，短边区域会被填充黑色
-         * mirrorType  1 所有画面均镜像 2 所有画面均不镜像
+         * userId  Remote user userid
+         * streamType   0 Main screen video stream 1 Small screen video stream 2 Auxiliary stream (screen sharing)
+         * rotation 0 Turn clockwise 0 degrees 1 Turn clockwise 90 degrees 2 Turn clockwise 180 degrees
+         * 3 Turn clockwise 270 degrees
+         * fillMode 0 images will fill the screen, the video portion beyond the display window will be cropped
+         * 1 The long side of the image will fill the screen, and the short side area will be filled with black
+         * mirrorType  1 All screens are mirrored. 2 All screens are not mirrored
          * */
         //{"userId":"20201217","streamType":1,"render":{"rotation":1,"fillMode":0,"mirrorType":0}}
-        function SetRemoteRenderParams() { //这个方法对自定义渲染不起作用
+        function SetRemoteRenderParams() { // This method does not work for custom rendering
             var userId = document.getElementById("remote_render_user_id_list").value;
 
 			var streamType = document.getElementById("list_remote_render_stream_type").value;
@@ -1005,9 +1009,11 @@
         }
 
         /**
-        * rotation 0 顺时针旋转0度 1 顺时针旋转90度 2 顺时针旋转180度 3 顺时针旋转270度
-        * fillMode 0 图像铺满屏幕，超出显示视窗的视频部分将被裁剪 1 图像长边填满屏幕，短边区域会被填充黑色
-        * mirrorType  1 所有画面均镜像 2 所有画面均不镜像
+         * rotation 0 Turn clockwise 0 degrees 1 Turn clockwise 90 degrees 2 Turn clockwise 180 degrees
+         * 3 Turn clockwise 270 degrees
+         * fillMode 0 images will fill the screen, the video portion beyond the display window will be cropped
+         * 1 The long side of the image will fill the screen, and the short side area will be filled with black
+         * mirrorType  1 All screens are mirrored. 2 All screens are not mirrored
         * */
         //{"rotation":1,"fillMode":0,"mirrorType":0}
         function SetLocalRenderParams() { //这个方法对自定义渲染不起作用
@@ -1136,7 +1142,7 @@
             AddLog("关闭本地麦克风");
         }
 
-        //枚举可分享的屏幕窗口
+        //Enumerate the screen Windows that can be shared
         function GetScreenCaptureSources() {
             ClearShareWindowCanvasItem();
 			
@@ -1247,11 +1253,11 @@
         }
 
         /**
-         *  sourceId  选择的窗口
-         *  captureRect.top  上边距
-         *  captureRect.bottom 下边距
-         *  captureRect.left 左边距
-         *  captureRect.right 右边距
+         *  sourceId  Selected window
+         *  captureRect.top  top margin
+         *  captureRect.bottom bottom margin
+         *  captureRect.left left margin
+         *  captureRect.right right margin
          *
          *{"sourceId":1,"captureRect":{"top":0,"bottom":880,"left":0,"right":1720}}
          *
