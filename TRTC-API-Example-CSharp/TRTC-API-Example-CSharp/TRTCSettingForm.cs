@@ -6,7 +6,8 @@ using ManageLiteAV;
 /// <summary>
 /// Module:   TRTCSettingForm
 /// 
-/// Function: 用于对视频通话的分辨率、帧率和流畅模式进行调整，并支持记录下这些设置项
+/// Function: Used to adjust the resolution, frame rate, and flow mode of video calls,
+///           and supports recording these Settings
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -40,15 +41,15 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             mTRTCCloud = null;
         }
 
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {

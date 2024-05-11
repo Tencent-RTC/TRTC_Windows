@@ -14,11 +14,11 @@ namespace TRTCCSharpDemo
     {
 
         private TRTCMainForm mMainForm = null;
-        private string mLocalFilePath; //存放文件的路径和名称
+        private string mLocalFilePath; // File path and name
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         public TRTCRecordForm(TRTCMainForm mainForm)
         {
@@ -83,7 +83,7 @@ namespace TRTCCSharpDemo
         ////////////////////////////////////////////////////////////////////
         /// 
         /// 
-        ///                         本地录制接口
+        ///                         Local recording interface
         /// 
         /// 
         ////////////////////////////////////////////////////////////////////
@@ -130,7 +130,7 @@ namespace TRTCCSharpDemo
         ////////////////////////////////////////////////////////////////////
         /// 
         /// 
-        ///                        录音接口
+        ///                        Recording interface
         /// 
         /// 
         ////////////////////////////////////////////////////////////////////
@@ -157,7 +157,7 @@ namespace TRTCCSharpDemo
         ////////////////////////////////////////////////////////////////////
         /// 
         /// 
-        ///                        进程混音接口
+        ///                        Process mixing interface
         /// 
         /// 
         ////////////////////////////////////////////////////////////////////
@@ -165,8 +165,9 @@ namespace TRTCCSharpDemo
         {
             if(AppMixRecordBox.Checked)
             {
-                // path为空，代表采集整个操作系统的声音
-                // 填写 exe 程序（如 QQ音乐）所在的路径，将会启动此程序并只采集此程序的声音
+                // If path empty, the sound of the entire operating system is collected
+                // Fill in the path where the exe program (such as QQ Music) is located,
+                // and this program will start and only collect the sound of this program
                 mMainForm.StartSystemAudioLoopback(null);
             }
             else

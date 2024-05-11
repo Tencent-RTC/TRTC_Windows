@@ -44,7 +44,7 @@ namespace TRTCCSharpDemo.Common
             StringBuilder sb = new StringBuilder();
             foreach (byte b in byteNew)
             {
-                // 将字节转换成16进制表示的字符串
+                // Converts bytes to a hexadecimal representation of a string
                 sb.Append(b.ToString("x2"));
             }
             return sb.ToString();

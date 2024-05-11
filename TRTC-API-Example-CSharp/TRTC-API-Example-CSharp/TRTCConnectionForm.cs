@@ -9,7 +9,7 @@ using TRTCCSharpDemo.Common;
 /// <summary>
 /// Module:   TRTCConnectionForm
 /// 
-/// Function: 用于主播之间连麦的功能
+/// Function: Used to connect the microphone between anchors
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -34,15 +34,15 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             mTRTCCloud = null;
         }
 
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -107,7 +107,7 @@ namespace TRTCCSharpDemo
         {
             if (mIsConnected)
             {
-                // 如果此时是多人连麦，则是取消所有连麦的用户
+                // If multiple users are connected, all users are canceled
                 mTRTCCloud.disconnectOtherRoom();
                 this.infoLabel.Text = String.Format("取消连麦中...");
             }
@@ -131,7 +131,7 @@ namespace TRTCCSharpDemo
             }
             if (errCode == TXLiteAVError.ERR_NULL)
             {
-                // 连麦成功
+                // Connect successfully
                 mIsConnected = true;
                 this.infoLabel.Text = String.Format("连麦成功:[room:{0}, user:{1}]", mPKRoomId, mPKUserId);
                 this.disconnectBtn.Enabled = true;
@@ -145,7 +145,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 连麦失败
+                // Connection failed
                 this.infoLabel.Text = String.Format("连麦失败,errCode:{0}", (int)errCode);
                 Log.I(String.Format("连麦失败[userId:{0}, roomId:{1}, errCode:{2}, msg:{3}]", mPKUserId, mPKRoomId, errCode, errMsg));
             }
@@ -155,7 +155,7 @@ namespace TRTCCSharpDemo
         {
             if (errCode == TXLiteAVError.ERR_NULL)
             {
-                // 取消连麦成功
+                // Cancel connection successfully
                 mIsConnected = false;
                 this.infoLabel.Text = String.Format("取消连麦成功");
                 this.disconnectBtn.Enabled = false;
@@ -163,7 +163,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 取消连麦失败
+                // Cancel connection failed
                 this.infoLabel.Text = String.Format("取消连麦失败,errCode:{0}", (int)errCode);
                 Log.I(String.Format("取消连麦失败[userId:{0}, roomId:{1}, errCode:{2}, msg:{3}]", mPKUserId, mPKRoomId, errCode, errMsg));
 

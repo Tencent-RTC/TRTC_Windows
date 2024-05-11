@@ -59,14 +59,14 @@ namespace TRTCCSharpDemo
                 else
                     name = sourse.sourceName;
 
-                // 设置屏幕缩略图
+                // Set screen thumbnail
 
                 int width = 120;
                 int height = 70;
                 Bitmap bmp = new Bitmap(width, height, PixelFormat.Format32bppRgb);
                 if (sourse.thumbBGRA.length <= 0)
                 {
-                    // 未找到缩略图，不显示
+                    // Thumbnail not show on because not found
                     using (Graphics g = Graphics.FromImage(bmp))
                     {
                         g.Clear(Color.White);

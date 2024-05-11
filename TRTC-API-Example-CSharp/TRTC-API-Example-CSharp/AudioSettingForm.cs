@@ -35,7 +35,7 @@ namespace TRTCCSharpDemo
         }
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mTRTCCloud == null || mDeviceManager == null) return;
             if (this.micTestBtn.Text.Equals("停止"))
             {
@@ -70,8 +70,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -227,7 +227,7 @@ namespace TRTCCSharpDemo
         {
             if (this.micTestBtn.Text.Equals("麦克风测试"))
             {
-                // 开始麦克风测试
+                // Start microphone test
                 this.micTestBtn.Text = "停止";
 
                 if (mTRTCCloud != null)
@@ -235,7 +235,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 停止麦克风测试
+                // Stop microphone test
                 this.micTestBtn.Text = "麦克风测试";
                 this.micProgressBar.Value = 0;
                 if (mTRTCCloud != null)
@@ -247,14 +247,14 @@ namespace TRTCCSharpDemo
         {
             if (this.speakerTestBtn.Text.Equals("扬声器测试"))
             {
-                // 开始扬声器测试
+                // Start speaker testing
                 this.speakerTestBtn.Text = "停止";
                 if (mTRTCCloud != null)
                     mDeviceManager.startSpeakerDeviceTest(mTestPath);
             }
             else
             {
-                // 停止扬声器测试
+                // Stop speaker testing
                 this.speakerTestBtn.Text = "扬声器测试";
                 this.speakerProgressBar.Value = 0;
                 if (mTRTCCloud != null)
@@ -301,7 +301,8 @@ namespace TRTCCSharpDemo
         {
             if (this.systemAudioCheckBox.Checked)
             {
-                // 这里直接采集操作系统的播放声音，如需采集个别软件的声音请填写对应 exe 的路径。
+                // Collects the sounds played by the operating system.
+                // If you want to collect the sounds of individual software, enter the path of the corresponding exe.
                 mTRTCCloud.startSystemAudioLoopback(null);
             }
             else

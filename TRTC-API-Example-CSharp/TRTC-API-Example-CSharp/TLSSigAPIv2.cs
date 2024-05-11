@@ -73,7 +73,7 @@ namespace tencentyun
 
         private string GenSig(string identifier, int expire, byte[] userbuf, bool userBufEnabled)
         {
-            DateTime epoch = new DateTime(1970, 1, 1); // unix 时间戳
+            DateTime epoch = new DateTime(1970, 1, 1); // unix timestamp
             Int64 currTime = (Int64)(DateTime.UtcNow - epoch).TotalMilliseconds / 1000;
 
             string base64UserBuf;

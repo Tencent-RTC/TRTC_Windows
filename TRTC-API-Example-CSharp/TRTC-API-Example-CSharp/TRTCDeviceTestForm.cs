@@ -6,7 +6,7 @@ using ManageLiteAV;
 /// <summary>
 /// Module:   TRTCDeviceTestForm
 /// 
-/// Function: 用于本地设备（摄像头、扬声器、麦克风）测试的功能
+/// Function: Features for testing local devices (cameras, speakers, microphones)
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -27,7 +27,7 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             if (mTRTCCloud == null) return;
             if(this.micTestBtn.Text.Equals("停止"))
             {
@@ -55,8 +55,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -91,7 +91,7 @@ namespace TRTCCSharpDemo
         {
             if (this.micTestBtn.Text.Equals("麦克风测试"))
             {
-                // 开始麦克风测试
+                // Start microphone test
                 this.micTestBtn.Text = "停止";
                 
                 if (mTRTCCloud != null)
@@ -99,7 +99,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 停止麦克风测试
+                // Stop microphone test
                 this.micTestBtn.Text = "麦克风测试";
                 this.micProgressBar.Value = 0;
                 if (mTRTCCloud != null)
@@ -111,14 +111,14 @@ namespace TRTCCSharpDemo
         {
             if (this.speakerTestBtn.Text.Equals("扬声器测试"))
             {
-                // 开始扬声器测试
+                // Start speaker testing
                 this.speakerTestBtn.Text = "停止";
                 if (mTRTCCloud != null)
                     mTRTCCloud.startSpeakerDeviceTest(mTestPath);
             }
             else
             {
-                // 停止扬声器测试
+                // Stop speaker testing
                 this.speakerTestBtn.Text = "扬声器测试";
                 this.speakerProgressBar.Value = 0;
                 if (mTRTCCloud != null)
@@ -130,7 +130,7 @@ namespace TRTCCSharpDemo
         {
             if (this.bgmTestBtn.Text.Equals("启动BGM测试"))
             {
-                // 开启BGM测试
+                // Features for testing local devices (cameras, speakers, microphones)
                 this.bgmTestBtn.Text = "停止BGM测试";
                 if (mTRTCCloud != null)
                     mTRTCCloud.playBGM(mTestPath);
@@ -148,7 +148,7 @@ namespace TRTCCSharpDemo
         {
             if (this.audioEffectTestBtn.Text.Equals("启动音效测试"))
             {
-                // 开启音效测试
+                // Start sound test
                 this.audioEffectTestBtn.Text = "停止音效测试";
                 TRTCAudioEffectParam param = new TRTCAudioEffectParam(1, mTestPath);
                 param.loopCount = 0;
@@ -158,7 +158,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 关闭音效测试
+                // Close sound test
                 this.audioEffectTestBtn.Text = "启动音效测试";
                 mTRTCCloud.stopAllAudioEffects();
             }
@@ -169,7 +169,7 @@ namespace TRTCCSharpDemo
         {
             if (this.audioRecordBtn.Text.Equals("开启录音"))
             {
-                // 开启音效测试
+                // Start sound test
                 this.audioRecordBtn.Text = "停止录音";
                 TRTCAudioRecordingParams param = new TRTCAudioRecordingParams();
                 param.filePath = Environment.CurrentDirectory + "\\Test\\audio.wav";
@@ -177,7 +177,7 @@ namespace TRTCCSharpDemo
             }
             else
             {
-                // 关闭音效测试
+                // Close sound test
                 this.audioRecordBtn.Text = "开启录音";
                 mTRTCCloud.stopAudioRecording();
             }

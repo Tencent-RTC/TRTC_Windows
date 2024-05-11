@@ -6,7 +6,7 @@ using ManageLiteAV;
 /// <summary>
 /// Module:   TRTCBeautyForm
 /// 
-/// Function: 用于打开美颜，选择美颜程度的功能
+/// Function: Used to open beauty and select the degree of beauty
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -17,7 +17,7 @@ namespace TRTCCSharpDemo
         private TRTCBeautyStyle mBeautyStyle = TRTCBeautyStyle.TRTCBeautyStyleSmooth;
         private uint mBeauty = 0;
         private uint mWhite = 0;
-        private uint mRuddiness = 0;  // 红润级别暂未生效
+        private uint mRuddiness = 0;  //The redness level has not taken effect
 
         public TRTCBeautyForm()
         {
@@ -42,15 +42,15 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             mTRTCCloud = null;
         }
 
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {

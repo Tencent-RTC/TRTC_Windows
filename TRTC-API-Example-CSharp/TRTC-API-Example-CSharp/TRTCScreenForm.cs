@@ -10,7 +10,7 @@ using TRTCCSharpDemo.Common;
 /// <summary>
 /// Module:   TRTCScreenForm
 /// 
-/// Function: 用于屏幕共享的选择功能
+/// Function: Select option for screen share
 /// </summary>
 namespace TRTCCSharpDemo
 {
@@ -38,7 +38,7 @@ namespace TRTCCSharpDemo
 
         private void OnDisposed(object sender, EventArgs e)
         {
-            //清理资源
+            //Resource cleaning
             mScreenList.release();
             mScreenList = null;
             mTRTCCloud = null;
@@ -48,8 +48,8 @@ namespace TRTCCSharpDemo
         #region Form Move
 
         private bool mIsMouseDown = false;
-        private Point mFormLocation;     // Form的location
-        private Point mMouseOffset;      // 鼠标的按下位置
+        private Point mFormLocation;     // Location of Form
+        private Point mMouseOffset;      // Mouse press position
 
         private void OnFormMouseDown(object sender, MouseEventArgs e)
         {
@@ -105,14 +105,14 @@ namespace TRTCCSharpDemo
                 else
                     name = sourse.sourceName;
 
-                // 设置屏幕缩略图
+                // Set screen thumbnail
 
                 int width = 120;
                 int height = 70;
                 Bitmap bmp = new Bitmap(width, height, PixelFormat.Format32bppRgb);
                 if (sourse.thumbBGRA.length <= 0)
                 {
-                    // 未找到缩略图，不显示
+                    // Thumbnail not show on because not found
                     using (Graphics g = Graphics.FromImage(bmp))
                     {
                         g.Clear(Color.White);

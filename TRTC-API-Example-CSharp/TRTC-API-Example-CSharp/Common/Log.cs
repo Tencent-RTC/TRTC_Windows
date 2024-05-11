@@ -23,7 +23,7 @@ namespace TRTCCSharpDemo.Common
 
                 path += DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff");
                 path += ".log";
-                // 使用Synchronized进行包装，防止 IO 不安全
+                // Wrapping with Synchronized prevents IO insecurity
                 tWriter = TextWriter.Synchronized(new StreamWriter(path));  
                 
             }
@@ -52,13 +52,13 @@ namespace TRTCCSharpDemo.Common
             StackTrace stackTrace = new StackTrace(true);
             MethodBase methodBase = stackTrace.GetFrame(1).GetMethod();
 
-            // 取得父方法类全名
+            // Get the full name of the parent method class
             parentMethod += methodBase.DeclaringType.FullName;
 
-            // 分隔符
+            // Separator
             parentMethod += ".";
 
-            // 取得父方法名
+            // Get the parent method name
             parentMethod += methodBase.Name;
 
             write(parentMethod, content);
@@ -71,13 +71,13 @@ namespace TRTCCSharpDemo.Common
             StackTrace stackTrace = new StackTrace(true);
             MethodBase methodBase = stackTrace.GetFrame(1).GetMethod();
 
-            // 取得父方法类全名
+            // Get the full name of the parent method class
             parentMethod += methodBase.DeclaringType.FullName;
 
-            // 分隔符
+            // Separator
             parentMethod += ".";
 
-            // 取得父方法名
+            // Get the parent method name
             parentMethod += methodBase.Name;
 
             write(parentMethod, content);

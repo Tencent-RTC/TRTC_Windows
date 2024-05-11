@@ -18,7 +18,7 @@ namespace TRTCCSharpDemo
             Live_Stop,
         }
 
-        // 字体图标
+        // glyphicons
         private string icon_play = "\ue87c";
         private string icon_stop = "\ue87a";
         private string icon_snapshot = "\ue611";
@@ -27,8 +27,8 @@ namespace TRTCCSharpDemo
 
         private Color icon_color = Color.FromArgb(205, 205, 205);
 
-        private readonly float x; //定义当前窗体的宽度
-        private readonly float y; //定义当前窗体的高度
+        private readonly float x; // Defines the width of the current form
+        private readonly float y; // Defines the height of the current form
         private PortalWindow m_portal;
         private LiveStatus m_LiveStatus;
         private LiveStatus m_PusherStatus;
@@ -152,17 +152,17 @@ namespace TRTCCSharpDemo
         }
 
         private void setControls(float newX, float newY, Control cons){
-            // 遍历窗体中的控件，重新设置控件的值
+            // Iterate over the controls in the form, resetting the values of the controls
             foreach(Control con in cons.Controls){
-                // 获取控件的Tag属性值，并分割后存储字符串数组
+                // Get the Tag attribute value of the control and stores the string array after splitting it
                 if(con.Tag != null){
                     var myTag = con.Tag.ToString().Split(';');
-                    // 根据窗体缩放的比例确定控件的值
-                    con.Width  = Convert.ToInt32(Convert.ToSingle(myTag[0]) * newX); // 高度
-                    con.Height = Convert.ToInt32(Convert.ToSingle(myTag[1]) * newY); // 高度
-                    con.Left   = Convert.ToInt32(Convert.ToSingle(myTag[2]) * newX); // 左边距
-                    con.Top    = Convert.ToInt32(Convert.ToSingle(myTag[3]) * newY); // 顶边距
-                    var currentSize = Convert.ToSingle(myTag[4]) * newY; // 字体大小
+                    // Determines the value of the control based on the scale of the form scaling
+                    con.Width  = Convert.ToInt32(Convert.ToSingle(myTag[0]) * newX); // width
+                    con.Height = Convert.ToInt32(Convert.ToSingle(myTag[1]) * newY); // height
+                    con.Left   = Convert.ToInt32(Convert.ToSingle(myTag[2]) * newX); // left margin
+                    con.Top    = Convert.ToInt32(Convert.ToSingle(myTag[3]) * newY); // top margin
+                    var currentSize = Convert.ToSingle(myTag[4]) * newY; // text size
                     if(currentSize > 0){
                         if(con.Font.Name == "iconfont"){
                             con.Font = new Font(Util.PFCC.Families[0], currentSize);
@@ -182,7 +182,7 @@ namespace TRTCCSharpDemo
 
         private void ShowMessage(string text, int delay = 0)
         {
-            // 判断是否此时该窗口句柄已创建，防止出现问题
+            // Whether HWND created, in case of exception
             if (this.IsHandleCreated)
             {
                 this.BeginInvoke(new Action(() =>
@@ -204,16 +204,16 @@ namespace TRTCCSharpDemo
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // 弹出提示框
+            // Pop-up dialog box
             DialogResult result = MessageBox.Show("确定要关闭窗体吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                // 关闭窗体
+                // Close message box
                 e.Cancel = false;
             }
             else
             {
-                // 不关闭窗体
+                // Keep message box
                 e.Cancel = true;
             }
         }
@@ -827,15 +827,15 @@ namespace TRTCCSharpDemo
 
         private void PlayerIntervalTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //判断按键是不是要输入的类型。
+            // Determine whether the key is the type to be entered.
             if (((int)e.KeyChar < 48 || (int)e.KeyChar > 57) && (int)e.KeyChar != 8 && (int)e.KeyChar != 46)
                 e.Handled = true;
 
-            //小数点的处理。
-            if ((int)e.KeyChar == 46)                           //小数点
+            // Handling of decimal points.
+            if ((int)e.KeyChar == 46)                           // decimal points
             {
                 if (PlayerIntervalTextBox.Text.Length <= 0)
-                    e.Handled = true;   //小数点不能在第一位
+                    e.Handled = true;   // The decimal point cannot be in the first place
                 else
                 {
                     float f;
