@@ -46,6 +46,6 @@ Leveraging Tencent's many years of experience in network and audio/video technol
 
 - To learn about how the TRTC SDK can be used in different scenarios, see [Sample Code](https://www.tencentcloud.com/document/product/647/42963).
 
-- For the complete API documentation, see [SDK API Documentation](http://doc.qcloudtrtc.com/md_introduction_trtc_Windows_cpp_%E6%A6%82%E8%A7%88.html).
+- For the complete API documentation, see [SDK API Documentation](https://trtc.io/document/35131?platform=windows&product=rtcengine&menulabel=sdk).
 - For aftersales technical support, please [contact us](https://t.me/+EPk6TMZEZMM5OGY1).
 - To report bugs in our sample code, please create an issue.
