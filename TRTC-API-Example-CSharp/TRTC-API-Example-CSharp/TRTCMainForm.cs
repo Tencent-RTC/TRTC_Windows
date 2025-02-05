@@ -31,7 +31,7 @@ namespace TRTCCSharpDemo
     {
         private ITRTCCloud mTRTCCloud;
         private ITXDeviceManager mDeviceManager;
-        //private ITXLiteAVLocalRecord mLiteAVLocalRecord;
+        private ITXLiteAVLocalRecord mLiteAVLocalRecord;
 
         // Render mode
         // 1 for true window rendering (passed to SDK via window handle),
@@ -91,7 +91,7 @@ namespace TRTCCSharpDemo
             mTRTCCloud = DataManager.GetInstance().trtcCloud;
             mDeviceManager = mTRTCCloud.getDeviceManager();
             mDeviceManager.setDeviceObserver(this);
-            //mLiteAVLocalRecord = DataManager.GetInstance().txLiteAVLocalRecord;
+            mLiteAVLocalRecord = DataManager.GetInstance().txLiteAVLocalRecord;
             mMixStreamVideoMeta = new List<UserVideoMeta>();
             mRemoteUsers = new List<RemoteUserInfo>();
             mPKUsers = new List<PKUserInfo>();
@@ -1539,7 +1539,7 @@ namespace TRTCCSharpDemo
             Log.I(String.Format("onMicDidReady"));
             // Obtain real-time information about the currently used microphone device
             if (mTRTCCloud != null)
-            mCurMicDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeMic).getDevicePID();
+                mCurMicDevice = mDeviceManager.getCurrentDevice(TXMediaDeviceType.TXMediaDeviceTypeMic).getDevicePID();
         }
 
         public void onConnectionLost()
@@ -2096,11 +2096,7 @@ namespace TRTCCSharpDemo
 
         private void VodPlayerLabel_Click(object sender, EventArgs e)
         {
-            if(mVodPlayerForm == null)
-                mVodPlayerForm = new TXVodPlayerForm(this);
-            mVodPlayerForm.Owner = this;
-            mVodPlayerForm.Show();
-
+            ShowMessage("vodPlayer not support");
         }
 
         private void SnapshotLabel_Click(object sender, EventArgs e)
@@ -2136,12 +2132,15 @@ namespace TRTCCSharpDemo
         /// </summary>
         public bool StartLocalRecord(string path)
         {
-            if(mScreenCaptureSourceInfo == null)
+            if (mScreenCaptureSourceInfo == null)
             {
                 return false;
             }
+            RecordConfig recordConfig = new RecordConfig();
+            recordConfig.filePath = path;
+            recordConfig.maxSingleFileSize = 30000;
             RECT rect = new RECT();
-            //mLiteAVLocalRecord.startLocalRecord(ref mScreenCaptureSourceInfo, ref rect, path);
+            mLiteAVLocalRecord.startLocalRecord(ref recordConfig, mScreenCaptureSourceInfo.type, mScreenCaptureSourceInfo.sourceId, ref rect);
             return true;
         }
 
@@ -2152,17 +2151,19 @@ namespace TRTCCSharpDemo
 
         public void StopLocalRecord()
         {
-            //mLiteAVLocalRecord.stopLocalRecord();
+            mLiteAVLocalRecord.stopLocalRecord();
         }
 
-        public void PauseLocalRecord()
+        public void StartLocalRecordVolum ()
         {
-            //mLiteAVLocalRecord.pauseLocalRecord();
+            mLiteAVLocalRecord.enableRecordMicrophone(true);
+            mLiteAVLocalRecord.enableRecordSystemAudio(true);
         }
 
-        public void resumeLocalRecord()
+        public void StopLocalRecordVolum()
         {
-            //mLiteAVLocalRecord.resumeLocalRecord();
+            mLiteAVLocalRecord.enableRecordMicrophone(false);
+            mLiteAVLocalRecord.enableRecordSystemAudio(false);
         }
 
         public void onDeviceChanged(string deviceId, TXMediaDeviceType type, TXMediaDeviceState state)
@@ -2189,6 +2190,36 @@ namespace TRTCCSharpDemo
         public void onDeviceChange(string deviceId, TXMediaDeviceType type, TRTCDeviceState state)
         {
             // Recommend onDeviceChanged
+        }
+
+        public void onSpeedTestResult(TRTCSpeedTestResult result)
+        {
+            Log.I(String.Format(@"onSpeedTestResult : currentResult.ip = {0}, currentResult.quality = {1}, 
+                currentResult.upLostRate = {2}, currentResult.downLostRate = {3}, currentResult.rtt = {4}", 
+                result.ip, 
+                result.quality, 
+                result.upLostRate,
+                result.downLostRate, result.rtt));
+        }
+
+        public void onStartPublishMediaStream(string taskId, int code, string message, IntPtr extraInfo)
+        {
+
+        }
+
+        public void onUpdatePublishMediaStream(string taskId, int code, string message, IntPtr extraInfo)
+        {
+
+        }
+
+        public void onStopPublishMediaStream(string taskId, int code, string message, IntPtr extraInfo)
+        {
+
+        }
+
+        public void onCdnStreamStateChanged(string cdnUrl, int status, int code, string msg, IntPtr extraInfo)
+        {
+
         }
     }
 }

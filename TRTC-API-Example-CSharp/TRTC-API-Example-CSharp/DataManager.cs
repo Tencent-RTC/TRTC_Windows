@@ -62,12 +62,12 @@ namespace TRTCCSharpDemo
 
         public ITRTCCloud trtcCloud;
 
-        //public ITXLiteAVLocalRecord txLiteAVLocalRecord;
+        public ITXLiteAVLocalRecord txLiteAVLocalRecord;
         private DataManager()
         {
             trtcCloud = ITRTCCloud.getTRTCShareInstance();
 
-           // txLiteAVLocalRecord = ITXLiteAVLocalRecord.GetLiteAVLocalRecordInstance();
+            //txLiteAVLocalRecord = ITXLiteAVLocalRecord.GetLiteAVLocalRecordInstance();
 
             storage = new IniStorage(".\\TRTCDemo.ini");
 
@@ -92,12 +92,12 @@ namespace TRTCCSharpDemo
                 trtcCloud.Dispose();
                 trtcCloud = null;
             }
-/*            if(txLiteAVLocalRecord != null)
+            if (txLiteAVLocalRecord != null)
             {
-                ITXLiteAVLocalRecord.destroyLiteAVLocalRecordInstance();
+                //ITXLiteAVLocalRecord.destroyLiteAVLocalRecordInstance();
                 txLiteAVLocalRecord.Dispose();
                 txLiteAVLocalRecord = null;
-            }*/
+            }
             disposed = true;
         }
 

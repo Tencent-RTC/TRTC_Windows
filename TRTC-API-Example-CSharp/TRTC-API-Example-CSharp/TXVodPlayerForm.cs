@@ -108,7 +108,7 @@ namespace TRTCCSharpDemo
             //Resource cleaning
             if (mVodPlayerController != null)
             {
-                ITXVodPlayer.destroyTXVodPlayer(mVodPlayerController);
+                //ITXVodPlayer.destroyTXVodPlayer(mVodPlayerController);
                 mVodPlayerController = null;
             }
             if (mMainForm != null)
@@ -228,7 +228,7 @@ namespace TRTCCSharpDemo
         {
             if (mVodPlayerController == null)
             {
-                mVodPlayerController = ITXVodPlayer.createTXVodPlayer(mFileName, false);
+                //mVodPlayerController = ITXVodPlayer.createTXVodPlayer(mFileName, false);
             }
             if(mVodPlayerController == null)
             {
@@ -236,7 +236,6 @@ namespace TRTCCSharpDemo
             }
             mVodPlayerController.setDataCallback(this);
             mVodPlayerController.setEventCallback(this);
-            mVodPlayerController.setRate(mPlaySpeed);
             mVodPlayerController.attachTRTC();
             mVodPlayerController.setVolume(mVolume);
             mVodPlayerController.setView(this.PlayPanel.Handle);
@@ -260,7 +259,7 @@ namespace TRTCCSharpDemo
             mVodPlayerController.setView(IntPtr.Zero);
             mVodPlayerController.setDataCallback(null);
             mVodPlayerController.setEventCallback(null);
-            ITXVodPlayer.destroyTXVodPlayer(mVodPlayerController);
+            //ITXVodPlayer.destroyTXVodPlayer(mVodPlayerController);
             mVodPlayerController = null;
             mVodStatus = VodStatus.Vod_Stop;
             ChangeUiStatus(mVodStatus);
@@ -358,36 +357,6 @@ namespace TRTCCSharpDemo
         private void StopBox_Click(object sender, EventArgs e)
         {
             StopVideo();
-        }
-
-        private void SpeedUpBox_Click(object sender, EventArgs e)
-        {
-            if (mVodPlayerController != null && mPlaySpeed < maxSpeed)
-            {
-                mPlaySpeed += 0.2f;
-                mVodPlayerController.setRate(mPlaySpeed);
-                RateLabel.Text = string.Format("{0}倍速", mPlaySpeed);
-                SpeedDownBox.Enabled = true;
-            }
-            if (Math.Abs(maxSpeed - mPlaySpeed) < 1e-6)
-            {
-                SpeedUpBox.Enabled = false;
-            }
-        }
-
-        private void SpeedDownBox_Click(object sender, EventArgs e)
-        {
-            if (mVodPlayerController != null && mPlaySpeed > minSpeed)
-            {
-                mPlaySpeed -= 0.2f;
-                mVodPlayerController.setRate(mPlaySpeed);
-                RateLabel.Text = string.Format("{0}倍速", mPlaySpeed);
-                SpeedUpBox.Enabled = true;
-            }
-            if (Math.Abs(mPlaySpeed - minSpeed) < 1e-6)
-            {
-                SpeedDownBox.Enabled = false;
-            }
         }
 
         private void OpenFileBox_Click(object sender, EventArgs e)

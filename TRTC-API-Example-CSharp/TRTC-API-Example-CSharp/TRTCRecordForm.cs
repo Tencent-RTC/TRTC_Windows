@@ -73,6 +73,10 @@ namespace TRTCCSharpDemo
             {
                 mMainForm.StopAudioRecording();
             }
+            if(LocalAVRecordBox.Checked)
+            {
+                mMainForm.StopLocalRecord();
+            }
             if(AppMixRecordBox.Checked)
             {
                 mMainForm.StopSystemAudioLoopback();
@@ -122,6 +126,55 @@ namespace TRTCCSharpDemo
             }
         }
 
+        ////////////////////////////////////////////////////////////////////
+        /// 
+        /// 
+        ///            Local audio and video recording interface
+        /// 
+        /// 
+        ////////////////////////////////////////////////////////////////////
+        
+        private void LocalAVRecordBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(LocalAVRecordBox.Checked)
+            {
+                if(string.IsNullOrWhiteSpace(LocalAVFileBox.Text))
+                {
+                    LocalAVRecordBox.Checked = false;
+                    MessageBox.Show("请输入文件路径");
+                    return;
+                }
+                if(!mMainForm.StartLocalRecord(LocalAVFileBox.Text))
+                {
+                    LocalAVRecordBox.Checked = false;
+                    MessageBox.Show("请先选择录制内容");
+                    return;
+                }
+            }
+            else
+            {
+                mMainForm.StopLocalRecord();
+            }
+        }
+
+        private void LocalAVRecordVolum_CheckedChanged(object sender, EventArgs e)
+        {
+            if(LocalAVRecordVolum.Checked)
+            {
+                if(!LocalAVRecordBox.Checked)
+                {
+                    LocalAVRecordVolum.Checked = false;
+                    MessageBox.Show("请先进行录制");
+                    return;
+                }
+                mMainForm.StartLocalRecordVolum();
+            }
+            else
+            {
+                mMainForm.StopLocalRecordVolum();
+            }
+        }
+
         private void ChooseBtn_Click(object sender, EventArgs e)
         {
             mMainForm.ShowShareSelectWin();
@@ -165,10 +218,11 @@ namespace TRTCCSharpDemo
         {
             if(AppMixRecordBox.Checked)
             {
+                string path = AppMixBox.Text;
                 // If path empty, the sound of the entire operating system is collected
                 // Fill in the path where the exe program (such as QQ Music) is located,
                 // and this program will start and only collect the sound of this program
-                mMainForm.StartSystemAudioLoopback(null);
+                mMainForm.StartSystemAudioLoopback(path);
             }
             else
             {
