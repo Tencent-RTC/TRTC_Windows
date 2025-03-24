@@ -2,4 +2,4 @@
 
 ## Download Link
 
-[Download SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip)
+[Download SDK](https://liteav.sdk.qcloud.com/download/latest/v1/TXLiteAVSDK_TRTC_Win_CSharp_latest.zip)
