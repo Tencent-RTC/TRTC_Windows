@@ -17,14 +17,11 @@ Leveraging Tencent's many years of experience in network and audio/video technol
 │  │  ├─CPlusPlus
 │  │  ├─README.md
 ├─ TRTC-API-Example-CSharp          // Demo for C#
-│  ├─TRTC-Example-CSharp.sln        // Project solution
 │  ├─TRTC-API-Example-CSharp        // Demo for C#
-│  ├─ManageLiteAV                   // C# SDK's adapter project
-│  │  ├─thirdparty                  // Third-party library directory
-│  │  │  ├─liteav              
-│  │  │  │  ├─CPlusPlus             // C++ SDK is accessed as a third-party library   
-│  ├─SDK                            // C# SDK directory
-│  │  ├─CSharp              
+│  │  ├─TRTCSDK                     // C# SDK directory
+│  │  │  ├─Plugins                  // C# SDK Interface and Implementation Layer Code Directory
+│  │  │  ├─Scripts                  // C# SDK Library
+│  ├─SDK                            // C# SDK directory           
 │  │  ├─README.md
 ├─ TRTC-API-Example-ActiveX          // Demo for ActiveX SDK 
 │  ├─TRTC-API-Example-ActiveX        // Demo for ActiveX

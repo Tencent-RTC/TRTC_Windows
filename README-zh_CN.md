@@ -18,14 +18,11 @@ _[English](README.md) | 简体中文_
 │  │  ├─CPlusPlus
 │  │  ├─README.md
 ├─ TRTC-API-Example-CSharp          // 提供 C# 语言的Demo
-│  ├─TRTC-Example-CSharp.sln        // 工程解决方案
 │  ├─TRTC-API-Example-CSharp        // 提供 C# 版本的Demo
-│  ├─ManageLiteAV                   // C# SDK 的 Adapter 工程
-│  │  ├─thirdparty                  // 第三方库目录
-│  │  │  ├─liteav              
-│  │  │  │  ├─CPlusPlus             // C++SDK 以第三方库方式接入   
-│  ├─SDK                            // C# SDK 目录
-│  │  ├─CSharp              
+│  │  ├─TRTCSDK                     // C# SDK 目录
+│  │  │  ├─Plugins                  // C# SDK 接口及实现层代码目录
+│  │  │  ├─Scripts                  // C# SDK库文件  
+│  ├─SDK                            // C# SDK 目录            
 │  │  ├─README.md
 ├─ TRTC-API-Example-ActiveX          // 提供 ActiveX SDK 的使用Demo
 │  ├─TRTC-API-Example-ActiveX        // 提供 ActiveX 版本的Demo
